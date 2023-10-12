@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traveling</title>
+    <style>
+        ul.navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        ul.navbar li {
+            float: right;
+        }
+
+        ul.navbar li:first-child {
+            float: left;
+            margin-right: 0;
+        }
+
+        ul.navbar a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        ul.navbar a:hover {
+            background-color: #555555;
+        }
+
+        ul.navbar li:first-child a {
+            padding: 14px 16px; /* Match the padding of other links */
+            font-size: 14px; /* Match the font size of other links */
+        }
+
+        ul.subnav {
+            display: none;
+            list-style-type: none;
+            background-color: #444;
+            position: absolute;
+            width: 100px;
+        }
+
+        ul.subnav li {
+            float: none;
+        }
+
+        ul.navbar li:first-child:hover ul.subnav {
+            display: block;
+        }
+
+        ul.subnav li a {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        ul.subnav li a:hover {
+            background-color: #555;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Container for the header */
+        .header {
+            background-image: url("cover1.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 30px;
+            height: 500px; 
+        }
+
+        h1 {
+            font-style: bold;
+            color: black;
+        }
+
+        h2 {
+            margin-top: 10px;
+            font-size: 18px;
+            color: black;
+        }
+
+        button {
+            background-color: transparent;
+            font-weight: bold;
+            border-style: solid;
+            margin-top: 20px;
+            color: black;
+            cursor:pointer;
+        }
+
+        .second-background {
+            background-image: url("cover2.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between; 
+            margin-top: 20px; 
+        }
+
+        img {
+            --f: .1;
+            --r: 10px;
+            --_f: calc(100% * var(--f));
+            --_a: calc(90deg * var(--f));
+
+            width: 250px;
+            aspect-ratio: calc(1 + var(--f));
+            object-fit: cover;
+            clip-path: inset(0 var(--_f) 0 0 round var(--r));
+            transform: perspective(400px) rotateY(0);
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        img:hover {
+            clip-path: inset(0 0 0 var(--_f) round var(--r));
+            transform: perspective(400px) rotateY(calc(-1 * var(--a)));
+        }
+
+        figure {
+            text-align: center;
+        }
+
+        figcaption {
+            margin-top: px;
+            font-style: bold;
+            font-size: 20px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <ul class="navbar">
+        <li>
+            <a href="profile.html">Profile</a>
+            <ul class="subnav">
+                <li><a href="tab1.html">Tab 1</a></li>
+                <li><a href="tab2.html">Tab 2</a></li>
+                <li><a href="tab3.html">Tab 3</a></li>
+            </ul>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+
+    <div class="header">
+        <h2>Social Expert Traveler Group</h2>
+        <h1>Trust Our Experience</h1>
+        <button onclick="showAlert()">Book Now</button>
+    </div>
+
+    <div class="second-background">
+        <!-- Container for the images -->
+        <div class="image-container">
+            <figure>
+                <img src="Thailand.jpg" alt="Thailand">
+                <figcaption>Thailand</figcaption>
+            </figure>
+            <figure>
+                <img src="Siri Lanka.jpg" alt="Sirilanka">
+                <figcaption>Sirilanka</figcaption>
+            </figure>
+            <figure>
+                <img src="Roma.jpg" alt="Roma">
+                <figcaption>Roma</figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <script>
+        function showAlert() {
+            var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
+            if (confirmRedirect) {
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+</body>
+</html>
