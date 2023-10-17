@@ -160,8 +160,12 @@
 <body>
     <ul class="navbar">
         <li>
-            <a href="profile.html">Profile</a>
-            <ul class="subnav">
+            <?php
+            // Check if the user is logged in (you should set this session variable in login.php)
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                echo '<li><a href="profile.html">Profile</a></li>';
+            }
+        ?>            <ul class="subnav">
                 <li><a href="tab1.html">Tab 1</a></li>
                 <li><a href="tab2.html">Tab 2</a></li>
                 <li><a href="tab3.html">Tab 3</a></li>
