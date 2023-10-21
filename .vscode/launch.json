@@ -2,6 +2,9 @@
     "version": "0.2.0",
     "configurations": [
         
+
+
+        
         {
             "type": "msedge",
             "request": "launch",
@@ -13,6 +16,18 @@
             "request": "launch",
             "name": "Open login.html",
             "file": "login.html"
+        },
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Open profile.html",
+            "file": "profile.html"
+        },
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Open logout",
+            "file": "logout"
         }
     ]
 }

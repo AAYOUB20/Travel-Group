@@ -5,6 +5,18 @@
   "hints": {
     "axe/language": "off",
     "meta-viewport": "off",
-    "meta-charset-utf-8": "off"
+    "meta-charset-utf-8": "off",
+    "axe/structure": [
+      "default",
+      {
+        "list": "off"
+      }
+    ],
+    "axe/name-role-value": [
+      "default",
+      {
+        "link-name": "off"
+      }
+    ]
   }
 }

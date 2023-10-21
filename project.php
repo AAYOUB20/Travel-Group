@@ -15,10 +15,7 @@
             float: right;
         }
 
-        ul.navbar li:first-child {
-            float: left;
-            margin-right: 0;
-        }
+        
 
         ul.navbar a {
             display: block;
@@ -32,39 +29,19 @@
             background-color: #555555;
         }
 
-        ul.navbar li:first-child a {
-            padding: 14px 16px; /* Match the padding of other links */
-            font-size: 14px; /* Match the font size of other links */
-        }
+         .subnav {
+             display: none;
+             position: absolute;
+             background-color: #333;
+              min-width: 160px;
+              box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+              z-index: 1;
+            }
 
-        ul.subnav {
-            display: none;
-            list-style-type: none;
-            background-color: #444;
-            position: absolute;
-            width: 100px;
-        }
-
-        ul.subnav li {
-            float: none;
-        }
-
-        ul.navbar li:first-child:hover ul.subnav {
-            display: block;
-        }
-
-        ul.subnav li a {
-            display: block;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            text-decoration: none;
-        }
-
-        ul.subnav li a:hover {
-            background-color: #555;
-        }
-
+         .username-item:hover .subnav {
+             display: block;
+            }
+        
         body {
             margin: 0;
             padding: 0;
@@ -158,24 +135,25 @@
     </style>
 </head>
 <body>
-    <ul class="navbar">
-        <li>
-            <?php
-            // Check if the user is logged in (you should set this session variable in login.php)
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-                echo '<li><a href="profile.html">Profile</a></li>';
-            }
-        ?>            <ul class="subnav">
-                <li><a href="tab1.html">Tab 1</a></li>
-                <li><a href="tab2.html">Tab 2</a></li>
-                <li><a href="tab3.html">Tab 3</a></li>
-            </ul>
-        </li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="about.html">About</a></li>
-    </ul>
+
+<ul class="navbar">
+    <li><a href="index.html">Home</a></li>
+    <li class="username-item">
+        <?php
+        session_start();
+        if (isset($_SESSION['username'])) {
+            echo '<a href="profile.php" class="username">' . $_SESSION['username'] . '</a>';
+            echo '<div class="subnav">';
+            echo '<a href="logout.php">Logout</a>';
+            echo '</div>';
+        } else {
+            echo '<a href="login.html">Login</a>';
+        }
+        ?>
+    </li>
+    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="about.html">About</a></li>
+</ul>
 
     <div class="header">
         <h2>Social Expert Traveler Group</h2>
@@ -184,7 +162,6 @@
     </div>
 
     <div class="second-background">
-        <!-- Container for the images -->
         <div class="image-container">
             <figure>
                 <img src="Thailand.jpg" alt="Thailand">
@@ -209,5 +186,6 @@
             }
         }
     </script>
+ 
 </body>
 </html>
