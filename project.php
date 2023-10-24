@@ -28,6 +28,7 @@
         ul.navbar a:hover {
             background-color: #555555;
         }
+     
 
          .subnav {
              display: none;
@@ -37,7 +38,7 @@
               box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
               z-index: 1;
             }
-
+            
          .username-item:hover .subnav {
              display: block;
             }
@@ -74,6 +75,16 @@
             font-size: 18px;
             color: black;
         }
+        p {
+         font-style: bold ;
+         text-align : center;
+         position : right ;
+
+        }
+        .colored {
+          color: Green;
+          font-weight: bold; 
+        }
 
         button {
             background-color: transparent;
@@ -95,7 +106,10 @@
             justify-content: center;
             padding: 50px;
         }
-
+        .second-background .h2{
+            background-color: transparent;
+            border-style: pointer;
+        }
         .image-container {
             display: flex;
             justify-content: space-between; 
@@ -137,12 +151,14 @@
 <body>
 
 <ul class="navbar">
-    <li><a href="index.html">Home</a></li>
+<li><a href="index.php">Home</a></li>
+    <li><a href="contact.php">Contact Us</a></li>
+    <li><a href="about.php">About</a></li>
     <li class="username-item">
         <?php
         session_start();
         if (isset($_SESSION['username'])) {
-            echo '<a href="profile.php" class="username">' . $_SESSION['username'] . '</a>';
+            echo '<a class="username" href="#">' . $_SESSION['username'] . '</a>';
             echo '<div class="subnav">';
             echo '<a href="logout.php">Logout</a>';
             echo '</div>';
@@ -150,18 +166,40 @@
             echo '<a href="login.html">Login</a>';
         }
         ?>
+        
     </li>
-    <li><a href="contact.html">Contact Us</a></li>
-    <li><a href="about.html">About</a></li>
+  
 </ul>
 
     <div class="header">
         <h2>Social Expert Traveler Group</h2>
         <h1>Trust Our Experience</h1>
-        <button onclick="showAlert()">Book Now</button>
+        <button id="bookNowButton">Book Now</button>
     </div>
+    <p id="coloredText">
+    WE ARE : A Professional Group Who Organize Trips Over The World, Every Week With Different Explore A Different Place.
+</p>
+
+     <!-- //source :*from google*   -->
+<script>
+function colorFirstCharacters() {
+    const paragraph = document.getElementById("coloredText");
+    const words = paragraph.textContent.split(" ");
+    const coloredWords = words.map(word => {
+        if (word.length > 0) {
+            return `<span class="colored">${word[0]}</span>${word.slice(1)}`;
+        }
+        return "";
+    });
+    paragraph.innerHTML = coloredWords.join(" ");
+}
+
+colorFirstCharacters(); 
+</script>
 
     <div class="second-background">
+        <h2> This week trips
+        </h2>
         <div class="image-container">
             <figure>
                 <img src="Thailand.jpg" alt="Thailand">
@@ -177,15 +215,21 @@
             </figure>
         </div>
     </div>
-
-    <script>
-        function showAlert() {
-            var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
-            if (confirmRedirect) {
-                window.location.href = 'login.html';
-            }
-        }
-    </script>
  
+    <script>
+        //prendiamo l ID e faciamo on click fx qua 
+    document.getElementById('bookNowButton').addEventListener('click', function() {
+        <?php
+        if (isset($_SESSION['username'])) {
+            echo 'window.location.href = "project.php";';
+        } else {
+            echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
+            if (confirmRedirect) {
+                window.location.href = "login.html";
+            }';
+        }
+        ?>
+    });
+</script>
 </body>
 </html>

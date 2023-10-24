@@ -23,11 +23,5 @@
             "name": "Open profile.html",
             "file": "profile.html"
         },
-        {
-            "type": "msedge",
-            "request": "launch",
-            "name": "Open logout",
-            "file": "logout"
-        }
     ]
 }
