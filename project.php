@@ -145,7 +145,9 @@
             font-style: bold;
             font-size: 20px;
             color: black;
+        
         }
+        
     </style>
 </head>
 <body>
@@ -160,6 +162,7 @@
         if (isset($_SESSION['username'])) {
             echo '<a class="username" href="#">' . $_SESSION['username'] . '</a>';
             echo '<div class="subnav">';
+            echo '<a href="profile.php">profile</a>';
             echo '<a href="logout.php">Logout</a>';
             echo '</div>';
         } else {
@@ -177,7 +180,7 @@
         <button id="bookNowButton">Book Now</button>
     </div>
     <p id="coloredText">
-    WE ARE : A Professional Group Who Organize Trips Over The World, Every Week With Different Explore A Different Place.
+    WE ARE : A Professional Group Who Organize Trips Over The World, Every Week in different countries Explore A Different Place.
 </p>
 
      <!-- //source :*from google*   -->
@@ -221,7 +224,7 @@ colorFirstCharacters();
     document.getElementById('bookNowButton').addEventListener('click', function() {
         <?php
         if (isset($_SESSION['username'])) {
-            echo 'window.location.href = "project.php";';
+            echo 'window.location.href = "booknow.html";';
         } else {
             echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
             if (confirmRedirect) {
@@ -231,5 +234,14 @@ colorFirstCharacters();
         ?>
     });
 </script>
+<footer style="background-color: #333; color: white; text-align: center; padding: 20px;">
+    <p style="font-size: 18px; margin: 0;">&copy; 2023 Travel Group</p>
+    <ul style="list-style: none; padding: 0;">
+        <li style="display: inline; margin-right: 20px;"><a href="#" style="text-decoration: none; color: white;">Privacy Policy</a></li>
+        <li style="display: inline;"><a href="#" style="text-decoration: none; color: white;">Terms of Service</a></li>
+    </ul>
+</footer>
+
+
 </body>
 </html>

@@ -2,6 +2,7 @@
 // Check if submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
+    $lastname = $_POST["lastname"];
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -13,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dbPass = "123";
     $dbName = "user";
 
-    // Establish a database connection
     $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 
     if (!$conn) {
@@ -22,11 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         // Insert data
-        $sql = "INSERT INTO user (name, username, email, password) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO user (name, lastname ,username, email, password) VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
 
         // Bind parameters to the prepared statement
-        mysqli_stmt_bind_param($stmt, "ssss", $name, $username, $email, $hashedPassword);
+        mysqli_stmt_bind_param($stmt, "sssss", $name, $lastname, $username, $email, $hashedPassword);
 
         // Execute the query
         if (mysqli_stmt_execute($stmt)) {
@@ -37,8 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Registration failed.";
         }
     } catch (mysqli_sql_exception $ex) {
-        // Handle the exception, which occurs when a duplicate entry is attempted
-        echo "Username already exists. Please choose a different username.";
+        // Handle the exception, catewhich occurs when a dupli entry is attempted
+        echo "Username or email already exists.";
     }
 
     mysqli_close($conn);

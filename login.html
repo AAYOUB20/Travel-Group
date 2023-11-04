@@ -5,50 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url("login_background.jpg");
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
 
-        .container {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            padding: 40px;
-            width: 300px;
-            text-align: center;
-        }
+     body {
+    font-family: Arial, sans-serif;
+    background-image: url("login_background.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
-        h1 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
+.container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    width: 300px;
+    text-align: center;
+}
 
-        label {
-            display: block;
-            text-align: left;
-            margin-bottom: 8px;
-            font-weight: bold;
-            font-size: 14px;
-        }
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
 
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        input[type="submit"] {
+form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+input[type="submit"] {
             background-color: #0095f6;
             color: #fff;
             padding: 10px 20px;
@@ -62,17 +53,36 @@
         input[type="submit"]:hover {
             background-color: #0077e6;
         }
-
-        .signup-link {
-            color: #0095f6;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        button{
-            color: black;
-            background-color: transparent;
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0095f6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+    button{
+            color: white;
+            background-color: black ;
+            cursor: pointer;
             
         }
+.signup-link {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+a.forget-password {
+    font-size: 14px;
+    text-decoration: none;
+    color: #0095f6;
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
     </style>
 </head>
 <body>
@@ -90,7 +100,11 @@
             <input type="submit" value="Log In">
         </form>
         <p>Don't have an account? <a class="signup-link" href="signup.html">Sign Up</a></p>
-        <button>home page</button>
+        <a href="project.php"><button>Home page</button></a>
+        <a class="forget-password" href="froget_pasword.html" >forget password ?</a>
     </div>
+    <script>
+
+    </script>
 </body>
 </html>

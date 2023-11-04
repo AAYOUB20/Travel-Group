@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <style>
-        body {
+      body {
             font-family: Arial, sans-serif;
             background-image: url("login_background.jpg");
             display: flex;
@@ -18,16 +18,16 @@
         .container {
             background: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            padding: 40px;
-            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Reduce box shadow size */
+            padding: 40px; /* Reduce padding */
+            width: 250px; /* Reduce the width */
             text-align: center;
         }
 
         h1 {
             color: #333;
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 20px; /* Reduce font size */
+            margin-bottom: 5px;
         }
 
         label {
@@ -42,21 +42,21 @@
         input[type="password"],
         input[type="email"] {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
+            padding: 8px; /* Reduce padding */
+            margin-bottom: 10px; /* Reduce margin bottom */
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 14px; /* Reduce font size */
         }
 
         input[type="submit"] {
             background-color: #0095f6;
             color: #fff;
-            padding: 10px 20px;
+            padding: 8px 16px; /* Reduce padding */
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px; /* Reduce font size */
             transition: background-color 0.3s;
         }
 
@@ -79,6 +79,10 @@
             <input type="text" id="name" name="name" required>
             <br><br>
 
+            <label for="lastname">lastname:</label>
+            <input type="text" id="lastname" name="lastname" required>
+            <br><br>
+
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <br><br>
@@ -88,7 +92,8 @@
             <br><br>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+|]{8,}$" >
+            <input type="password" id="password" name="password"   parequired>
+            
             <br><br>
 
             <input type="submit" value="Sign Up">

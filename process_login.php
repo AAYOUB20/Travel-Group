@@ -1,5 +1,5 @@
 <?php
-session_start(); // Make sure to start the session
+session_start(); 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
@@ -33,9 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $dbPassword)) {
             // Authentication successful
             $_SESSION["username"] = $username; // Store the username in the session
-            echo "Login Successful. Welcome ".$myusername;
-            sleep(2);
-            header("Location: prova/project.php");
+            sleep(0.7);
+            header("Location: project.php");
             exit;
         } else {
             die("Authentication failed: Invalid username or password.");
