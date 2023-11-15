@@ -2,33 +2,55 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $token = $_GET["token"]; // Get the token from the URL
+    $username = $_POST["username"];
 
-    // Verify the token's validity (check expiration and existence in the database)
-    // If the token is valid, continue to reset the password
+    // Generate a unique password reset token
+    $passwordResetToken = generateUniquePasswordResetToken();
 
-    $newPassword = $_POST["new_password"]; // Get the new password from the form
+    // Update the user's password reset token in the database
+    updatePasswordResetToken($username, $passwordResetToken);
 
-    // Hash the new password using the same algorithm and parameters as used for regular passwords
-    $hashedNewPassword = password_hash($newPassword, PASSWORD_BCRYPT);
+    // Send the password reset token to the user's email address
+    sendPasswordResetTokenEmail($username, $passwordResetToken);
 
-    // Update the user's hashed password in the database
-    // You should use a prepared statement for security
-    $query = "UPDATE user SET password = ? WHERE email = ?";
-    // Execute the query with the hashed new password and user's email
-
-    // Send a password reset confirmation email
-    $to = $userEmail; // Use the user's email address
-    $subject = "Password Reset Successful";
-    $message = "Your password has been successfully reset.";
-
-    // You can add more information or a link to your login page in the email content
-
-    mail($to, $subject, $message);
-
-    // Redirect the user to a password reset confirmation page
+    // Redirect the user to a confirmation page
     header("Location: reset_password_confirmation.php");
     exit;
 }
 
-?>
+function generateUniquePasswordResetToken() {
+    $token = md5(uniqid(rand(), true));
+    return $token;
+}
+
+function updatePasswordResetToken($username, $passwordResetToken) {
+    global $dbConnection;
+
+    $query = "UPDATE user SET password_reset_token = ? WHERE username = ?";
+    $stmt = $dbConnection->prepare($query);
+    $stmt->bind_param("ss", $passwordResetToken, $username);
+    $stmt->execute();
+    $stmt->close();
+}
+
+function sendPasswordResetTokenEmail($username, $passwordResetToken) {
+    $emailBody = "Your password reset token is: " . $passwordResetToken;
+
+   
+    $mail = new PHPMailer();
+    $mail->setFrom("brahim2001hmd@icloud.com", "Your Name");
+    $mail->addAddress($email);
+
+    // Set email subject and body
+    $mail->Subject = "Password Reset Token";
+    $mail->Body = $emailBody;
+
+    // Send the email
+    if (!$mail->send()) {
+        echo "Error sending email: " . $mail->ErrorInfo;
+    } else {
+        echo "Email sent successfully.";
+    }
+}
+
+

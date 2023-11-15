@@ -1,4 +1,6 @@
 <?php
+ include "SQL_connection.php" ;
+
 session_start();
 
 // Check if the form was submitted
@@ -8,16 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $promoCode = $_POST["promoCode"];
 
 
-    $dbHost = "localhost";
-    $dbUser = "prova1";
-    $dbPass = "123";
-    $dbName = "user";
+    
     if (isset($_SESSION["username"])) {
         $username = $_SESSION["username"];
 
 
-    // Create a database connection
-    $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 
     if (!$conn) {
         die("Database connection failed: " . mysqli_connect_error());

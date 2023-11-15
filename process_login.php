@@ -1,18 +1,12 @@
 <?php
 session_start(); 
+ include "SQL_connection.php" ;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    // Database connection parameters (update with your database credentials)
-    $dbHost = "localhost";
-    $dbUser = "prova1";
-    $dbPass = "123";
-    $dbName = "user";
 
-    // Create a database connection
-    $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
 
     if (!$conn) {
         die("Database connection failed: " . mysqli_connect_error());
@@ -41,10 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Authentication failed, display an error message
     echo "Authentication failed: Invalid username or password.";
 
-    // Close the database connection
     mysqli_close($conn);
 }
 ?>

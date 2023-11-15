@@ -1,4 +1,6 @@
-<?php
+<?
+ include "SQL_connection.php" ;
+
 // Check if submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
@@ -8,13 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    // Database connection parameters (update with your database credentials)
-    $dbHost = "localhost";
-    $dbUser = "prova1";
-    $dbPass = "123";
-    $dbName = "user";
-
-    $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+   
 
     if (!$conn) {
         die("Database connection failed: " . mysqli_connect_error());
