@@ -98,13 +98,29 @@ a.forget-password {
             <br><br>
 
             <input type="submit" value="Log In">
+            <input type="checkbox" id="rememberMe" name="rememberMe">
+            <label for="rememberMe">Remember me</label>
+                                                                                                                                                                                                                                                                                                                                                                                                                           
         </form>
         <p>Don't have an account? <a class="signup-link" href="signup.html">Sign Up</a></p>
         <a href="project.php"><button>Home page</button></a>
         <a class="forget-password" href="froget_pasword.html" >forget password ?</a>
     </div>
     <script>
+       const password = document.getElementById('password');
+       const Error = document.getElementById('Error');
 
+    function validatepassword(){
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if(!passwordPattern.test(password.value)){
+        Error.style.display='block';
+        }
+        else{
+            Error.style.display='none'; 
+        }
+        passwordField.addEventListener('keyup', validatePassword);
+    }
+    
     </script>
 </body>
 </html>

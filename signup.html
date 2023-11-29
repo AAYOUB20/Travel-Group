@@ -48,7 +48,7 @@
             border-radius: 5px;
             font-size: 14px; 
         }
-
+       
         input[type="submit"] {
             background-color: #0095f6;
             color: #fff;
@@ -69,6 +69,8 @@
             text-decoration: none;
             font-weight: bold;
         }
+
+
     </style>
 </head>
 <body>
@@ -92,13 +94,35 @@
             <br><br>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password"   parequired>
+            <input type="password" id="password" name="password"   required>
             
+
             <br><br>
 
             <input type="submit" value="Sign Up">
         </form>
         <p>Already have an account? <a class="login-link" href="login.html">Log In</a></p>
     </div>
-</body>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    const password = document.getElementById('password');
+
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    password.addEventListener('input', function() {
+        if (!passwordPattern.test(password.value)) {
+            password.setCustomValidity('Password should contain at least 8 characters including at least one uppercase letter, one lowercase letter, one number, and one special character.');
+        } else {
+            password.setCustomValidity('');
+        }
+    });
+
+    form.addEventListener('submit', function(event) {
+        if (!password.checkValidity()) {
+            event.preventDefault();
+        }
+    });
+});
+    </script>
 </html>

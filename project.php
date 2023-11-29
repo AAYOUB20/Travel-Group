@@ -153,25 +153,26 @@
 <body>
 
 <ul class="navbar">
+  
 <li><a href="index.php">Home</a></li>
     <li><a href="contact.php">Contact Us</a></li>
     <li><a href="about.php">About</a></li>
     <li class="username-item">
         <?php
-        session_start();
+           session_start();
+
         if (isset($_SESSION['username'])) {
             echo '<a class="username" href="#">' . $_SESSION['username'] . '</a>';
             echo '<div class="subnav">';
             echo '<a href="profile.php">profile</a>';
             echo '<a href="logout.php">Logout</a>';
-            echo '</div>';
+           echo '</div>';
         } else {
             echo '<a href="login.html">Login</a>';
         }
         ?>
-        
+         
     </li>
-  
 </ul>
 
     <div class="header">

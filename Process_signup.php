@@ -1,4 +1,5 @@
-<?
+
+<?php
  include "SQL_connection.php" ;
 
 // Check if submitted
@@ -21,19 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO user (name, lastname ,username, email, password) VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
 
-        // Bind parameters to the prepared statement
         mysqli_stmt_bind_param($stmt, "sssss", $name, $lastname, $username, $email, $hashedPassword);
 
-        // Execute the query
         if (mysqli_stmt_execute($stmt)) {
-            // Registration successful
             header("Location: login.html");
             exit;
         } else {
             echo "Registration failed.";
         }
     } catch (mysqli_sql_exception $ex) {
-        // Handle the exception, catewhich occurs when a dupli entry is attempted
         echo "Username or email already exists.";
     }
 

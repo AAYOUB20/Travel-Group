@@ -3,7 +3,6 @@
 
 session_start();
 
-// Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $destination = $_POST["destination"];
     $date = $_POST["date"];
