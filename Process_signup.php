@@ -2,8 +2,8 @@
 <?php
  include "SQL_connection.php" ;
 
-// Check if submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+ 
+if ($_POST) {
     $name = $_POST["name"];
     $lastname = $_POST["lastname"];
     $username = $_POST["username"];

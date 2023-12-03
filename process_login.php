@@ -3,11 +3,13 @@
 session_start();
 
 include "SQL_connection.php";
+// o possiamo scrivere :
+//if ($_SERVER["REQUEST_METHOD"] == "POST") {}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_POST) {
   $username = $_POST["username"];
   $password = $_POST["password"];
-
+  
   if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
   }
@@ -45,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
 
       $_SESSION["username"] = $username;
-
+     
       sleep(0.7);
 
       header("Location: project.php");

@@ -105,14 +105,13 @@
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
-    const password = document.getElementById('password');
-
-    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+          const form = document.querySelector('form');
+          const password = document.getElementById('password');
+          const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
     password.addEventListener('input', function() {
         if (!passwordPattern.test(password.value)) {
-            password.setCustomValidity('Password should contain at least 8 characters including at least one uppercase letter, one lowercase letter, one number, and one special character.');
+            password.setCustomValidity('Password should contain at least 8 characters , at least one uppercase letter, one lowercase letter, one number, and one special character.');
         } else {
             password.setCustomValidity('');
         }

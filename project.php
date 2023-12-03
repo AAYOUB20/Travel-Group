@@ -1,10 +1,19 @@
+<?php
+    session_start();
+    include "admin.php";
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traveling</title>
     <style>
+         .navbar.fixed {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
         ul.navbar {
             list-style-type: none;
             margin: 0;
@@ -151,32 +160,34 @@
         }
         
     </style>
+    <ul class="navbar">
+  
+      <li><a href="index.php">Home</a></li>
+      <li><a href="contact.php">Contact Us</a></li>
+      <li><a href="about.php">About</a></li>
+      <li class="username-item">
+          <?php
+         
+          if (isset($_SESSION['username'])) {
+              echo '<a class="username" href="#">' . $_SESSION['username'] . '</a>';
+              echo '<div class="subnav">';
+              echo '<a href="profile.php">profile</a>';
+              if($_SESSION['admin'] == 1){
+                echo '<a href="admin.php">Admin</a>';
+           }
+              echo '<a href="logout.php">Logout</a>';
+             echo '</div>';
+          
+          } else {
+              echo '<a href="login.html">Login</a>';
+          }
+          ?>
+           
+      </li>
+  </ul>
+  
 </head>
 <body>
-
-<ul class="navbar">
-  
-<li><a href="index.php">Home</a></li>
-    <li><a href="contact.php">Contact Us</a></li>
-    <li><a href="about.php">About</a></li>
-    <li class="username-item">
-        <?php
-           session_start();
-
-        if (isset($_SESSION['username'])) {
-            echo '<a class="username" href="#">' . $_SESSION['username'] . '</a>';
-            echo '<div class="subnav">';
-            echo '<a href="profile.php">profile</a>';
-            echo '<a href="logout.php">Logout</a>';
-           echo '</div>';
-        } else {
-            echo '<a href="login.html">Login</a>';
-        }
-        ?>
-         
-    </li>
-</ul>
-
     <div class="header">
         <h2>Social Expert Traveler Group</h2>
         <h1>Trust Our Experience</h1>
@@ -223,7 +234,7 @@ colorFirstCharacters();
     </div>
  
     <script>
-        //prendiamo l ID e faciamo on click fx qua 
+        
     document.getElementById('bookNowButton').addEventListener('click', function() {
         <?php
         if (isset($_SESSION['username'])) {
@@ -245,6 +256,15 @@ colorFirstCharacters();
     </ul>
 </footer>
 
-
+<script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.add('fixed');
+            } else {
+                navbar.classList.remove('fixed');
+            }
+        });
+    </script>
 </body>
 </html>

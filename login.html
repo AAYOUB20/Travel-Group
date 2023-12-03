@@ -88,7 +88,7 @@ a.forget-password {
 <body>
     <div class="container">
         <h1>Log in</h1>
-        <form action="http://localhost/Process_login.php" method="post">
+        <form action="http://localhost/Process_login.php" method="POST">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <br><br>
@@ -106,21 +106,6 @@ a.forget-password {
         <a href="project.php"><button>Home page</button></a>
         <a class="forget-password" href="froget_pasword.html" >forget password ?</a>
     </div>
-    <script>
-       const password = document.getElementById('password');
-       const Error = document.getElementById('Error');
-
-    function validatepassword(){
-        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        if(!passwordPattern.test(password.value)){
-        Error.style.display='block';
-        }
-        else{
-            Error.style.display='none'; 
-        }
-        passwordField.addEventListener('keyup', validatePassword);
-    }
-    
-    </script>
+   
 </body>
 </html>
