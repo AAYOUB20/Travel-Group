@@ -1,13 +1,15 @@
-<?php
-    session_start();
-    include "admin.php";
 
+<?php
+   session_start();
+   include "admin.php";
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Traveling</title>
+    
     <style>
+        
          .navbar.fixed {
             position: fixed;
             width: 100%;
@@ -55,6 +57,7 @@
             }
         
         body {
+            display : flex ;
             margin: 0;
             padding: 0;
             display: flex;
@@ -62,7 +65,6 @@
             min-height: 100vh;
         }
 
-        /* Container for the header */
         .header {
             background-image: url("cover1.jpg");
             background-size: cover;
@@ -115,16 +117,61 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 50px;
+            padding:50px;
         }
         .second-background .h2{
             background-color: transparent;
             border-style: pointer;
         }
-        .image-container {
-            display: flex;
-            justify-content: space-between; 
-            margin-top: 20px; 
+
+        @media only screen and (min-width: 769px) {
+            .image-container {
+                width: 40%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            .image-container figure {
+                flex: 0 0 30%;
+                max-width: 200px;
+                text-align: center;
+            }
+
+            .image-container img {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+          #wrap {
+              width: 1020px;
+          }
+
+        @media only screen and (max-width: 768px) {
+            .image-container {
+
+                width: 80%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+            }
+          #wrap{
+            width:500px;
+          }
+            .image-container figure {
+                flex: 0 0 45%;
+                margin: 10px;
+                max-width: 200px;
+                text-align: center;
+            }
+
+            .image-container img {
+                width: 100%;
+                max-width: 100%;
+            }
         }
 
         img {
@@ -152,22 +199,113 @@
         }
 
         figcaption {
-            margin-top: px;
+            margin-top : 1px;
             font-style: bold;
             font-size: 20px;
             color: black;
         
         }
+        .contact.section {
+            background-image: url("city.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .form-container {
+          max-width: 40%; 
+          max-height: 50%;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: black;
+          color: white;
+          border-radius: 5px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+        .form-container h4 {
+            margin-top: 0;
+            font-size: 24px;
+            color: whitesmoke;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction : row;
+            max-width: 50%;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+            color: black;
+            background-color: darkgray;
+            font-family: Arial, sans-serif;
+
+
+        }
+
+        .contact-item li {
+            list-style-type: none;
+            font-size: 16px;
+            margin-left: 5px;
+        }
+        .info-section {
+            margin-bottom: 16px;
+        }
+
+        .info-section label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: darkgray;
+        }
+
+        .info-section input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: darkgrey;
+        }
+
+        .button {
+            background-color: blueviolet;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            font-family: cursive;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+        .contact-item img {
+            height: 20px; 
+            margin-right: 5px; 
+        }
         
     </style>
     <ul class="navbar">
   
-      <li><a href="index.php">Home</a></li>
-      <li><a href="contact.php">Contact Us</a></li>
-      <li><a href="about.php">About</a></li>
+      <li><a href="#index">Home</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+      <li><a href="#about">About</a></li>
+
       <li class="username-item">
+        
           <?php
-         
+
           if (isset($_SESSION['username'])) {
               echo '<a class="username" href="#">' . $_SESSION['username'] . '</a>';
               echo '<div class="subnav">';
@@ -184,6 +322,10 @@
           ?>
            
       </li>
+      <form method="GET" action="search.php">
+      <input type="text" name="query" placeholder="Search ...">
+      <input type="submit" value="Search">
+</form>
   </ul>
   
 </head>
@@ -218,18 +360,24 @@ colorFirstCharacters();
         <h2> This week trips
         </h2>
         <div class="image-container">
-            <figure>
+        <figure>
+            <a href="thailand_page.html">
                 <img src="Thailand.jpg" alt="Thailand">
                 <figcaption>Thailand</figcaption>
-            </figure>
-            <figure>
+            </a>
+        </figure>
+        <figure>
+            <a href="sirilanka_page.html">
                 <img src="Siri Lanka.jpg" alt="Sirilanka">
                 <figcaption>Sirilanka</figcaption>
-            </figure>
-            <figure>
+            </a>
+        </figure>
+        <figure>
+            <a href="roma_page.html">
                 <img src="Roma.jpg" alt="Roma">
                 <figcaption>Roma</figcaption>
-            </figure>
+            </a>
+        </figure>
         </div>
     </div>
  
@@ -248,10 +396,31 @@ colorFirstCharacters();
         ?>
     });
 </script>
+<section  id="contact" class="section">
+    <div class="form-container">
+        <h4>Contact Us</h4>
+        <hr>
+        <form action="action_page.php"  method="POST">
+            <div class="info-section">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="Name" required>
+            </div>
+            <div class="info-section">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="Email" required>
+            </div>
+            <div class="info-section">
+                <label for="message">Message</label>
+                <input type="text" id="message" name="Message" required>
+            </div>
+            <button type="submit" class="button">Send Message</button>
+        </form>
+    </div>
+</section>
 <footer style="background-color: #333; color: white; text-align: center; padding: 20px;">
     <p style="font-size: 18px; margin: 0;">&copy; 2023 Travel Group</p>
     <ul style="list-style: none; padding: 0;">
-        <li style="display: inline; margin-right: 20px;"><a href="#" style="text-decoration: none; color: white;">Privacy Policy</a></li>
+        <li style="display: inline; margin-right: 20px;"><a href="privacy_policy.html" style="text-decoration: none; color: white;">Privacy Policy</a></li>
         <li style="display: inline;"><a href="#" style="text-decoration: none; color: white;">Terms of Service</a></li>
     </ul>
 </footer>
@@ -267,4 +436,5 @@ colorFirstCharacters();
         });
     </script>
 </body>
+
 </html>

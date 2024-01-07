@@ -2,8 +2,8 @@
 <?php
  include "SQL_connection.php" ;
 
- 
-if ($_POST) {
+ if ($_SERVER["REQUEST_METHOD"] == "POST") {
+ if (isset($_POST["name"]) && isset($_POST["username"])) {
     $name = $_POST["name"];
     $lastname = $_POST["lastname"];
     $username = $_POST["username"];
@@ -36,4 +36,5 @@ if ($_POST) {
 
     mysqli_close($conn);
 }
+ }
 ?>

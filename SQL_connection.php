@@ -1,3 +1,3 @@
 <?php
-    $conn = mysqli_connect("localhost","prova1","123", "user");
+$conn = new mysqli("localhost", "prova1", "123", "user");
 ?>

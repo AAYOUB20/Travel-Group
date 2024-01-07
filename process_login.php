@@ -1,8 +1,8 @@
 <?php
+include "SQL_connection.php";
 
 session_start();
 
-include "SQL_connection.php";
 // o possiamo scrivere :
 //if ($_SERVER["REQUEST_METHOD"] == "POST") {}
 
@@ -32,12 +32,14 @@ if ($_POST) {
       if (isset($_POST['rememberMe'])) {
 
         $token = hash("sha256", random_bytes(10));
-        $expiration_time = time() + (365 * 24 * 60 * 60);
+        $expiration_time_unix = time() ;
 
-        setcookie("remember_token", $token, $expiration_time, '/', '', false, true);
+        $expiration_time_mysql = date('Y-m-d H:i:s', $expiration_time_unix);
+
+        setcookie("remember_token", $token, $expiration_time_unix, '/', '', false, true);
 
         $updateStmt = mysqli_prepare($conn, "UPDATE user SET remember_token = ?, expiration_time = ? WHERE username = ?");
-        mysqli_stmt_bind_param($updateStmt, "sss", $token, $expiration_time, $username);
+        mysqli_stmt_bind_param($updateStmt, "sss", $token, $expiration_time_mysql, $username);
 
         if (!mysqli_stmt_execute($updateStmt)) {
           die("Error updating user data: " . mysqli_stmt_error($updateStmt));
