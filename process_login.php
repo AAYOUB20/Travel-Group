@@ -55,7 +55,7 @@ if ($_POST) {
       header("Location: project.php");
       exit;
     } else {
-      die("Authentication failed: Invalid username or password.");
+      die("Authentication failed: Invalid username or password");
     }
   } else {
     echo "Authentication failed: Invalid username or password.";
