@@ -1,23 +1,24 @@
-
 <?php
-   session_start();
-   include "admin_check.php";
+session_start();
+include "admin_check.php";
 ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traveling</title>
-    
+
     <style>
-        
-   
         body {
-            display : flex ;
-            margin: 0;
-            padding: 0;
             display: flex;
             flex-direction: column;
+            margin: 0;
+            padding: 0;
             min-height: 100vh;
+            font-family: Arial, sans-serif;
         }
 
         .header {
@@ -27,40 +28,50 @@
             background-attachment: fixed;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             padding: 30px;
-            height: 500px; 
+            height: 500px;
+            text-align: center;
         }
 
         h1 {
-            font-style: bold;
+            font-weight: bold;
             color: black;
+            margin-bottom: 10px;
         }
 
         h2 {
-            margin-top: 10px;
             font-size: 18px;
             color: black;
         }
-        p {
-         font-style: bold ;
-         text-align : center;
-         position : right ;
 
+        p {
+            font-weight: bold;
+            text-align: center;
         }
+
         .colored {
-          color: Green;
-          font-weight: bold; 
+            color: Green;
+            font-weight: bold;
         }
 
         button {
             background-color: transparent;
             font-weight: bold;
-            border-style: solid;
+            border: 2px solid black;
             margin-top: 20px;
             color: black;
-            cursor:pointer;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: cursive;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
         }
 
         .second-background {
@@ -72,111 +83,61 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding:50px;
-        }
-        .second-background .h2{
-            background-color: transparent;
-            border-style: pointer;
+            padding: 50px;
         }
 
-        @media only screen and (min-width: 769px) {
-            .image-container {
-                width: 40%;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                margin-top: 20px;
-            }
-
-            .image-container figure {
-                flex: 0 0 30%;
-                max-width: 200px;
-                text-align: center;
-            }
-
-            .image-container img {
-                width: 100%;
-                max-width: 100%;
-            }
-        }
-          #wrap {
-              width: 1020px;
-          }
-
-        @media only screen and (max-width: 768px) {
-            .image-container {
-
-                width: 80%;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: center;
-                margin-top: 20px;
-            }
-          #wrap{
-            width:500px;
-          }
-            .image-container figure {
-                flex: 0 0 45%;
-                margin: 10px;
-                max-width: 200px;
-                text-align: center;
-            }
-
-            .image-container img {
-                width: 100%;
-                max-width: 100%;
-            }
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
 
-        img {
-            --f: .1;
-            --r: 10px;
-            --_f: calc(100% * var(--f));
-            --_a: calc(90deg * var(--f));
+        .image-container figure {
+            flex: 0 0 45%;
+            margin: 10px;
+            max-width: 200px;
+            text-align: center;
+        }
 
-            width: 250px;
-            aspect-ratio: calc(1 + var(--f));
+        .image-container img {
+            width: 100%;
+            max-width: 100%;
+            aspect-ratio: 1.2;
             object-fit: cover;
-            clip-path: inset(0 var(--_f) 0 0 round var(--r));
-            transform: perspective(400px) rotateY(0);
+            clip-path: inset(0 10% 0 0 round 10px);
             transition: 0.5s;
             cursor: pointer;
         }
 
-        img:hover {
-            clip-path: inset(0 0 0 var(--_f) round var(--r));
-            transform: perspective(400px) rotateY(calc(-1 * var(--a)));
-        }
-
-        figure {
-            text-align: center;
+        .image-container img:hover {
+            clip-path: inset(0 0 0 10% round 10px);
         }
 
         figcaption {
-            margin-top : 1px;
-            font-style: bold;
+            margin-top: 1px;
+            font-weight: bold;
             font-size: 20px;
             color: black;
-        
         }
+
         .contact.section {
             background-image: url("city.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
-        
+
         .form-container {
-          max-width: 40%; 
-          max-height: 50%;
-          margin: 0 auto;
-          padding: 20px;
-          background-color: black;
-          color: white;
-          border-radius: 5px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+            max-width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
         .form-container h4 {
             margin-top: 0;
@@ -184,32 +145,7 @@
             color: whitesmoke;
             text-align: center;
         }
-        
-        .contact-info {
-            display: flex;
-            flex-direction : row;
-            max-width: 50%;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-        }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin: 0 10px;
-            color: black;
-            background-color: darkgray;
-            font-family: Arial, sans-serif;
-
-
-        }
-
-        .contact-item li {
-            list-style-type: none;
-            font-size: 16px;
-            margin-left: 5px;
-        }
         .info-section {
             margin-bottom: 16px;
         }
@@ -228,6 +164,7 @@
             border-radius: 4px;
             box-sizing: border-box;
             background-color: darkgrey;
+            color: white;
         }
 
         .button {
@@ -240,121 +177,195 @@
             font-size: 16px;
             margin-top: 10px;
             font-family: cursive;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
         .button:hover {
             background-color: #45a049;
         }
-        .contact-item img {
-            height: 20px; 
-            margin-right: 5px; 
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+            color: black;
+            background-color: darkgray;
         }
-        
+
+        .contact-item li {
+            list-style-type: none;
+            font-size: 16px;
+            margin-left: 5px;
+        }
+
+        .contact-item img {
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        #wheel-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #wheel-modal {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+        }
+
+        #wheel-modal iframe {
+           width: 100%;
+           height: 100%;
+           border: none;
+           margin-top: 20px; 
+        }
+
+        #closeWheelButton {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            font-family: cursive;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
     </style>
-   
-  
+
+    <script>
+        function openWheelModal() {
+            document.getElementById('wheel-overlay').style.display = 'flex';
+        }
+
+        function closeWheelModal() {
+            document.getElementById('wheel-overlay').style.display = 'none';
+        }
+    </script>
 </head>
+
 <?php
 include "navbar.php";
 ?>
+
 <body>
     <div class="header">
         <h2>Social Expert Traveler Group</h2>
         <h1>Trust Our Experience</h1>
         <button id="bookNowButton">Book Now</button>
+        <button id="discount" onclick="openWheelModal()">Click here to get a discount</button>
     </div>
     <p id="coloredText">
-    WE ARE : A Professional Group Who Organize Trips Over The World, Every Week in different countries Explore A Different Place.
-</p>
-
-     <!-- //source :*from google*   -->
-<script>
-function colorFirstCharacters() {
-    const paragraph = document.getElementById("coloredText");
-    const words = paragraph.textContent.split(" ");
-    const coloredWords = words.map(word => {
-        if (word.length > 0) {
-            return `<span class="colored">${word[0]}</span>${word.slice(1)}`;
-        }
-        return "";
-    });
-    paragraph.innerHTML = coloredWords.join(" ");
-}
-
-colorFirstCharacters(); 
-</script>
-
-    <div class="second-background">
-        <h2> This week trips
-        </h2>
-        <div class="image-container">
-        <figure>
-            <a href="thailand_page.html">
-                <img src="Thailand.jpg" alt="Thailand">
-                <figcaption>Thailand</figcaption>
-            </a>
-        </figure>
-        <figure>
-            <a href="sirilanka_page.html">
-                <img src="Siri Lanka.jpg" alt="Sirilanka">
-                <figcaption>Sirilanka</figcaption>
-            </a>
-        </figure>
-        <figure>
-            <a href="roma_page.html">
-                <img src="Roma.jpg" alt="Roma">
-                <figcaption>Roma</figcaption>
-            </a>
-        </figure>
+        WE ARE: A Professional Group Who Organize Trips Over The World, Every Week in different countries Explore A Different
+        Place.
+    </p>
+    <div id="wheel-overlay">
+        <div id="wheel-modal">
+            <iframe src="index.html" frameborder="0"></iframe>
+            <button id="closeWheelButton" onclick="closeWheelModal()">Close Wheel</button>
         </div>
     </div>
- 
+    <!-- //source :*from google*   -->
     <script>
-        
-    document.getElementById('bookNowButton').addEventListener('click', function() {
-        <?php
-        if (isset($_SESSION['email'])) {
-            echo 'window.location.href = "booknow.php";';
-        } else {
-            echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
-            if (confirmRedirect) {
-                window.location.href = "login.php";
-            }';
+        function colorFirstCharacters() {
+            const paragraph = document.getElementById("coloredText");
+            const words = paragraph.textContent.split(" ");
+            const coloredWords = words.map(word => {
+                if (word.length > 0) {
+                    return `<span class="colored">${word[0]}</span>${word.slice(1)}`;
+                }
+                return "";
+            });
+            paragraph.innerHTML = coloredWords.join(" ");
         }
-        ?>
-    });
-</script>
-<section  id="contact" class="section">
-    <div class="form-container">
-        <h4>Contact Us</h4>
-        <hr>
-        <form action="action_page.php"  method="POST">
-            <div class="info-section">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="Name" required>
-            </div>
-            <div class="info-section">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="Email" required>
-            </div>
-            <div class="info-section">
-                <label for="message">Message</label>
-                <input type="text" id="message" name="Message" required>
-            </div>
-            <button type="submit" class="button">Send Message</button>
-        </form>
-    </div>
-</section>
-<footer style="background-color: #333; color: white; text-align: center; padding: 20px;">
-    <p style="font-size: 18px; margin: 0;">&copy; 2023 Travel Group</p>
-    <ul style="list-style: none; padding: 0;">
-        <li style="display: inline; margin-right: 20px;"><a href="privacy_policy.html" style="text-decoration: none; color: white;">Privacy Policy</a></li>
-        <li style="display: inline;"><a href="#" style="text-decoration: none; color: white;">Terms of Service</a></li>
-    </ul>
-</footer>
 
-<script>
-        window.addEventListener('scroll', function() {
+        colorFirstCharacters();
+    </script>
+
+    <div class="second-background">
+        <h2>This week trips</h2>
+        <div class="image-container">
+            <figure>
+                <a href="thailand_page.html">
+                    <img src="Thailand.jpg" alt="Thailand">
+                    <figcaption>Thailand</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="sirilanka_page.html">
+                    <img src="Siri Lanka.jpg" alt="Sirilanka">
+                    <figcaption>Sirilanka</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="roma_page.html">
+                    <img src="Roma.jpg" alt="Roma">
+                    <figcaption>Roma</figcaption>
+                </a>
+            </figure>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('bookNowButton').addEventListener('click', function () {
+            <?php
+            if (isset($_SESSION['email'])) {
+                echo 'window.location.href = "booknow.php";';
+            } else {
+                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
+                        if (confirmRedirect) {
+                            window.location.href = "login.php";
+                        }';
+            }
+            ?>
+        });
+    </script>
+
+    <section id="contact" class="section">
+        <div class="form-container">
+            <h4>Contact Us</h4>
+            <hr>
+            <form action="action_page.php" method="POST">
+                <div class="info-section">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="Name" required>
+                </div>
+                <div class="info-section">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="Email" required>
+                </div>
+                <div class="info-section">
+                    <label for="message">Message</label>
+                    <input type="text" id="message" name="Message" required>
+                </div>
+                <button type="submit" class="button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="background-color: #333; color: white; text-align: center; padding: 20px;">
+        <p style="font-size: 18px; margin: 0;">&copy; 2023 Travel Group</p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="display: inline; margin-right: 20px;"><a href="privacy_policy.html" style="text-decoration: none; color: white;">Privacy Policy</a></li>
+            <li style="display: inline;"><a href="#" style="text-decoration: none; color: white;">Terms of Service</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 0) {
                 navbar.classList.add('fixed');
