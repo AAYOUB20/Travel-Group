@@ -1,3 +1,69 @@
+
+<?php
+include "SQL_connection.php";
+
+session_start();
+
+if ($_POST) {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    if (!$conn) {
+        die("Database connection failed: " . mysqli_connect_error());
+    }
+
+    $query = "SELECT email, password, remember_token FROM user WHERE email = ?";
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, "s", $email);
+
+    if (!mysqli_stmt_execute($stmt)) {
+        die("Error executing prepared statement: " . mysqli_stmt_error($stmt));
+    }
+
+    mysqli_stmt_store_result($stmt);
+
+    if (mysqli_stmt_num_rows($stmt) == 1) {
+        mysqli_stmt_bind_result($stmt, $dbEmail, $dbPassword, $dbRememberToken);
+        mysqli_stmt_fetch($stmt);
+
+        if (password_verify($password, $dbPassword)) {
+            if (isset($_POST['rememberMe'])) {
+                $token = hash("sha256", random_bytes(10));
+                $expiration_time_unix = time();
+
+                $expiration_time_mysql = date('Y-m-d H:i:s', $expiration_time_unix);
+
+                setcookie("remember_token", $token, $expiration_time_unix, '/', '', false, true);
+
+                $updateStmt = mysqli_prepare($conn, "UPDATE user SET remember_token = ?, expiration_time = ? WHERE email = ?");
+                mysqli_stmt_bind_param($updateStmt, "sss", $token, $expiration_time_mysql, $email);
+
+                if (!mysqli_stmt_execute($updateStmt)) {
+                    die("Error updating user data: " . mysqli_stmt_error($updateStmt));
+                }
+
+                mysqli_stmt_close($updateStmt);
+            }
+
+            $_SESSION["email"] = $email;
+
+            sleep(0.7);
+
+            header("Location: project.php");
+            exit;
+        } else {
+            die("Authentication failed: Invalid email or password");
+        }
+    } else {
+        echo "Authentication failed: Invalid email or password.";
+    }
+
+    mysqli_stmt_close($stmt);
+
+    mysqli_close($conn);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -502,9 +568,9 @@ a {
             <h1 class="form__title">Log in to your Account</h1>
             <p class="form__description">Welcome back! Please, enter your information</p>
 
-            <form action="process_login.php" method="POST">
-                <label class="form-control__label" for="username">username</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+            <form action="login.php" method="POST">
+                <label class="form-control__label" for="email">email</label>
+                <input type="text" class="form-control" id="email" name="email" required>
         
                 <label class="form-control__label" for="password">Password</label>
                 <div class="password-field">
@@ -533,7 +599,7 @@ a {
             </form>
         
             <p class="form__footer">
-                Don't have an account?<br> <a href="signup.html">Create an account</a>
+                Don't have an account?<br> <a href="registration.php">Create an account</a>
             </p>
         </section>
         

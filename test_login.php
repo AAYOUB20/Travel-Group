@@ -18,7 +18,7 @@ function login($email, $pass, $baseurl) {
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "email=$email&pass=$pass&submit=submit");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, "email=$email&password=$pass&submit=submit");
 
     $headers = array();
     $headers[] = 'Content-Type: application/x-www-form-urlencoded';
@@ -29,8 +29,7 @@ function login($email, $pass, $baseurl) {
 
     $result = curl_exec($ch);
 
-    /* Delete comment below to see what is returned */
-    // echo $result;
+   echo $result;
 
     if (curl_errno($ch)) {
         echo 'Error:' . curl_error($ch);

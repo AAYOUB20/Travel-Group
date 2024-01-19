@@ -313,12 +313,12 @@ colorFirstCharacters();
         
     document.getElementById('bookNowButton').addEventListener('click', function() {
         <?php
-        if (isset($_SESSION['username'])) {
-            echo 'window.location.href = "booknow.html";';
+        if (isset($_SESSION['email'])) {
+            echo 'window.location.href = "booknow.php";';
         } else {
             echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
             if (confirmRedirect) {
-                window.location.href = "login.html";
+                window.location.href = "login.php";
             }';
         }
         ?>

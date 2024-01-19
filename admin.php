@@ -10,7 +10,7 @@ if (!$adminResult) {
     die("Error executing the admin query: " . mysqli_error($conn));
 }
 
-$userQuery = "SELECT name, lastname, username, email  FROM user ORDER BY name"; 
+$userQuery = "SELECT firstname, lastname, email  FROM user ORDER BY email"; 
 $userResult = mysqli_query($conn, $userQuery);
 
 if (!$userResult) {
@@ -95,9 +95,8 @@ if (!$userResult) {
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>firstname</th>
                             <th>Lastname</th>
-                            <th>Username</th>
                             <th>Email</th>
                         </tr>
                     </thead>
@@ -105,9 +104,8 @@ if (!$userResult) {
                         <?php
                         while ($row = mysqli_fetch_assoc($userResult)) {
                             echo "<tr>";
-                            echo "  <td>{$row['name']}</td>";
+                            echo "  <td>{$row['firstname']}</td>";
                             echo "  <td>{$row['lastname']}</td>";
-                            echo "  <td>{$row['username']}</td>";
                             echo "  <td>{$row['email']}</td>";
                             echo "</tr>";
                         }

@@ -55,16 +55,16 @@
   
       <li><a href="project.php">Home</a></li>
       <li><a href="project.php#contact">Contact Us</a></li>
-      <li><a href="project.php#about">About</a></li>
+      <li><a href="about.php">About</a></li>
 
       <li class="username-item">
         
           <?php
-
-          if (isset($_SESSION['username'])) {
-              echo '<a class="username" href="#">' . $_SESSION['username'] . '</a>';
+    
+          if (isset($_SESSION['email'])) {
+              echo '<a class="email" href="#">' . $_SESSION['email'] . '</a>';
               echo '<div class="subnav">';
-              echo '<a href="profile.php">profile</a>';
+              echo '<a href="show_profile.php">profile</a>';
               if($_SESSION['admin'] == 1){
                 echo '<a href="admin.php">Admin</a>';
            }
@@ -72,7 +72,7 @@
              echo '</div>';
           
           } else {
-              echo '<a href="login.html">Login</a>';
+              echo '<a href="login.php">Login</a>';
           }
           ?>
            

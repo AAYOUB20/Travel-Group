@@ -14,7 +14,7 @@ require 'utils.php';
 /*                                            */
 /* DO NOT UPLOAD TEST FILES ON SAW21!         */
 /**********************************************/
-$baseurl = "http://localhost/saw/startSaw"; 
+$baseurl = "http://localhost/"; 
 
 echo "[+] Testing Registration - Login - Show Profile\n";
 
@@ -23,19 +23,17 @@ echo "[*] Generating random user\n";
 echo "---\n";
 $email = generate_random_email();
 $pass = generate_random_password();
-$name = generate_random_name();
-$username = generate_random_username();
-
-$lastname = generate_random_name();
+$first_name = generate_random_name();
+$last_name = generate_random_name();
 echo "Email: $email\n";
 echo "Pass: $pass\n";
-echo "First name: $name\n";
-echo "Last name: $lastname\n";
+echo "First name: $first_name\n";
+echo "Last name: $last_name\n";
 echo "---\n";
 
 echo "[-] Calling registration.php\n";
 
-register($email,$username, $pass, $name, $lastname, $baseurl);
+register($email, $pass, $first_name, $last_name, $baseurl);
 
 echo "[-] Calling login.php\n";
 login($email, $pass, $baseurl);
@@ -43,7 +41,7 @@ login($email, $pass, $baseurl);
 
 echo "[-] Calling show_profile.php\n";
 
-echo check_correct_user($email,$username, $name, $lastname, show_logged_user($baseurl))
+echo check_correct_user($email, $first_name, $last_name, show_logged_user($baseurl))
     ? "[*] Success :)\n"
     : "[*] Failed\n";
 
@@ -52,21 +50,21 @@ echo "------------------------\n";
 echo "[+] Testing Update - Show Profile\n";
 
 echo "[*] Generating new random user\n";
-$name = generate_random_name();
-$lastname = generate_random_name();
+$first_name = generate_random_name();
+$last_name = generate_random_name();
 
 echo "---\n";
 echo "Email: $email\n";
-echo "First name: $name\n";
-echo "Last name: $lastname\n";
+echo "First name: $first_name\n";
+echo "Last name: $last_name\n";
 echo "---\n";
 
 echo "[-] Calling update_profile.php\n";
-update($email, $name, $lastname, $baseurl);
+update($email, $first_name, $last_name, $baseurl);
 
 echo "[-] Calling show_profile.php\n";
 
-echo check_correct_user($email, $name, $lastname, show_logged_user($baseurl))
+echo check_correct_user($email, $first_name, $last_name, show_logged_user($baseurl))
     ? "[*] Success :)\n"
     : "[*] Failed\n";
 
@@ -77,7 +75,7 @@ echo "[-] Calling logout.php\n";
 logout($baseurl);
 
 echo "[-] Calling show_profile.php (it must fail after logout)\n";
-echo check_correct_user($email,$username, $name, $lastname, show_logged_user($baseurl))
+echo check_correct_user($email, $first_name, $last_name, show_logged_user($baseurl))
     ? "[*] Success\n"
     : "[*] Failed :)\n";
 

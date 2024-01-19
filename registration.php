@@ -1,3 +1,42 @@
+
+<?php
+ include "SQL_connection.php" ;
+
+ if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["email"]) && isset($_POST["password"])) {
+    $first_name = $_POST["firstname"];
+    $last_name = $_POST["lastname"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+   
+
+    if (!$conn) {
+        die("Database connection failed: " . mysqli_connect_error());
+    }
+
+    try {
+        // Insert data
+        $sql = "INSERT INTO user (firstname, lastname , email, password) VALUES (?, ?, ?, ?)";
+        $stmt = mysqli_prepare($conn, $sql);
+
+        mysqli_stmt_bind_param($stmt, "ssss", $first_name, $last_name, $email, $hashedPassword);
+
+        if (mysqli_stmt_execute($stmt)) {
+            header("Location: login.php");
+            exit;
+        } else {
+            echo "Registration failed.";
+        }
+    } catch (mysqli_sql_exception $ex) {
+        echo "name or email already exists.";
+    }
+
+    mysqli_close($conn);
+}
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,17 +115,13 @@
 <body>
     <div class="container">
         <h1>Sign Up</h1>
-        <form action="Process_signup.php" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+        <form action="registration.php" method="post">
+            <label for="firstname">First name:</label>
+            <input type="text" id="firstname" name="firstname" required>
             <br><br>
 
-            <label for="lastname">lastname:</label>
+            <label for="lastname">Last name:</label>
             <input type="text" id="lastname" name="lastname" required>
-            <br><br>
-
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
             <br><br>
 
             <label for="email">Email:</label>
@@ -101,7 +136,7 @@
 
             <input type="submit" value="Sign Up">
         </form>
-        <p>Already have an account? <a class="login-link" href="login.html">Log In</a></p>
+        <p>Already have an account? <a class="login-link" href="login.php">Log In</a></p>
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -125,3 +160,5 @@
 });
     </script>
 </html>
+
+

@@ -1,16 +1,16 @@
 <?php
 include "SQL_connection.php";
 
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
 
     if (!$conn) {
         die("Database connection failed: " . mysqli_connect_error());
     }
 
-    $query = "SELECT admin FROM user WHERE username = ?";
+    $query = "SELECT admin FROM user WHERE email = ?";
     $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "s", $username);
+    mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_store_result($stmt);
 

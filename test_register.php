@@ -3,10 +3,8 @@
 function register($email, $password, $first_name, $last_name, $baseurl) {
 
     $email = urlencode($email);
-    $name = urlencode($name);
-    $username = urlencode($username);
-
-    $lastname = urlencode($lastname);
+    $first_name = urlencode($first_name);
+    $last_name = urlencode($last_name);
     $password = urlencode($password);
 
     $ch = curl_init();
@@ -22,7 +20,7 @@ function register($email, $password, $first_name, $last_name, $baseurl) {
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "email=$email&name=$name&username=$username&lastname=$lastname&pass=$password&confirm=$password&submit=submit");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, "email=$email&firstname=$first_name&lastname=$last_name&password=$password&confirm=$password&submit=submit");
 
     $headers = array();
     $headers[] = 'Content-Type: application/x-www-form-urlencoded';

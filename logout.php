@@ -10,5 +10,5 @@ if (isset($_COOKIE['remember_token'])) {
 
 session_destroy();
 sleep(0.7);
-header("Location: login.html");
+header("Location: login.php");
 ?>
