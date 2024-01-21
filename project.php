@@ -22,7 +22,7 @@ include "admin_check.php";
         }
 
         .header {
-            background-image: url("cover1.jpg");
+            background-image: url("foto/cover1.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -75,7 +75,7 @@ include "admin_check.php";
         }
 
         .second-background {
-            background-image: url("cover2.webp");
+            background-image: url("foto/cover2.webp");
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
