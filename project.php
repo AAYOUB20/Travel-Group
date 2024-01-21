@@ -274,7 +274,7 @@ include "navbar.php";
     </p>
     <div id="wheel-overlay">
         <div id="wheel-modal">
-            <iframe src="index.html" frameborder="0"></iframe>
+            <iframe src="html/index.html" frameborder="0"></iframe>
             <button id="closeWheelButton" onclick="closeWheelModal()">Close Wheel</button>
         </div>
     </div>
@@ -299,20 +299,20 @@ include "navbar.php";
         <h2>This week trips</h2>
         <div class="image-container">
             <figure>
-                <a href="thailand_page.html">
-                    <img src="Thailand.jpg" alt="Thailand">
+                <a href="html/thailand_page.html">
+                    <img src="foto/Thailand.jpg" alt="Thailand">
                     <figcaption>Thailand</figcaption>
                 </a>
             </figure>
             <figure>
-                <a href="sirilanka_page.html">
-                    <img src="Siri Lanka.jpg" alt="Sirilanka">
+                <a href="html/sirilanka_page.html">
+                    <img src="foto/Siri Lanka.jpg" alt="Sirilanka">
                     <figcaption>Sirilanka</figcaption>
                 </a>
             </figure>
             <figure>
-                <a href="roma_page.html">
-                    <img src="Roma.jpg" alt="Roma">
+                <a href="html/roma_page.html">
+                    <img src="foto/Roma.jpg" alt="Roma">
                     <figcaption>Roma</figcaption>
                 </a>
             </figure>
@@ -359,7 +359,7 @@ include "navbar.php";
     <footer style="background-color: #333; color: white; text-align: center; padding: 20px;">
         <p style="font-size: 18px; margin: 0;">&copy; 2023 Travel Group</p>
         <ul style="list-style: none; padding: 0;">
-            <li style="display: inline; margin-right: 20px;"><a href="privacy_policy.html" style="text-decoration: none; color: white;">Privacy Policy</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="html/privacy_policy.html" style="text-decoration: none; color: white;">Privacy Policy</a></li>
             <li style="display: inline;"><a href="#" style="text-decoration: none; color: white;">Terms of Service</a></li>
         </ul>
     </footer>
