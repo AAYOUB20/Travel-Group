@@ -1,0 +1,33 @@
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    background: #14e459;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    height: 280px;
+    width: 400px;
+    text-align: center;
+}
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 9px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+button{
+    margin-top: 25px;
+    color: white;
+    background-color: black ;
+    cursor: pointer;
+    
+}
