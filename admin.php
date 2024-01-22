@@ -62,7 +62,7 @@ if (!$userResult) {
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Name</th> 
                             <th>Email</th>
                             <th>Message</th>
                             <th>Timestamp</th>
