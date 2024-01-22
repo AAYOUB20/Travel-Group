@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include "SQL_connection.php";
+include "SQL_connection.php"; // include il connection al database
 
 $adminQuery = "SELECT * FROM messages ORDER BY timestamp DESC";
 $adminResult = mysqli_query($conn, $adminQuery);

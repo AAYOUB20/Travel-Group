@@ -1,5 +1,5 @@
 <?php
-include "SQL_connection.php";
+include "SQL_connection.php"; // include il connection al database
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['Name']) && isset($_POST['Email']) && isset($_POST['Message'])) {

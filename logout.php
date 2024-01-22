@@ -1,5 +1,5 @@
 <?php
-include "SQL_connection.php";
+include "SQL_connection.php"; // include il connection al database
 
 session_start();
 

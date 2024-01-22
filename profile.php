@@ -60,7 +60,7 @@
 <div class="profile-container">
     <div class="profile-info">
     <?php
-        include "SQL_connection.php";
+        include "SQL_connection.php"; // include il connection al database
 
         session_start();
         if (isset($_SESSION['username'])) {
