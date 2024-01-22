@@ -2,59 +2,7 @@
 <html>
 <head>
     <title>Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: white;
-        }
-
-        .profile-container {
-            justify-content: space-between;
-            align-items: center;
-            background-color: floralwhite;
-            padding: 20px;
-            box-shadow: 40px 40px 10px rgba(0.1, 0.1, 0.1, 0.1);
-            margin: 20px;
-            width : 350px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .profile-info {
-            text-align: center;
-        }
-
-
-        .profile-actions {
-            border-left: 2px solid #ccc;
-            padding-left: 20px;
-        }
-
-        h1, h2 {
-            color: #333;
-        }
-       
-        table {
-            border-collapse: collapse;
-            align-items: center;
-            margin-left: auto;
-            margin-right: auto;
-
-        }
-        .my-booking  {
-            align-items: center;
-            
-        }
-        th, td {
-            border: 1px solid grey;
-            text-align: left;
-            padding: 8px;
-        }
-        th {
-            background-color: #14e459;
-        }
-    </style>
+    <link rel="stylesheet" href="css/profile.css"> 
 </head>
 <body>
 <div class="profile-container">
