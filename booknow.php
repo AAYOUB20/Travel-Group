@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if (mysqli_stmt_execute($stmt)) {
             echo "Booking successful!";
-            sleep(1);
+            sleep(1); // attesa di 1 secondo
             header("Location: project.php");
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
