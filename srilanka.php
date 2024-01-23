@@ -44,11 +44,14 @@ $conn->close();
 
         .card {
             width: 200px;
-            border: 1px solid black;
+            border: 3px solid ;
             padding: 10px;
             text-align: center;
             background-color: white;
             margin: 10px;
+            border-color: green;
+            border-radius: 20px;
+        
         }
 
         .card img {

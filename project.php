@@ -65,19 +65,19 @@ include "navbar.php";
         <div class="image-container">
             <figure>
                 <a href="Thailand.php">
-                    <img src="Thailand.jpg" alt="Thailand">
+                    <img src="foto/Thailand.jpg" alt="Thailand">
                     <figcaption>Thailand</figcaption>
                 </a>
             </figure>
             <figure>
                 <a href="srilanka.php">
-                    <img src="Siri Lanka.jpg" alt="Sirilanka">
+                    <img src="foto/Siri Lanka.jpg" alt="Sirilanka">
                     <figcaption>Sirilanka</figcaption>
                 </a>
             </figure>
             <figure>
                 <a href="rome.php">
-                    <img src="Roma.jpg" alt="Roma">
+                    <img src="foto/Roma.jpg" alt="Roma">
                     <figcaption>Roma</figcaption>
                 </a>
             </figure>
