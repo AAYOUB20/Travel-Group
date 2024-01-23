@@ -59,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Booking successful!";
             sleep(1); // attesa di 1 secondo
             header("Location: project.php");
+           // mysql_close($conn);
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
