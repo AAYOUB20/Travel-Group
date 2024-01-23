@@ -127,6 +127,7 @@
             <tr>
                 <th>Booking Destination</th>
                 <th>Booking Date</th>
+                <th>PromoCode</th>
             </tr>
         </thead>
         <tbody>
@@ -142,7 +143,7 @@
                     die("Database connection failed: " . mysqli_connect_error());
                 }
 
-                $query = "SELECT destination, date FROM booking WHERE email = ?";
+                $query = "SELECT destination, date, promoCode FROM booking WHERE email = ?";
                 $stmt = mysqli_prepare($conn, $query);
                 mysqli_stmt_bind_param($stmt, "s", $email);
                 mysqli_stmt_execute($stmt);
@@ -152,6 +153,7 @@
                     echo '<tr>';
                     echo '<td>' . $row['destination'] . '</td>';
                     echo '<td>' . $row['date'] . '</td>';
+                    echo '<td>' . $row['promoCode'] . '</td>';
                     echo '</tr>';
                 }
 
