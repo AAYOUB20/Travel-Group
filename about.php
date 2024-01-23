@@ -8,70 +8,7 @@
 
     <!-- Font Awesome Stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-        }
-
-        .about-us {
-            text-align: center;
-            padding: 40px;
-            background-color: #fff;
-            margin: 50px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #333;
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        p {
-            color: #555;
-            font-size: 18px;
-            line-height: 1.5;
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            color: #333;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        li {
-            color: #555;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .social-icons {
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            color: #555;
-            font-size: 24px;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        .social-icons a:hover {
-            color: #333;
-        }
-    </style>
+  <link rel="stylesheet" href="css/about.css"> <link rel="stylesheet" href="css/about.css"> 
 </head>
 
 <body>

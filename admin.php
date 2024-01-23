@@ -1,22 +1,3 @@
-<?php
-session_start();
-
-include "SQL_connection.php";
-
-$adminQuery = "SELECT * FROM messages ORDER BY timestamp DESC";
-$adminResult = mysqli_query($conn, $adminQuery);
-
-if (!$adminResult) {
-    die("Error executing the admin query: " . mysqli_error($conn));
-}
-
-$userQuery = "SELECT firstname, lastname, email  FROM user ORDER BY email"; 
-$userResult = mysqli_query($conn, $userQuery);
-
-if (!$userResult) {
-    die("Error executing the user query: " . mysqli_error($conn));
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +43,7 @@ if (!$userResult) {
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Name</th> 
                             <th>Email</th>
                             <th>Message</th>
                             <th>Timestamp</th>
@@ -131,5 +112,23 @@ if (!$userResult) {
 </html>
 
 <?php
+session_start();
+
+include "SQL_connection.php"; // include il connection al database
+
+$adminQuery = "SELECT * FROM messages ORDER BY timestamp DESC";
+$adminResult = mysqli_query($conn, $adminQuery);
+
+if (!$adminResult) {
+    die("Error executing the admin query: " . mysqli_error($conn));
+}
+
+$userQuery = "SELECT firstname, lastname, email  FROM user ORDER BY email"; 
+$userResult = mysqli_query($conn, $userQuery);
+
+if (!$userResult) {
+    die("Error executing the user query: " . mysqli_error($conn));
+}
+
 mysqli_close($conn);
 ?>
