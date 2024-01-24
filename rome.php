@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 include "SQL_connection.php"; 
 
 $sql = "SELECT * FROM query WHERE destination = 'Rome'";
@@ -26,31 +28,34 @@ mysqli_close($conn);
     <style>
         body {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             height: 100vh;
             margin: 0;
+            font-family: Arial, sans-serif;
         }
 
         h1 {
             text-align: center;
+            margin-top: 20px; /* Add margin-top to create space between title and button */
         }
 
         .card-container {
             display: flex;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
         }
 
         .card {
             width: 200px;
-            border: 3px solid ;
+            border: 3px solid green;
             padding: 10px;
             text-align: center;
             background-color: white;
             margin: 10px;
-            border-color: green;
             border-radius: 20px;
-        
+            box-sizing: border-box;
         }
 
         .card img {
@@ -63,17 +68,35 @@ mysqli_close($conn);
 
         .back {
             color: white;
-            background-color: black ;
+            background-color: black;
             position: absolute;
             top: 10px;
             left: 10px;
             font-size: 30px;
             cursor: pointer;
+            z-index: 0; /* Ensure the button is above the cards */
         }
+
         .back:hover {
             background-color: green;
         }
 
+        @media only screen and (max-width: 600px) {
+            .back{
+                font-size:15px;
+            }
+            .card {
+                text-align: center;
+                width: calc(70% - 20px);
+            }
+        }
+
+        @media only screen and (min-width: 601px) and (max-width: 1024px) {
+            .card {
+                font-size:15px;
+                width: calc(40% - 20px);
+            }
+        }
     </style>
 </head>
 
