@@ -12,12 +12,12 @@ include "admin_check.php";
     <title>Traveling</title>
     <link rel="stylesheet" href="css/project.css">
     <script>
-        function openWheelModal() {
-            document.getElementById('wheel-overlay').style.display = 'flex';
+        function openfragment() {
+            document.getElementById('fragment-overlay').style.display = 'flex';
         }
 
-        function closeWheelModal() {
-            document.getElementById('wheel-overlay').style.display = 'none';
+        function closefragment() {
+            document.getElementById('fragment-overlay').style.display = 'none';
         }
     </script>
 </head>
@@ -31,16 +31,16 @@ include "navbar.php";
         <h2>Social Expert Traveler Group</h2>
         <h1>Trust Our Experience</h1>
         <button id="bookNowButton">Book Now</button>
-        <button id="discount" onclick="openWheelModal()">Click here to get a discount</button>
+        <button id="discount" onclick="openfragment()">Click here to get a discount</button>
     </div>
     <p id="coloredText">
         WE ARE: A Professional Group Who Organize Trips Over The World, Every Week in different countries Explore A Different
         Place.
     </p>
-    <div id="wheel-overlay">
-        <div id="wheel-modal">
+    <div id="fragment-overlay">
+        <div id="fragment-modal">
             <iframe src="html/index.html" frameborder="0"></iframe>
-            <button id="closeWheelButton" onclick="closeWheelModal()">Close Wheel</button>
+            <button id="closefragment" onclick="closefragment()">Close </button>
         </div>
     </div>
     <!-- //source :*from google*   -->
@@ -64,19 +64,19 @@ include "navbar.php";
         <h2>This week trips</h2>
         <div class="image-container">
             <figure>
-                <a href="html/thailand_page.html">
+                <a href="Thailand.php">
                     <img src="foto/Thailand.jpg" alt="Thailand">
                     <figcaption>Thailand</figcaption>
                 </a>
             </figure>
             <figure>
-                <a href="html/sirilanka_page.html">
+                <a href="srilanka.php">
                     <img src="foto/Siri Lanka.jpg" alt="Sirilanka">
                     <figcaption>Sirilanka</figcaption>
                 </a>
             </figure>
             <figure>
-                <a href="html/roma_page.html">
+                <a href="rome.php">
                     <img src="foto/Roma.jpg" alt="Roma">
                     <figcaption>Roma</figcaption>
                 </a>
@@ -124,7 +124,7 @@ include "navbar.php";
     <footer style="background-color: #333; color: white; text-align: center; padding: 20px;">
         <p style="font-size: 18px; margin: 0;">&copy; 2023 Travel Group</p>
         <ul style="list-style: none; padding: 0;">
-            <li style="display: inline; margin-right: 20px;"><a href="html/privacy_policy.html" style="text-decoration: none; color: white;">Privacy Policy</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="privacy_policy.html" style="text-decoration: none; color: white;">Privacy Policy</a></li>
             <li style="display: inline;"><a href="#" style="text-decoration: none; color: white;">Terms of Service</a></li>
         </ul>
     </footer>
