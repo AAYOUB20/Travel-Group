@@ -8,7 +8,7 @@ body {
 }
 
 .header {
-    background-image: url("foto/cover1.jpg");
+    background-image: url("../foto/cover1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -61,7 +61,7 @@ button:hover {
 }
 
 .second-background {
-    background-image: url("foto/cover2.webp");
+    background-image: url("../foto/cover2.webp");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
