@@ -1,14 +1,14 @@
 <?php
 include "SQL_connection.php"; 
 
-$sql = "SELECT * FROM query WHERE destination = 'Thailand'";
-$result = $conn->query($sql);
+$sql = "SELECT * FROM query WHERE destination = 'sri lanka'";
+$result = mysqli_query($conn, $sql);
 
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $destination = $row['destination'];
-    $dates = json_decode($row['date']);
-    $prices = json_decode($row['price']);
+if (mysqli_num_rows($result) > 0) {
+    $row_query = mysqli_fetch_assoc($result);
+    $destination = $row_query['destination'];
+    $dates = json_decode($row_query['date']);
+    $prices = json_decode($row_query['price']);
 } else {
     $destination = "N/A";
     $dates = [];
@@ -87,20 +87,42 @@ $conn->close();
             <img src="https://www.jacadatravel.com/wp-content/uploads/2017/04/sri-lanka-tea-plantations.jpg" alt="Image 1">
             <p>Date: <?php echo $dates[0]; ?></p>
             <p>Price: <?php echo $prices[0]; ?></p>
+            <button class="book-button" onclick="book('<?php echo $destination; ?>', '<?php echo $dates[0]; ?>', '<?php echo $prices[0]; ?>')">Book</button>
+
         </div>
 
         <div class="card">
             <img src="https://www.planetware.com/wpimages/2020/01/sri-lanka-best-places-to-visit-kandy.jpg" alt="Image 2">
             <p>Date: <?php echo $dates[1]; ?></p>
             <p>Price: <?php echo $prices[1]; ?></p>
+            <button class="book-button" onclick="book('<?php echo $destination; ?>', '<?php echo $dates[1]; ?>', '<?php echo $prices[1]; ?>')">Book</button>
+
         </div>
 
         <div class="card">
             <img src="https://franks-travelbox.com/wp-content/uploads/2017/11/sri-lanka-der-hocc88hlentempel-von-dambulla-liegt-etwa-150km-occ88stlich-der-hauptstadt-colombo-sri-lanka-er-ist-der-grocc88sste-und-besterhaltene-buddhistische-hocc88hlentempel-des-landes-2048x1365.jpg" alt="Image 3">
             <p>Date: <?php echo $dates[2]; ?></p>
             <p>Price: <?php echo $prices[2]; ?></p>
+            <button class="book-button" onclick="book('<?php echo $destination; ?>', '<?php echo $dates[2]; ?>', '<?php echo $prices[2]; ?>')">Book</button>
+
         </div>
     </div>
 </body>
+<script>
+        document.querySelectorAll('.book-button').forEach(function(button) {
+            button.addEventListener('click', function () {
+                <?php
+                if (isset($_SESSION['email'])) {
+                    echo 'window.location.href = "booknow.php";';
+                } else {
+                    echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
+                            if (confirmRedirect) {
+                                window.location.href = "login.php";
+                            }';
+                }
+                ?>
+            });
+        });
+    </script>
 
 </html>

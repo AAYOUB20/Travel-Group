@@ -1,15 +1,14 @@
 <?php
-session_start();
 include "SQL_connection.php"; 
 
 $sql = "SELECT * FROM query WHERE destination = 'Thailand'";
-$result = $conn->query($sql);
+$result = mysqli_query($conn, $sql);
 
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $destination = $row['destination'];
-    $dates = json_decode($row['date']);
-    $prices = json_decode($row['price']);
+if (mysqli_num_rows($result) > 0) {
+    $row_query = mysqli_fetch_assoc($result);
+    $destination = $row_query['destination'];
+    $dates = json_decode($row_query['date']);
+    $prices = json_decode($row_query['price']);
 } else {
     $destination = "N/A";
     $dates = [];
@@ -26,7 +25,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rome</title>
     <style>
-        body {
+    body {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -74,9 +73,9 @@ $conn->close();
         .back:hover {
             background-color: green;
         }
-
     </style>
 </head>
+
 <body>
    <a href="project.php"> <button class="back">Back Home</button></a>
     <h1>Thailand</h1>
