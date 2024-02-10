@@ -98,16 +98,16 @@ if ($_POST) {
         mysqli_stmt_fetch($stmt);
 
         if (password_verify($password, $dbPassword)) {
-            if (isset($_POST['rememberMe'])) {
+            if (isset($_POST['rememberMe'])) { // se l'utente ha selezionato "remember me" facciamo creazione per il cookies , e quindi l'utente non deve fare il login ogni volta fino a che il cookies non scade
                 $token = hash("sha256", random_bytes(10));
                 $expiration_time_unix = time();
 
                 $expiration_time_mysql = date('Y-m-d H:i:s', $expiration_time_unix);
 
-                setcookie("remember_token", $token, $expiration_time_unix, '/', '', false, true);
+                setcookie("remember_token", $token, $expiration_time_unix, '/', '', false, true);// creazione del cookies
 
                 $updateStmt = mysqli_prepare($conn, "UPDATE user SET remember_token = ?, expiration_time = ? WHERE email = ?");
-                mysqli_stmt_bind_param($updateStmt, "sss", $token, $expiration_time_mysql, $email);
+                mysqli_stmt_bind_param($updateStmt, "sss", $token, $expiration_time_mysql, $email);// aggiungi il cookies e tempo di scadenza nel database
 
                 if (!mysqli_stmt_execute($updateStmt)) {
                     die("Error updating user data: " . mysqli_stmt_error($updateStmt));
@@ -118,15 +118,15 @@ if ($_POST) {
 
             $_SESSION["email"] = $email;
 
-            sleep(0.7);
+            sleep(0.7);//dlai per 0.7 secondi
 
-            header("Location: project.php");
+            header("Location: project.php");// reindirizzamento alla pagina principale
             exit;
         } else {
-            die("Authentication failed: Invalid email or password");
+            die("Authentication failed: Invalid email or password");// se la password non corrisponde
         }
     } else {
-        echo "Authentication failed: Invalid email or password.";
+        echo "Authentication failed: Invalid email or password.";// se l'email non corrisponde
     }
 
     mysqli_stmt_close($stmt);

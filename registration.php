@@ -68,7 +68,7 @@
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);// trasforma la password in un hash per la sicurezza del dati
    
 
     if (!$conn) {
@@ -78,7 +78,7 @@
     try {
         // Insert data
         $sql = "INSERT INTO user (firstname, lastname , email, password) VALUES (?, ?, ?, ?)";
-        $stmt = mysqli_prepare($conn, $sql);
+        $stmt = mysqli_prepare($conn, $sql);// prepara la query
 
         mysqli_stmt_bind_param($stmt, "ssss", $first_name, $last_name, $email, $hashedPassword);
 
