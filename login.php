@@ -83,8 +83,8 @@ if ($_POST) {
         die("Database connection failed: " . mysqli_connect_error());
     }
 
-    $query = "SELECT email, password, remember_token FROM user WHERE email = ?";
-    $stmt = mysqli_prepare($conn, $query);
+    $sql = "SELECT email, password, remember_token FROM user WHERE email = ?";
+    $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "s", $email);
 
     if (!mysqli_stmt_execute($stmt)) {

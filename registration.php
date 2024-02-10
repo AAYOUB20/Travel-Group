@@ -77,7 +77,7 @@
 <body>
     <div class="container">
         <h1>Sign Up</h1>
-        <form action="registration.php" method="post">
+        <form action="registration.php" method="POST">
             <label for="firstname">First name:</label>
             <input type="text" id="firstname" name="firstname" required>
             <br><br>
@@ -160,6 +160,7 @@
     }
 
     mysqli_close($conn);
+    mysqli_close($stmt);
 }
  }
 ?>

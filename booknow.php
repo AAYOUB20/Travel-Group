@@ -38,13 +38,14 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $destination = $_POST["destination"];
+    if (isset($_SESSION["email"])) {
+      $email = $_SESSION["email"];
+      $destination = $_POST["destination"];
     $date = $_POST["date"];
     $promoCode = $_POST["promoCode"];
 
 
-    if (isset($_SESSION["email"])) {
-        $email = $_SESSION["email"];
+  
 
     if (!$conn) {
         die("Database connection failed: " . mysqli_connect_error());
@@ -61,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: project.php");
            // mysql_close($conn);
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
     } else {
         echo "Error preparing the statement: " . mysqli_error($conn);
