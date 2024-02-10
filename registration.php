@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,8 +91,9 @@
         echo "name or email already exists.";
     }
 
+   
     mysqli_close($conn);
-    mysqli_close($stmt);
+    // mysqli_close($stmt);
 }
  }
 ?>
