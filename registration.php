@@ -5,74 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <style>
-      body {
-            font-family: Arial, sans-serif;
-            background-image: url("login_background.jpg");
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            padding: 40px; 
-            width: 250px; 
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-            font-size: 20px; 
-            margin-bottom: 5px;
-        }
-
-        label {
-            display: block;
-            text-align: left;
-            margin-bottom: 8px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        input[type="text"],
-        input[type="password"],
-        input[type="email"] {
-            width: 100%;
-            padding: 8px; 
-            margin-bottom: 10px; 
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px; 
-        }
-       
-        input[type="submit"] {
-            background-color: #0095f6;
-            color: #fff;
-            padding: 8px 16px; 
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px; 
-            transition: background-color 0.3s;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0077e6;
-        }
-
-        .login-link {
-            color: #0095f6;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="css/regestration.css">
 </head>
 <body>
     <div class="container">
