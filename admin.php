@@ -1,3 +1,22 @@
+<?php
+session_start();
+
+include "SQL_connection.php";
+
+$adminQuery = "SELECT * FROM messages ORDER BY timestamp DESC";
+$adminResult = mysqli_query($conn, $adminQuery);
+
+if (!$adminResult) {
+    die("Error executing the admin query: " . mysqli_error($conn));
+}
+
+$userQuery = "SELECT firstname, lastname, email  FROM user ORDER BY email"; 
+$userResult = mysqli_query($conn, $userQuery);
+
+if (!$userResult) {
+    die("Error executing the user query: " . mysqli_error($conn));
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,24 +27,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users Messages</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.ome2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .table-container {
-            display: none;
-        }
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css" />
 
-        .table-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #333;
-            font-weight: bold;
-        }
-    </style>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 </head>
    
@@ -110,27 +114,6 @@
 </body>
 
 </html>
-
-<?php
-session_start();
-
-include "SQL_connection.php";
-
-$adminQuery = "SELECT * FROM messages ORDER BY timestamp DESC";
-$adminResult = mysqli_query($conn, $adminQuery);
-
-if (!$adminResult) {
-    die("Error executing the admin query: " . mysqli_error($conn));
-}
-
-$userQuery = "SELECT firstname, lastname, email  FROM user ORDER BY email"; 
-$userResult = mysqli_query($conn, $userQuery);
-
-if (!$userResult) {
-    die("Error executing the user query: " . mysqli_error($conn));
-}
-?>
-
 
 <?php
 mysqli_close($conn);

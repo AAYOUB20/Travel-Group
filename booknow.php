@@ -33,8 +33,7 @@
 </html>
 
 <?php
- include "SQL_connection.php" ; // include il connection al database
-
+ include "SQL_connection.php" ;
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

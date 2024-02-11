@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Sign Up</h1>
-        <form action="registration.php" method="POST">
+        <form action="registration.php" method="post">
             <label for="firstname">First name:</label>
             <input type="text" id="firstname" name="firstname" required>
             <br><br>
@@ -57,8 +57,13 @@
 
 
 
+</html>
+
+
+
+
 <?php
- include "SQL_connection.php" ; // include il connection al database
+ include "SQL_connection.php" ;
 
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["email"]) && isset($_POST["password"])) {
@@ -67,7 +72,7 @@
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);// trasforma la password in un hash per la sicurezza del dati
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
    
 
     if (!$conn) {
@@ -75,13 +80,15 @@
     }
 
     try {
-        // Insert data
         $sql = "INSERT INTO user (firstname, lastname , email, password) VALUES (?, ?, ?, ?)";
-        $stmt = mysqli_prepare($conn, $sql);// prepara la query
+        $sql2 ="INSERT INTO reset_tokens (email) VALUES (?)";
+        $stmt = mysqli_prepare($conn, $sql);
+        $stmt2 = mysqli_prepare($conn, $sql2);
 
         mysqli_stmt_bind_param($stmt, "ssss", $first_name, $last_name, $email, $hashedPassword);
+        mysqli_stmt_bind_param($stmt2, "s" , $email);
 
-        if (mysqli_stmt_execute($stmt)) {
+        if (mysqli_stmt_execute($stmt) && mysqli_stmt_execute($stmt2)) {
             header("Location: login.php");
             exit;
         } else {
@@ -90,10 +97,9 @@
     } catch (mysqli_sql_exception $ex) {
         echo "name or email already exists.";
     }
-
-   
+    mysqli_close($stmt);
+    mysqli_close($stmt2);
     mysqli_close($conn);
-    // mysqli_close($stmt);
 }
  }
 ?>

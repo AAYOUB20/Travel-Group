@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
+
+    <!-- Font Awesome Stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  <!-- questa stylsheet l'abbiamo utilizatto per aggiungere l bara giu di instagram facbook ...  -->
-  <link rel="stylesheet" href="css/about.css"> 
+  <link rel="stylesheet" href="css/about.css"> <link rel="stylesheet" href="css/about.css"> 
 </head>
 
 <body>
@@ -44,7 +46,7 @@
 
         <!-- Social Media Icons -->
         <div class="social-icons">
-            <a href="https://www.instagram.com/ali.ayb02/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/braieem" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>

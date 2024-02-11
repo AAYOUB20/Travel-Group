@@ -98,16 +98,15 @@ if ($_POST) {
         mysqli_stmt_fetch($stmt);
 
         if (password_verify($password, $dbPassword)) {
-            if (isset($_POST['rememberMe'])) { // se l'utente ha selezionato "remember me" facciamo creazione per il cookies , e quindi l'utente non deve fare il login ogni volta fino a che il cookies non scade
-                $token = hash("sha256", random_bytes(10));
+            if (isset($_POST['rememberMe'])) {
+                $token = hash("sha256", random_bytes(16));
                 $expiration_time_unix = time();
-
                 $expiration_time_mysql = date('Y-m-d H:i:s', $expiration_time_unix);
 
-                setcookie("remember_token", $token, $expiration_time_unix, '/', '', false, true);// creazione del cookies
+                setcookie("remember_token", $token, $expiration_time_unix, '/', '', false, true);
 
                 $updateStmt = mysqli_prepare($conn, "UPDATE user SET remember_token = ?, expiration_time = ? WHERE email = ?");
-                mysqli_stmt_bind_param($updateStmt, "sss", $token, $expiration_time_mysql, $email);// aggiungi il cookies e tempo di scadenza nel database
+                mysqli_stmt_bind_param($updateStmt, "sss", $token, $expiration_time_mysql, $email);
 
                 if (!mysqli_stmt_execute($updateStmt)) {
                     die("Error updating user data: " . mysqli_stmt_error($updateStmt));
@@ -115,7 +114,6 @@ if ($_POST) {
 
                 mysqli_stmt_close($updateStmt);
             }
-
             $_SESSION["email"] = $email;
 
             sleep(0.7);//dlai per 0.7 secondi
