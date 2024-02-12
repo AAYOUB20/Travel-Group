@@ -2,14 +2,13 @@
 <html>
 <head>
     <title>Profile</title>
-    <link rel="stylesheet" href="css/profile.css"> 
+    <link rel="stylesheet" href="../css/profile.css"> 
 </head>
 <body>
 <div class="profile-container">
     <div class="profile-info">
     <?php
-        include "SQL_connection.php"; // include il connection al database
-
+        include "SQL_connection.php"; 
         session_start();
         if (isset($_SESSION['username'])) {
             $username = $_SESSION['username'];

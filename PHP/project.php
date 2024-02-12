@@ -22,7 +22,7 @@ include "admin_check.php";
         }
 
         .intro {
-            background-image: url("foto/cover1.jpg");
+            background-image: url("../foto/cover1.jpg");
             background-size: 100%;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -126,7 +126,7 @@ include "admin_check.php";
         }
 
         .second-background {
-            background-image: url("foto/cover2.jpg");
+            background-image: url("../foto/cover2.jpg");
             background-color: hsla(0, 0%, 100%, 1);
             background-size: 100%;
             background-repeat: no-repeat;
@@ -555,19 +555,19 @@ include "admin_check.php";
         <div class="image-container">
             <figure>
                 <a href="Thailand.php">
-                    <img src="foto/Thailand.jpg" alt="Thailand" >
+                    <img src="../foto/Thailand.jpg" alt="Thailand" >
                     <figcaption>Thailand</figcaption>
                 </a>
             </figure>
             <figure>
                 <a href="srilanka.php">
-                    <img src="foto/Siri Lanka.jpg" alt="Sirilanka">
+                    <img src="../foto/Siri Lanka.jpg" alt="Sirilanka">
                     <figcaption>Sirilanka</figcaption>
                 </a>
             </figure>
             <figure>
                 <a href="rome.php">
-                    <img src="foto/Roma.jpg" alt="Roma">
+                    <img src="../foto/Roma.jpg" alt="Roma">
                     <figcaption>Roma</figcaption>
                 </a>
             </figure>

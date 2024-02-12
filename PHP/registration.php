@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="css/registration.css">
+    <link rel="stylesheet" href="../css/registration.css">
 </head>
 <body>
     <div class="container">
@@ -70,9 +70,9 @@
     $first_name = $_POST["firstname"];
     $last_name = $_POST["lastname"];
     $email = $_POST["email"];
-    $pass= $_POST["password"];
+    $password = $_POST["password"];
 
-    $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
    
 
     if (!$conn) {
