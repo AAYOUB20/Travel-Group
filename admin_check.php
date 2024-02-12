@@ -1,5 +1,5 @@
 <?php
-include "SQL_connection.php"; // include il connection al database
+include "SQL_connection.php"; 
 
 if (isset($_SESSION['email'])) {
     $email = $_SESSION['email'];

@@ -1,0 +1,15 @@
+        .table-container {
+            display: none;
+        }
+
+        .table-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-weight: bold;
+        }
+    

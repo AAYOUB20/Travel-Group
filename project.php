@@ -22,28 +22,39 @@ include "admin_check.php";
     </script>
 </head>
 
-<?php
-include "navbar.php";
-?>
-
 <body>
-    <div class="header">
+    <header>
+        <?php
+        include "navbar.php";
+        ?>
+    </header>
+    <div class="intro">
         <h2>Social Expert Traveler Group</h2>
         <h1>Trust Our Experience</h1>
         <button id="bookNowButton">Book Now</button>
         <button id="discount" onclick="openfragment()">Click here to get a discount</button>
     </div>
-    <p id="coloredText">
-        WE ARE: A Professional Group Who Organize Trips Over The World, Every Week in different countries Explore A Different
-        Place.
-    </p>
-    <div id="fragment-overlay">
-        <div id="fragment-modal">
-            <iframe src="html/index.html" frameborder="0"></iframe>
-            <button id="closefragment" onclick="closefragment()">Close </button>
+    <script>
+        function openfragment() {
+            document.getElementById('fragment-overlay').style.display = 'flex';
+        }
+
+        function closefragment() {
+            document.getElementById('fragment-overlay').style.display = 'none';
+        }
+    </script>
+    <section id="about" class="about">
+     <div class="about_in_home">
+        <div class="text-about">
+            <h3>About US</h3>
+            <p id="coloredText">
+                At Traveler Group, we're not just travel organizers; we're passionate globetrotters dedicated to crafting unforgettable experiences around the world. Driven by a deep thirst for exploration and cultural immersion, we curate weekly escapes to diverse destinations, igniting your wanderlust and enriching your life with every journey.
+            </p>
+            <a href="about.php">More about ...</a>
         </div>
+        <img src="https://th.bing.com/th/id/R.48848c07829ed9fbb312540f3628ae85?rik=vItiarjuto7uXg&pid=ImgRaw&r=0" alt="">
     </div>
-    <!-- //source :*from google*   -->
+    </section>
     <script>
         function colorFirstCharacters() {
             const paragraph = document.getElementById("coloredText");
@@ -59,25 +70,47 @@ include "navbar.php";
 
         colorFirstCharacters();
     </script>
+    <div id="fragment-overlay">
+        <div id="fragment-modal">
+            <iframe src="index.html" frameborder="0"></iframe>
+            <button id="closefragment" onclick="closefragment()">Close </button>
+        </div>
+    </div>
 
+    <div class="widget-button">
+        <img src="https://cdn-icons-png.flaticon.com/128/2936/2936956.png" alt="contact us ">
+        <div class="widget-icons">
+            <img class="widget-icon" src="https://cdn-icons-png.flaticon.com/512/4494/4494494.png" alt="WhatsApp" onclick="openWhatsApp()">
+            <img class="widget-icon" src="https://cdn-icons-png.flaticon.com/128/1603/1603076.png" alt="Telegram" onclick="openTelegram()">
+        </div>
+    </div>
+    <script>
+        function openWhatsApp() {
+            window.open('https://wa.me/393517267976', '_blank');
+        }
+
+        function openTelegram() {
+            window.open('YOUR_TELEGRAM_LINK', '_blank');
+        }
+    </script>
     <div class="second-background">
         <h2>This week trips</h2>
         <div class="image-container">
             <figure>
                 <a href="Thailand.php">
-                    <img src="foto/Thailand.jpg" alt="Thailand">
+                    <img src="Thailand.jpg" alt="Thailand" >
                     <figcaption>Thailand</figcaption>
                 </a>
             </figure>
             <figure>
                 <a href="srilanka.php">
-                    <img src="foto/Siri Lanka.jpg" alt="Sirilanka">
+                    <img src="Siri Lanka.jpg" alt="Sirilanka">
                     <figcaption>Sirilanka</figcaption>
                 </a>
             </figure>
             <figure>
                 <a href="rome.php">
-                    <img src="foto/Roma.jpg" alt="Roma">
+                    <img src="Roma.jpg" alt="Roma">
                     <figcaption>Roma</figcaption>
                 </a>
             </figure>
@@ -139,6 +172,7 @@ include "navbar.php";
             }
         });
     </script>
+
 </body>
 
 </html>

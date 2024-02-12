@@ -1,5 +1,5 @@
 <?php
-include "SQL_connection.php";   // include il connection al database
+include "SQL_connection.php";
 
 session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -15,13 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Update user table
-        $query = "UPDATE user SET firstname=?, lastname=?, email=? WHERE email=?";
-        $stmt = mysqli_prepare($conn, $query);
+        $sql = "UPDATE user SET firstname=?, lastname=?, email=? WHERE email=?";
+        $stmt = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($stmt, "ssss", $updatedName, $updatedLastname, $updatedEmail, $email);
         mysqli_stmt_execute($stmt);
 
-        $query1 = "UPDATE booking SET email=? WHERE email=?";
-        $stmt1 = mysqli_prepare($conn, $query1);
+        $sql1 = "UPDATE booking SET email=? WHERE email=?";
+        $stmt1 = mysqli_prepare($conn, $sql1);
         mysqli_stmt_bind_param($stmt1, "ss", $updatedEmail, $email);
         mysqli_stmt_execute($stmt1);
 

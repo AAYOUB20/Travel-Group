@@ -26,6 +26,8 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sri Lanka</title>
+    <link rel="stylesheet" href="css/Srilaka.css"> 
+
     <style>
         body {
             display: flex;
@@ -38,7 +40,7 @@ $conn->close();
 
         h1 {
             text-align: center;
-            margin-top: 20px; /* Add margin-top to create space between title and button */
+            margin-top: 20px;
         }
 
         .card-container {
@@ -149,3 +151,4 @@ $conn->close();
     </script>
 
 </html>
+
