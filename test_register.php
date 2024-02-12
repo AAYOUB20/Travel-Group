@@ -5,7 +5,7 @@ function register($email, $password, $first_name, $last_name, $baseurl) {
     $email = urlencode($email);
     $first_name = urlencode($first_name);
     $last_name = urlencode($last_name);
-    $password = urlencode($password);
+    $pass= urlencode($pass);
 
     $ch = curl_init();
     $url = "$baseurl/registration.php";
