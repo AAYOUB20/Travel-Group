@@ -77,7 +77,7 @@ session_start();
 
 if ($_POST) {
     $email = $_POST["email"];
-    $password = $_POST["password"];
+    $pass = $_POST["password"];
 
     if (!$conn) { // se la connessione fallisce
         die("Database connection failed: " . mysqli_connect_error());
