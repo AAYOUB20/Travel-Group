@@ -1,4 +1,3 @@
-
 body {
     display: flex;
     flex-direction: column;
@@ -8,9 +7,9 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.header {
-    background-image: url("../foto/cover1.jpg");
-    background-size: cover;
+.intro {
+    background-image: url("foto/cover1.jpg");
+    background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
@@ -29,7 +28,6 @@ h1 {
 }
 
 h2 {
-    font-size: 18px;
     color: black;
 }
 
@@ -44,33 +42,86 @@ p {
 }
 
 button {
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.7);
     font-weight: bold;
-    border: 2px solid black;
+    border: 1px solid hsla(0, 0%, 100%, 1);
     margin-top: 20px;
-    color: black;
+    color: hsla(0, 0%, 100%, 1);
     cursor: pointer;
     padding: 10px 20px;
     font-size: 16px;
     font-family: cursive;
     transition: background-color 0.5s ease, color 0.5s ease;
+    outline: none;
 }
 
 button:hover {
     background-color: white;
     color: black;
 }
+.about_in_home{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 80px;
+}
+
+.about_in_home .text-about {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.about_in_home .text-about h3{
+    font-weight: bold;
+    font-size: 44px;
+    line-height: 32px;
+    letter-spacing: -0.06em;
+}
+
+.about_in_home .text-about p{
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 24px;
+    text-align: left;
+}
+
+
+.about_in_home img{
+
+    width : 35%;
+    border-radius: 10px;
+}
+
+#chat-button {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+#chat-button img {
+    height: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+}
 
 .second-background {
-    background-image: url("foto/cover2.webp");
-    background-size: cover;
+    background-image: url("../foto/cover2.jpg");
+    background-color: hsla(0, 0%, 100%, 1);
+    background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding: 40px 80px;
 }
 
 .image-container {
@@ -105,19 +156,20 @@ button:hover {
 figcaption {
     margin-top: 1px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
     color: black;
 }
 
-.contact.section {
-    background-image: url("city.jpg");
+.section {
+    background-color: hsla(0, 0%, 100%, 1);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    margin-bottom: 30px;
 }
 
 .form-container {
-    max-width: 60%;
+    width: 70%;
     margin: 0 auto;
     padding: 20px;
     background-color: black;
@@ -126,9 +178,11 @@ figcaption {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+
+
 .form-container h4 {
     margin-top: 0;
-    font-size: 24px;
+    font-size: 30px;
     color: whitesmoke;
     text-align: center;
 }
@@ -144,7 +198,7 @@ figcaption {
     color: darkgray;
 }
 
-.info-section input[type="text"] {
+.info-section input{
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -153,6 +207,11 @@ figcaption {
     background-color: darkgrey;
     color: white;
 }
+
+.info-section #message {
+    height: 200px;
+}
+
 
 .button {
     background-color: blueviolet;
@@ -170,12 +229,16 @@ figcaption {
 .button:hover {
     background-color: #45a049;
 }
-#discount{
+
+#discount {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#bookNowButton {
     font-size: 20px;
 }
-#bookNowButton{
-    font-size: 20px;
-}
+
 .contact-item {
     display: flex;
     align-items: center;
@@ -196,43 +259,206 @@ figcaption {
 }
 
 #fragment-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px);
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.5);
+justify-content: center;
+align-items: center;
+backdrop-filter: blur(5px);
 }
 
 #fragment-modal {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 80%;
-    max-height: 80%;
-    overflow: auto;
+background-color: white;
+padding: 20px;
+border-radius: 10px;
+max-width: 80%;
+max-height: 80%;
+overflow: auto;
 }
 
 #fragment-modal iframe {
-   width: 100%;
-   height: 100%;
-   border: none;
-   margin-top: 20px; 
+width: 100%;
+height: 100%;
+border: none;
+margin-top: 20px; 
 }
 
 #closefragment {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
+background-color: black;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;
+margin-top: 10px;
+font-family: cursive;
+transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+
+.widget-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    padding: 15px;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-    font-family: cursive;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    display: flex;
+    align-items: center;
+}
+
+.widget-icons {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+.widget-icon {
+    height: 30px;
+    cursor: pointer;
+}
+
+.widget-button:hover .widget-icons {
+    display: flex;
+}
+
+
+@media (max-width: 1024px) {
+    .intro {
+        background-size: cover;
+        height: 70vh;
+        background-position: top;
+    }
+    .widget-button img {
+        height: 40px; 
+    }
+
+    .second-background {
+        background-size: cover;
+    }
+
+    .section {
+        background-size: cover;
+    }
+
+    .about_in_home img {
+        width: 40%;
+        border-radius: 10px;
+    }
+} 
+
+
+@media (max-width: 499px) {
+    .navbar {
+        background-color: #333;
+        color: white;
+    }
+
+    .intro {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        background-position: top;
+        background-size: cover;
+        height: 700px;
+    }
+
+    .intro h2,
+    h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 25px;
+    }
+
+    .about_in_home {
+        flex-direction: column;
+        padding: 20px 15px;
+        margin: 0;
+        height: auto;
+        width: 100%;
+    }
+
+    .about_in_home .text-about {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about_in_home .text-about p {
+        font-size: 25px;
+        line-height: 25px;
+        width: 100%;
+    }
+
+    .about_in_home .text-about h3 {
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    .about_in_home img {
+        width: 100%;
+        height: auto;
+    }
+
+    .second-background h2 {
+        font-weight: bold;
+        font-size: 35px;
+        line-height: 25px;
+        letter-spacing: -0.06em;
+    }
+
+    .second-background {
+        padding: 30px 20px;
+        display: flex;
+        width: 100%;
+    }
+
+    .image-container {
+        margin-top: 20px;
+        flex-direction: column;
+    }
+
+    .image-container figure {
+        margin: 10px;
+        min-width: 100%;
+        text-align: center;
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .section {
+        min-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .form-container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: black;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 }

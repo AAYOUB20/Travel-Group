@@ -1,12 +1,14 @@
 <?php
 
-function login($email, $pass, $baseurl) {
+function register($email, $password, $first_name, $last_name, $baseurl) {
 
     $email = urlencode($email);
-    $pass = urlencode($pass);
+    $first_name = urlencode($first_name);
+    $last_name = urlencode($last_name);
+    $password = urlencode($password);
 
     $ch = curl_init();
-    $url = "$baseurl/login.php";
+    $url = "$baseurl/registration.php";
 
     $cookieFile = "cookies";
     if(!file_exists($cookieFile)) {
@@ -18,7 +20,7 @@ function login($email, $pass, $baseurl) {
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "email=$email&password=$pass&submit=submit");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, "email=$email&firstname=$first_name&lastname=$last_name&password=$password&confirm=$password&submit=submit");
 
     $headers = array();
     $headers[] = 'Content-Type: application/x-www-form-urlencoded';
@@ -29,12 +31,11 @@ function login($email, $pass, $baseurl) {
 
     $result = curl_exec($ch);
 
-   echo $result;
+    /* Delete comment below to see what is returned */
+    // echo $result;
 
     if (curl_errno($ch)) {
         echo 'Error:' . curl_error($ch);
     }
     curl_close($ch);
-
-    return $result;
 }

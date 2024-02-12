@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
-    <link rel="stylesheet" href="css/login.css"> 
+    <link rel="stylesheet" href="../css/login.css"> 
 </head>
 <body>
     
@@ -77,7 +77,7 @@ session_start();
 
 if ($_POST) {
     $email = $_POST["email"];
-    $pass = $_POST["password"];
+    $password = $_POST["password"];
 
     if (!$conn) { // se la connessione fallisce
         die("Database connection failed: " . mysqli_connect_error());
@@ -97,7 +97,7 @@ if ($_POST) {
         mysqli_stmt_bind_result($stmt, $dbEmail, $dbPassword, $dbRememberToken);
         mysqli_stmt_fetch($stmt);
 
-        if (password_verify($pass, $dbPassword)) {
+        if (password_verify($password, $dbPassword)) {
             if (isset($_POST['rememberMe'])) {
                 $token = hash("sha256", random_bytes(16));
                 $expiration_time_unix = time();

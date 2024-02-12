@@ -1,14 +1,12 @@
 <?php
 
-function register($email, $password, $first_name, $last_name, $baseurl) {
+function login($email, $pass, $baseurl) {
 
     $email = urlencode($email);
-    $first_name = urlencode($first_name);
-    $last_name = urlencode($last_name);
-    $pass= urlencode($pass);
+    $pass = urlencode($pass);
 
     $ch = curl_init();
-    $url = "$baseurl/registration.php";
+    $url = "$baseurl/login.php";
 
     $cookieFile = "cookies";
     if(!file_exists($cookieFile)) {
@@ -20,7 +18,7 @@ function register($email, $password, $first_name, $last_name, $baseurl) {
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "email=$email&firstname=$first_name&lastname=$last_name&password=$password&confirm=$password&submit=submit");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, "email=$email&password=$pass&submit=submit");
 
     $headers = array();
     $headers[] = 'Content-Type: application/x-www-form-urlencoded';
@@ -31,11 +29,12 @@ function register($email, $password, $first_name, $last_name, $baseurl) {
 
     $result = curl_exec($ch);
 
-    /* Delete comment below to see what is returned */
-    // echo $result;
+   //echo $result;
 
     if (curl_errno($ch)) {
         echo 'Error:' . curl_error($ch);
     }
     curl_close($ch);
+
+    return $result;
 }
