@@ -10,16 +10,473 @@ include "admin_check.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traveling</title>
-    <link rel="stylesheet" href="css/project.css">
-    <script>
-        function openfragment() {
-            document.getElementById('fragment-overlay').style.display = 'flex';
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
         }
 
-        function closefragment() {
-            document.getElementById('fragment-overlay').style.display = 'none';
+        .intro {
+            background-image: url("foto/cover1.jpg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            height: 500px;
+            text-align: center;
         }
-    </script>
+
+        h1 {
+            font-weight: bold;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: black;
+        }
+
+        p {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .colored {
+            color: Green;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: rgba(0, 0, 0, 0.7);
+            font-weight: bold;
+            border: 1px solid hsla(0, 0%, 100%, 1);
+            margin-top: 20px;
+            color: hsla(0, 0%, 100%, 1);
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: cursive;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            outline: none;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+        .about_in_home{
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 80px;
+        }
+
+        .about_in_home .text-about {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .about_in_home .text-about h3{
+            font-weight: bold;
+            font-size: 44px;
+            line-height: 32px;
+            letter-spacing: -0.06em;
+        }
+
+        .about_in_home .text-about p{
+            font-style: normal;
+            font-stretch: normal;
+            font-weight: normal;
+            font-size: 26px;
+            line-height: 24px;
+            text-align: left;
+        }
+
+
+        .about_in_home img{
+
+            width : 35%;
+            border-radius: 10px;
+        }
+
+        #chat-button {
+            display: flex;
+            align-items: center;
+            margin: 10px;
+        }
+
+        #chat-button img {
+            height: 30px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .second-background {
+            background-image: url("foto/cover2.jpg");
+            background-color: hsla(0, 0%, 100%, 1);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 80px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .image-container figure {
+            flex: 0 0 45%;
+            margin: 10px;
+            max-width: 200px;
+            text-align: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 100%;
+            aspect-ratio: 1.2;
+            object-fit: cover;
+            clip-path: inset(0 10% 0 0 round 10px);
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        .image-container img:hover {
+            clip-path: inset(0 0 0 10% round 10px);
+        }
+
+        figcaption {
+            margin-top: 1px;
+            font-weight: bold;
+            font-size: 30px;
+            color: black;
+        }
+
+        .section {
+            background-color: hsla(0, 0%, 100%, 1);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin-bottom: 30px;
+        }
+
+        .form-container {
+            width: 70%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        .form-container h4 {
+            margin-top: 0;
+            font-size: 30px;
+            color: whitesmoke;
+            text-align: center;
+        }
+
+        .info-section {
+            margin-bottom: 16px;
+        }
+
+        .info-section label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: darkgray;
+        }
+
+        .info-section input{
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: darkgrey;
+            color: white;
+        }
+
+        .info-section #message {
+            height: 200px;
+        }
+
+
+        .button {
+            background-color: blueviolet;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            font-family: cursive;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        #discount {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        #bookNowButton {
+            font-size: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+            color: black;
+            background-color: darkgray;
+        }
+
+        .contact-item li {
+            list-style-type: none;
+            font-size: 16px;
+            margin-left: 5px;
+        }
+
+        .contact-item img {
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        #fragment-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+#fragment-modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto;
+}
+
+#fragment-modal iframe {
+   width: 100%;
+   height: 100%;
+   border: none;
+   margin-top: 20px; 
+}
+
+#closefragment {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    font-family: cursive;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+
+        .widget-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
+            border-radius: 5px;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .widget-icons {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .widget-icon {
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .widget-button:hover .widget-icons {
+            display: flex;
+        }
+
+
+        @media (max-width: 1024px) {
+            .intro {
+                background-size: cover;
+                height: 70vh;
+                background-position: top;
+            }
+            .widget-button img {
+                height: 40px; 
+            }
+
+            .second-background {
+                background-size: cover;
+            }
+
+            .section {
+                background-size: cover;
+            }
+
+            .about_in_home img {
+                width: 40%;
+                border-radius: 10px;
+            }
+        } 
+        
+
+        @media (max-width: 499px) {
+            .navbar {
+                background-color: #333;
+                color: white;
+            }
+
+            .intro {
+                width: 100%;
+                margin: 0;
+                display: flex;
+                background-position: top;
+                background-size: cover;
+                height: 700px;
+            }
+
+            .intro h2,
+            h1 {
+                margin: 0;
+                padding: 0;
+                font-size: 25px;
+            }
+
+            .about_in_home {
+                flex-direction: column;
+                padding: 20px 15px;
+                margin: 0;
+                height: auto;
+                width: 100%;
+            }
+
+            .about_in_home .text-about {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .about_in_home .text-about p {
+                font-size: 25px;
+                line-height: 25px;
+                width: 100%;
+            }
+
+            .about_in_home .text-about h3 {
+                text-align: center;
+                margin-bottom: 16px;
+            }
+
+            .about_in_home img {
+                width: 100%;
+                height: auto;
+            }
+
+            .second-background h2 {
+                font-weight: bold;
+                font-size: 35px;
+                line-height: 25px;
+                letter-spacing: -0.06em;
+            }
+
+            .second-background {
+                padding: 30px 20px;
+                display: flex;
+                width: 100%;
+            }
+
+            .image-container {
+                margin-top: 20px;
+                flex-direction: column;
+            }
+
+            .image-container figure {
+                margin: 10px;
+                min-width: 100%;
+                text-align: center;
+            }
+
+            footer {
+                background-color: #333;
+                color: white;
+                text-align: center;
+                padding: 20px;
+                width: 100%;
+            }
+
+            .section {
+                min-width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+            }
+
+            .form-container {
+                width: 100%;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: black;
+                color: white;
+                border-radius: 5px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -98,19 +555,19 @@ include "admin_check.php";
         <div class="image-container">
             <figure>
                 <a href="Thailand.php">
-                    <img src="Thailand.jpg" alt="Thailand" >
+                    <img src="foto/Thailand.jpg" alt="Thailand" >
                     <figcaption>Thailand</figcaption>
                 </a>
             </figure>
             <figure>
                 <a href="srilanka.php">
-                    <img src="Siri Lanka.jpg" alt="Sirilanka">
+                    <img src="foto/Siri Lanka.jpg" alt="Sirilanka">
                     <figcaption>Sirilanka</figcaption>
                 </a>
             </figure>
             <figure>
                 <a href="rome.php">
-                    <img src="Roma.jpg" alt="Roma">
+                    <img src="foto/Roma.jpg" alt="Roma">
                     <figcaption>Roma</figcaption>
                 </a>
             </figure>
