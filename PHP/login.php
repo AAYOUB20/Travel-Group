@@ -37,7 +37,7 @@
                         Remember me
                     </label>
         
-                    <a href="html/forget_password.html">Forgot Password?</a>
+                    <a href="../html/forget_password.html">Forgot Password?</a>
                 </div>
         
                 <button type="submit" class="form__submit" id="submit">Log In</button>
