@@ -8,7 +8,7 @@ function register($email, $password, $first_name, $last_name, $baseurl) {
     $password = urlencode($password);
 
     $ch = curl_init();
-    $url = "$baseurl/registration.php";
+    $url = "$baseurl/PHP/registration.php";
 
     $cookieFile = "cookies";
     if(!file_exists($cookieFile)) {

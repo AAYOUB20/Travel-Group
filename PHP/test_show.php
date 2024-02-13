@@ -2,7 +2,7 @@
 function show_logged_user($baseurl) {
 
     $ch = curl_init();
-    $url = "$baseurl/show_profile.php";
+    $url = "$baseurl/PHP/show_profile.php";
 
     $cookieFile = "cookies";
     if(!file_exists($cookieFile)) {

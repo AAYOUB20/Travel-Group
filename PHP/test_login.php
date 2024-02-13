@@ -6,7 +6,7 @@ function login($email, $pass, $baseurl) {
     $pass = urlencode($pass);
 
     $ch = curl_init();
-    $url = "$baseurl/login.php";
+    $url = "$baseurl/PHP/login.php";
 
     $cookieFile = "cookies";
     if(!file_exists($cookieFile)) {

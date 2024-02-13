@@ -7,7 +7,7 @@ function update($email, $first_name, $last_name, $baseurl) {
     $last_name = urlencode($last_name);
 
     $ch = curl_init();
-    $url = "$baseurl/update_profile.php";
+    $url = "$baseurl/PHP/update_profile.php";
 
     $cookieFile = "cookies";
     if(!file_exists($cookieFile)) {
