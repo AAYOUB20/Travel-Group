@@ -9,6 +9,7 @@
 <body>
     <div class="container">
         <h1>Sign Up</h1>
+        <p>crea il tuo account in pochi secondi</p>
         <form action="registration.php" method="post">
             <label for="firstname">First name:</label>
             <input type="text" id="firstname" name="firstname" required>
@@ -30,7 +31,7 @@
 
             <input type="submit" value="Sign Up">
         </form>
-        <p>Already have an account? <a class="login-link" href="login.php">Log In</a></p>
+        <p>hai gia un account ? <a class="login-link" href="login.php">Log In</a></p>
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
