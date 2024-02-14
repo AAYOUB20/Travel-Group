@@ -26,7 +26,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sri Lanka</title>
-    <link rel="stylesheet" href="css/Srilaka.css"> 
+    <link rel="stylesheet" href="../css/Srilaka.css"> 
 
     <style>
         body {
