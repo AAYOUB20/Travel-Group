@@ -8,7 +8,7 @@ body {
 }
 
 .intro {
-    background-image: url("foto/cover1.jpg");
+    background-image: url("../foto/cover1.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -23,12 +23,12 @@ body {
 
 h1 {
     font-weight: bold;
-    color: black;
+    color: blueviolet;
     margin-bottom: 10px;
 }
 
 h2 {
-    color: black;
+    color: blueviolet;
 }
 
 p {

@@ -42,7 +42,7 @@
                 echo '<h1>Your Profile</h1>';
                 echo '<form id="profileForm" method="post" action="update_profile.php">';
                 echo '<p><strong>Nome:</strong> <span id="firstname">' . $first_name . '</span></p>';
-                echo '<p><strong>Cognome:</strong> <span id="lastname">' . $last_name . '</span></p>';
+                echo '<p><strong>ognome:</strong> <span id="lastname">' . $last_name . '</span></p>';
                 echo '<p><strong>Email:</strong> <span id="email">' . $email . '</span></p>';
                 echo '<div class="profile-change">';
                 echo '<button type="button" onclick="editProfile()">Change</button>';
@@ -78,8 +78,8 @@
             <thead>
                 <tr>
                     <th>Booking Destinazione</th>
-                    <th>Booking Date</th>
-                    <th>PromoCode</th>
+                    <th>Booking Data</th>
+                    <th>codice sconto</th>
                 </tr>
             </thead>
             <tbody>
