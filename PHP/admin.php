@@ -29,23 +29,9 @@ if (!$userResult) {
     <title>Users Messages</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.ome2/css/bootstrap.min.css" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-    <style>
-        .table-container {
-            display: none;
-        }
+     <link rel="stylesheet" href="../css/admin.css" />
 
-        .table-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #333;
-            font-weight: bold;
-        }
-    </style>
-    
+
 </head>
    
 

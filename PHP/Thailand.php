@@ -24,9 +24,9 @@ mysqli_close($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rome</title>
+    <title>visit Thailand</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="css/Thailand.css"> 
+    <link rel="stylesheet" href="../css/Thailand.css"> 
 
 </head>
 
@@ -38,8 +38,7 @@ mysqli_close($conn);
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <div class="card">
-                    <img src="https://th.bing.com/th/id/R.03ef2e3873dca778936d8ba802ed3a44?rik=7wbNEwajYBVhXA&pid=ImgRaw&r=0"
-                        alt="Image 1">
+                  <img src="https://th.bing.com/th/id/R.03ef2e3873dca778936d8ba802ed3a44?rik=7wbNEwajYBVhXA&pid=ImgRaw&r=0"   alt="image Thailand">
                     <p>Date: <?php echo $dates[0]; ?></p>
                     <p>Price: <?php echo $prices[0]; ?></p>
                     <button class="book-button"

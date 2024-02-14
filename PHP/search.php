@@ -28,9 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                     echo "<p>Date: {$dates_query[$i]}, Price: {$prices_query[$i]}</p>";
                 }
                 echo "<button class='book-button'
-                        onclick='book(\"{$row_query['destination']}\", \"{$dates_query[0]}\", \"{$prices_query[0]}\")'>Book</button>";
+                        onclick()>Book</button>";
                 echo "</div>";
                 echo "</div>";
+
             }
             echo "</div>";
         } else {
@@ -44,3 +45,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 }
 ?>
+            <script>
+                document.querySelectorAll('.book-button').forEach(function(button) {
+                    button.addEventListener('click', function () {
+                        <?php
+                        if (isset($_SESSION['email'])) {
+                            echo 'window.location.href = "booknow.php";';
+                        } else {
+                            echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
+                                    if (confirmRedirect) {
+                                        window.location.href = "login.php";
+                                    }';
+                        }
+                        ?>
+                    });
+                });
+            </script>";

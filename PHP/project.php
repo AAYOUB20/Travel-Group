@@ -37,12 +37,12 @@ include "admin_check.php";
 
         h1 {
             font-weight: bold;
-            color: black;
+            color: blueviolet;
             margin-bottom: 10px;
         }
 
         h2 {
-            color: black;
+            color: blueviolet;
         }
 
         p {

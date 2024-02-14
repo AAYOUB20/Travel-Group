@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Book Your Trip</title>
-    <link rel="stylesheet" href="css/booknow.css">
+    <link rel="stylesheet" href="../css/booknow.css">
 </head>
 <body>
     <div class="container">

@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Profile</title>
-    <link rel="stylesheet" href="css/showprofile.css">
+    <link rel="stylesheet" href="../css/showprofile.css">
 </head>
 <body>
     <header>
