@@ -11,9 +11,9 @@ Verison History:
 */
 body
 {
-    background-image: url('sfondoo.jpg');
+    background-image: url('../ruota1/sfondoo.jpg');
     background-size: 100%;
-    font-family: monospace;
+    font-family: fixed;
 }
 
 

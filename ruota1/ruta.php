@@ -14,6 +14,8 @@
   
                 <div >          
                     <br />
+                    <br></br>
+                    <br></br>
                     <button type="button" id="spin_button" onClick="startSpin();" style="width: 200px; height: 50px; font-size:20px; font-weight: 600; font-family:'Courier New', Courier, monospace; background-color: #000000; color: white;">GIRA LA RUOTA </button>
                     <button id="resetArrayButton" onclick="resetArray()"  style="width: 200px; height: 50px; font-weight: 600; font-family:'Courier New', Courier, monospace;font-size :20px; background-color: #fff; color: black;" >RESET</button>
                     <script>
