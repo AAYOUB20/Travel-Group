@@ -40,7 +40,8 @@
 height:36vh;
 position: absolute;
 top: 68%;
-left: 0;" >      <br><br> <br><br><br> <br><span id="testo" style="  display: none;  font-size: 50px;
+left: 0;" >      <br><br> <br><br><br> <br><span id="test1" style="  display: none;  font-size: 47px;
+"> Gira la ruota per vincere un sconto merveglioso per il tuo prossimo viaggio<br></span> <span id="testo" style="  display: none;  font-size: 50px;
 "> Ti regaliamo a un sconto di :<br><span id="segmento" style="font-weight: bold;"></span></span><br> 
 
   </div>
@@ -53,6 +54,7 @@ left: 0;" >      <br><br> <br><br><br> <br><span id="testo" style="  display: no
     // Vars used by the code in this page to do power controls.
     let wheelPower = 0;
     let wheelSpinning = false;
+    $("#test1").show();
 
     // Variabile per tenere traccia dell'indice del prossimo segmento su cui fermarsi.
     let nextStopIndex = 0;
@@ -137,6 +139,7 @@ function startSpin() {
     function alertPrize(indicatedSegment) {
         console.log(indicatedSegment.text);
         $("#segmento").html(indicatedSegment.text.toUpperCase())
+        $("#test1").hide();
         $("#testo").show();
    setTimeout(function() {
        //resetWheel();

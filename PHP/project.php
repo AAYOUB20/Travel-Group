@@ -483,7 +483,8 @@ include "admin_check.php";
     <header>
         <?php
         include "navbar.php";
-        include "../ruota1/ruta.php";
+        include "sconto_check.php";
+
         ?>
     </header>
     <div class="intro">
