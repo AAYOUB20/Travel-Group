@@ -42,7 +42,7 @@ position: absolute;
 top: 68%;
 left: 0;" >      <br><br> <br><br><br> <br><span id="test1" style="  display: none;  font-size: 47px;
 "> Gira la ruota per vincere un sconto merveglioso per il tuo prossimo viaggio<br></span> <span id="testo" style="  display: none;  font-size: 50px;
-"> Ti regaliamo a un sconto di :<br><span id="segmento" style="font-weight: bold;"></span></span><br> 
+"> Ti regaliamo a un sconto di :<br><span id="segmento" style="font-weight: bold;">usa il codice : saw21</span></span><br> 
 
   </div>
    
@@ -159,6 +159,8 @@ function startSpin() {
 
 <?php
 // Array associativo contenente i dati dei segmenti della ruota
+
+include "SQL_connection.php"; // include il connection al database
 $segments = array(
     array('image' => '../ruota1/11.png', 'text' => '10%'),
     array('image' => '../ruota1/12.png', 'text' => '20%'),
@@ -166,4 +168,9 @@ $segments = array(
     array('image' => '../ruota1/14.png', 'text' => '50%'),
     array('image' => '../ruota1/15.png', 'text' => '70%')
 );
+
+$sconto = "saw21";
+$updateStmt = mysqli_prepare($conn, "UPDATE user SET sconto = ?,  WHERE email = ?");
+
+mysqli_stmt_bind_param($updateStmt, "ss", $sconto , $email);
 ?>
