@@ -28,7 +28,7 @@
 
                       </script>
                 </div>
-       
+
             <div  class="the_wheel" align="center botttom" valign="center">
                 <canvas id="canvas" width="800vw" height="800vh">
                     <p style="color: white" align="center bottom">Sorry, your browser doesn't support canvas. Please try another.</p>
