@@ -158,9 +158,29 @@ function startSpin() {
 </html>
 
 <?php
-// Array associativo contenente i dati dei segmenti della ruota
 
-include "SQL_connection.php"; // include il connection al database
+if (isset($_SESSION['email'])) {
+    include "SQL_connection.php"; // Include la connessione al database
+    session_start(); // Avvia la sessione
+    
+    // Recupera l'email dell'utente dalla sessione
+    $email = $_SESSION['email'];
+
+    // Aggiorna lo sconto nel database
+    $sconto = "saw21";
+    $updateStmt = mysqli_prepare($conn, "UPDATE user SET sconto = ? WHERE email = ?");
+    mysqli_stmt_bind_param($updateStmt, "ss", $sconto, $email);
+
+    // Esegui la query di aggiornamento
+    if (mysqli_stmt_execute($updateStmt)) {
+        echo "Sconto aggiornato con successo per l'utente con email: " . $email;
+    } else {
+        echo "Errore durante l'aggiornamento dello sconto: " . mysqli_error($conn);
+    }
+
+    // Chiudi la connessione al database
+    mysqli_close($conn);
+}
 $segments = array(
     array('image' => '../ruota1/11.png', 'text' => '10%'),
     array('image' => '../ruota1/12.png', 'text' => '20%'),
@@ -169,8 +189,5 @@ $segments = array(
     array('image' => '../ruota1/15.png', 'text' => '70%')
 );
 
-$sconto = "saw21";
-//$updateStmt = mysqli_prepare($conn, "UPDATE user SET sconto = ?,  WHERE email = ?");
 
-//mysqli_stmt_bind_param($updateStmt, "ss", $sconto , $email);
 ?>

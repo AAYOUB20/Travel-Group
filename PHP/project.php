@@ -29,20 +29,21 @@ include "admin_check.php";
         <button id="discount" onclick="openoferta()">Click here to get a discount</button>
     </div>
     <script>
-    function openoferta() {
-        // Verifica se l'utente è autenticato utilizzando JavaScript
-        <?php if (isset($_SESSION['email'])) : ?>
-            // Se l'utente è autenticato, reindirizzalo alla pagina desiderata
-            window.location.href = "../ruota1/ruta.php";
-        <?php else : ?>
-            // Se l'utente non è autenticato, chiedi all'utente di effettuare l'accesso
-            var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
-            if (confirmRedirect) {
-                window.location.href = "login.php"; // Reindirizza alla pagina di login se l'utente conferma
+        function openoferta() {
+            <?php
+            if (isset($_SESSION['email'])) {
+                echo 'window.location.href = "../ruota1/ruta.php";';
+            } else {
+                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
+                        if (confirmRedirect) {
+                            window.location.href = "login.php";
+                        }';
             }
-        <?php endif; ?>
-    }
-</script>
+
+            ?>
+        };
+    
+    </script>
     <section id="about" class="about">
      <div class="about_in_home">
         <div class="text-about">
