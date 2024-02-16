@@ -150,8 +150,8 @@ function startSpin() {
         $("#test1").hide();
         $("#testo").show();
    setTimeout(function() {
-       //resetWheel();
-     }, 5000);
+    window.location.href = "../php/project.php";
+     }, 5000);// 5 secondi
     }
 
 
