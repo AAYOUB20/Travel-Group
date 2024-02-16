@@ -8,6 +8,14 @@
     <script type="text/javascript" src="../ruota1/Winwheel.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <style>
+    body{
+    background-image: url('../ruota1/sfondoo.jpg');
+    background-size: 100%;
+    font-family: fixed;
+}
+
+    </style>
 </head>
 <body>
 <div align="center">
@@ -42,7 +50,7 @@ position: absolute;
 top: 68%;
 left: 0;" >      <br><br> <br><br><br> <br><span id="test1" style="  display: none;  font-size: 47px;
 "> Gira la ruota per vincere un sconto merveglioso per il tuo prossimo viaggio<br></span> <span id="testo" style="  display: none;  font-size: 50px;
-"> Ti regaliamo a un sconto di :<br><span id="segmento" style="font-weight: bold;">usa il codice : saw21</span></span><br> 
+"> Ti regaliamo a un sconto di usa il codice saw21 :<br><span id="segmento" style="font-weight: bold;"></span><br> 
 
   </div>
    
