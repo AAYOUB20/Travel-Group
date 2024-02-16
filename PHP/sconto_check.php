@@ -12,10 +12,10 @@
             <?php
                 include "SQL_connection.php";
 
-                if (isset($_SESSION['email'])) {
+              if (isset($_SESSION['email'])) {
                     $email = $_SESSION['email'];
                     include "../ruota1/ruta.php";
-                }
+               // }
            
                 ?>
         

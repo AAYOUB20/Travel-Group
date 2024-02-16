@@ -170,7 +170,7 @@ $segments = array(
 );
 
 $sconto = "saw21";
-$updateStmt = mysqli_prepare($conn, "UPDATE user SET sconto = ?,  WHERE email = ?");
+//$updateStmt = mysqli_prepare($conn, "UPDATE user SET sconto = ?,  WHERE email = ?");
 
-mysqli_stmt_bind_param($updateStmt, "ss", $sconto , $email);
+//mysqli_stmt_bind_param($updateStmt, "ss", $sconto , $email);
 ?>
