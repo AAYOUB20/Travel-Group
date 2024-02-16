@@ -32,7 +32,7 @@ include "admin_check.php";
         function openoferta() {
             <?php
             if (isset($_SESSION['email'])) {
-                echo 'window.location.href = "../ruota1/ruta.php";';
+                echo 'window.location.href = "../ruota/ruota.php";';
             } else {
                 echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
                         if (confirmRedirect) {
