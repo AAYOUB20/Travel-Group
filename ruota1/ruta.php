@@ -160,11 +160,12 @@ function startSpin() {
 <?php
 
 if (isset($_SESSION['email'])) {
-    include "SQL_connection.php"; // Include la connessione al database
+    include "../PHP/SQL_connection.php"; // Include la connessione al database
     session_start(); // Avvia la sessione
     
     // Recupera l'email dell'utente dalla sessione
     $email = $_SESSION['email'];
+
 
     // Aggiorna lo sconto nel database
     $sconto = "saw21";
