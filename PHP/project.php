@@ -1,6 +1,6 @@
 <?php
-session_start();
-include "admin_check.php";
+session_start(); // Start the session
+include "admin_check.php";// include il controllo dell'admin 
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ include "admin_check.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traveling</title>
 
-    <link rel="stylesheet" href="../css/project.css">
+    <link rel="stylesheet" href="../css/project.css"> <<!--//link al file css -->
 </head>
 
 <body>
