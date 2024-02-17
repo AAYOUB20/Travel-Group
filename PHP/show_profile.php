@@ -41,8 +41,8 @@
 
                 echo '<h1>Your Profile</h1>';
                 echo '<form id="profileForm" method="post" action="update_profile.php">';
-                echo '<p><strong>Nome:</strong> <span id="firstname">' . $first_name . '</span></p>';
-                echo '<p><strong>ognome:</strong> <span id="lastname">' . $last_name . '</span></p>';
+                echo '<p><strong>firstname:</strong> <span id="firstname">' . $first_name . '</span></p>';
+                echo '<p><strong>lastname:</strong> <span id="lastname">' . $last_name . '</span></p>';
                 echo '<p><strong>Email:</strong> <span id="email">' . $email . '</span></p>';
                 echo '<div class="profile-change">';
                 echo '<button type="button" onclick="editProfile()">Change</button>';
@@ -72,14 +72,14 @@
 
     <div class="my-booking">
              <br></br>
-             <h1>    I TUOI PROSSIMI VIAGGI (●'◡'●): </h1>
+             <h1>  Your Bookings  (●'◡'●): </h1>
 
         <table id="mybooking">
             <thead>
                 <tr>
-                    <th>Booking Destinazione</th>
-                    <th>Booking Data</th>
-                    <th>codice sconto</th>
+                    <th>Booking Destination</th>
+                    <th>Booking Date</th>
+                    <th>Promo code </th>
                 </tr>
             </thead>
             <tbody>
