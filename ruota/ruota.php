@@ -129,11 +129,11 @@ function startSpin() {
         'textFillStyle': 'white',
         'drawMode': 'segmentImage',
         'segments': [
-            {'image': '11.png', 'text': '10%'},
-            {'image': '12.png', 'text': '20%'},
-            {'image': '13.png', 'text': '40%'},
-            {'image': '14.png', 'text': '50%'},
-            {'image': '15.png', 'text': '70%'},
+            {'image': '../', 'text': '10%'},
+            {'image': '../ruota/12.png', 'text': '20%'},
+            {'image': '../ruota/13.png', 'text': '40%'},
+            {'image': '../ruota/14.png', 'text': '50%'},
+            {'image': '../ruota/15.png', 'text': '70%'},
         ],
         'animation': {
             'type': 'spinToStop',

@@ -25,9 +25,25 @@ include "admin_check.php";// include il controllo dell'admin
     <div class="intro">
         <h2>Social Expert Traveler Group</h2>
         <h1>Trust Our Experience</h1>
-        <button id="bookNowButton">Book Now</button> <<!-- bottone per prenotare -->
+        <button id="bookNowButton">Book Now</button> <<!-- bottone per prenotare quando viene digitata se applica il funzione booknowbutton -->
         <button id="discount" onclick="openoferta()">Click here to get a discount</button> <<!-- bottone per ottenere uno sconto quando vienne digitata se applica il funzione open oferta  -->
     </div>
+
+    <script>
+        document.getElementById('bookNowButton').addEventListener('click', function () { // il funzione booknowbutton che si apre quando si clicca il bottone booknow
+            <?php
+            if (isset($_SESSION['email'])) {// se l'utente è loggato allora si apre la pagina di prenotazione
+                echo 'window.location.href = "booknow.php";';
+            } 
+            else {// altrimenti si apre un messaggio che dice che bisogna loggarsi per prenotare
+                echo 'var confirmRedirect = confirm("You need to log  in first. Continue or cancel?");
+                        if (confirmRedirect) {
+                            window.location.href = "login.php";
+                        }';
+            }
+            ?>
+        });
+    </script>
     <script>
         function openoferta() {
             <?php
@@ -94,7 +110,9 @@ include "admin_check.php";// include il controllo dell'admin
             window.open('telegram link', '_blank');
         }
     </script>
-    <div class="second-background">
+
+
+    <div class="second-background"> <!-- class secondo background -->
         <h2>This week trips</h2>
         <div class="image-container">
             <figure>
@@ -118,20 +136,7 @@ include "admin_check.php";// include il controllo dell'admin
         </div>
     </div>
 
-    <script>
-        document.getElementById('bookNowButton').addEventListener('click', function () {
-            <?php
-            if (isset($_SESSION['email'])) {
-                echo 'window.location.href = "booknow.php";';
-            } else {
-                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
-                        if (confirmRedirect) {
-                            window.location.href = "login.php";
-                        }';
-            }
-            ?>
-        });
-    </script>
+ 
 
     <section id="contact" class="section">
         <div class="form-container">
