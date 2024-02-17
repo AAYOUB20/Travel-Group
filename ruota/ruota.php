@@ -24,7 +24,8 @@
                     <br />
                     <br></br>
                     <br></br>
-                    <button type="button" id="spin_button" onClick="startSpin();" style="width: 200px; height: 50px; font-size:20px; font-weight: 600; font-family:'Courier New', Courier, monospace; background-color: #000000; color: white;">GIRA LA RUOTA </button>
+
+                    <button type="button" id="spin_button" onClick="startSpin();" disabled=<php></php> style="width: 200px; height: 50px; font-size:20px; font-weight: 600; font-family:'Courier New', Courier, monospace; background-color: #000000; color: white;">GIRA LA RUOTA </button>
                     <button id="resetArrayButton" onclick="resetArray()"  style="width: 200px; height: 50px; font-weight: 600; font-family:'Courier New', Courier, monospace;font-size :20px; background-color: #fff; color: black;" >RESET</button>
                     <script>
                         document.addEventListener("keydown", function(event) {
@@ -129,11 +130,11 @@ function startSpin() {
         'textFillStyle': 'white',
         'drawMode': 'segmentImage',
         'segments': [
-            {'image': '../', 'text': '10%'},
-            {'image': '../ruota/12.png', 'text': '20%'},
-            {'image': '../ruota/13.png', 'text': '40%'},
-            {'image': '../ruota/14.png', 'text': '50%'},
-            {'image': '../ruota/15.png', 'text': '70%'},
+            {'image': './ruota/11.png', 'text': '10%'},
+            {'image': './ruota/12.png', 'text': '20%'},
+            {'image': './ruota/13.png', 'text': '40%'},
+            {'image': './ruota/14.png', 'text': '50%'},
+            {'image': './ruota/15.png', 'text': '70%'},
         ],
         'animation': {
             'type': 'spinToStop',
@@ -146,13 +147,15 @@ function startSpin() {
     // Called when the spin animation has finished by the callback feature of the wheel.
     function alertPrize(indicatedSegment) {
         console.log(indicatedSegment.text);
+        //set session value with the key "prizes_count", for the first time it will be 1; for the values larger than 1 increas one  
         $("#segmento").html(indicatedSegment.text.toUpperCase())
+
         $("#test1").hide();
         $("#testo").show();
-   setTimeout(function() {
+   /*setTimeout(function() {
     window.location.href = "../php/project.php";
      }, 5000);// 5 secondi
-    }
+    }*/
 
 
 
