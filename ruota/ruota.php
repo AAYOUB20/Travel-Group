@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
     <style>
     body{
-    background-image: url('../ruota1/sfondoo.jpg');
+    background-image: url('sfondoo.jpg');
     background-size: 100%;
     font-family: fixed;
 }
@@ -129,11 +129,11 @@ function startSpin() {
         'textFillStyle': 'white',
         'drawMode': 'segmentImage',
         'segments': [
-            {'image': '../ruota1/11.png', 'text': '10%'},
-            {'image': '../ruota1/12.png', 'text': '20%'},
-            {'image': '../ruota1/13.png', 'text': '40%'},
-            {'image': '../ruota1/14.png', 'text': '50%'},
-            {'image': '../ruota1/15.png', 'text': '70%'},
+            {'image': '11.png', 'text': '10%'},
+            {'image': '12.png', 'text': '20%'},
+            {'image': '13.png', 'text': '40%'},
+            {'image': '14.png', 'text': '50%'},
+            {'image': '15.png', 'text': '70%'},
         ],
         'animation': {
             'type': 'spinToStop',

@@ -12,7 +12,11 @@ Verison History:
 
 
 
-
+body{
+    background-image: url('sfondoo.jpg');
+    background-size: 100%;
+    font-family: fixed;
+}
 
 
 /* Sets the background image for the wheel */
