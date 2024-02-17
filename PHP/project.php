@@ -17,7 +17,7 @@ include "admin_check.php";// include il controllo dell'admin
 <body>
     <header>
         <?php
-        include "navbar.php";
+        include "navbar.php"; // include il file navbar.php cosi se viene vedere il navabar sopra in tutte le pagine
      //   include "sconto_check.php";
 
         ?>
@@ -25,17 +25,17 @@ include "admin_check.php";// include il controllo dell'admin
     <div class="intro">
         <h2>Social Expert Traveler Group</h2>
         <h1>Trust Our Experience</h1>
-        <button id="bookNowButton">Book Now</button>
-        <button id="discount" onclick="openoferta()">Click here to get a discount</button>
+        <button id="bookNowButton">Book Now</button> <<!-- bottone per prenotare -->
+        <button id="discount" onclick="openoferta()">Click here to get a discount</button> <<!-- bottone per ottenere uno sconto quando vienne digitata se applica il funzione open oferta  -->
     </div>
     <script>
         function openoferta() {
             <?php
-            if (isset($_SESSION['email'])) {
-                echo 'window.location.href = "../ruota/ruota.php";';
-            } else {
-                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
-                        if (confirmRedirect) {
+            if (isset($_SESSION['email'])) { // se l'utente è loggato allora si apre la pagina di sconto 
+                echo 'window.location.href = "../ruota/ruota.php";';// link al file ruota.php
+            }
+             else { // altrimenti si apre un messaggio che dice che bisogna loggarsi per ottenere lo sconto
+                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?"); 
                             window.location.href = "login.php";
                         }';
             }
@@ -48,15 +48,15 @@ include "admin_check.php";// include il controllo dell'admin
      <div class="about_in_home">
         <div class="text-about">
             <h3>About US</h3>
-            <p id="coloredText">
+            <p id="coloredText"> <!-- paragrafo con id coloredText che fa il primo lettere con collore verde -->
                 At Traveler Group, we're not just travel organizers; we're passionate globetrotters dedicated to crafting unforgettable experiences around the world. Driven by a deep thirst for exploration and cultural immersion, we curate weekly escapes to diverse destinations, igniting your wanderlust and enriching your life with every journey.
             </p>
-            <a href="about.php">More about ...</a>
+            <a href="about.php">More about ...</a><!-- link al file about.php -->
         </div>
-        <img src="https://th.bing.com/th/id/R.48848c07829ed9fbb312540f3628ae85?rik=vItiarjuto7uXg&pid=ImgRaw&r=0" alt="">
+        <img src="https://th.bing.com/th/id/R.48848c07829ed9fbb312540f3628ae85?rik=vItiarjuto7uXg&pid=ImgRaw&r=0" alt="img2">
     </div>
     </section>
-    <script>
+    <script>// funzione per colorare il primo lettere del paragrafo con id coloredText che si trova sopra
         function colorFirstCharacters() {
             const paragraph = document.getElementById("coloredText");
             const words = paragraph.textContent.split(" ");
