@@ -78,8 +78,8 @@ include "admin_check.php";// include il controllo dell'admin
         </div>
     </div>
 
-    <div class="widget-button">
-        <img src="https://cdn-icons-png.flaticon.com/128/2936/2936956.png" alt="contact us ">
+    <div class="widget-button"> <!-- bottone per contattare il supporto questi qua e qulla che si trova giu nella pagina project -->
+        <img src="https://cdn-icons-png.flaticon.com/128/2936/2936956.png" alt="contact us "> <!-- icona per contattare il supporto(live chat) -->
         <div class="widget-icons">
             <img class="widget-icon" src="https://cdn-icons-png.flaticon.com/512/4494/4494494.png" alt="WhatsApp" onclick="openWhatsApp()">
             <img class="widget-icon" src="https://cdn-icons-png.flaticon.com/128/1603/1603076.png" alt="Telegram" onclick="openTelegram()">
@@ -91,7 +91,7 @@ include "admin_check.php";// include il controllo dell'admin
         }
 
         function openTelegram() {
-            window.open('YOUR_TELEGRAM_LINK', '_blank');
+            window.open('telegram link', '_blank');
         }
     </script>
     <div class="second-background">
