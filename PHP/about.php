@@ -46,7 +46,7 @@
 
         <!-- Social Media Icons -->
         <div class="social-icons">
-            <a href="https://www.instagram.com/braieem" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/ali.ayb02/" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
