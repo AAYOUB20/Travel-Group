@@ -52,8 +52,8 @@ height:36vh;
 position: absolute;
 top: 68%;
 left: 0;" >      <br><br> <br><br><br> <br><span id="test1" style="  display: none;  font-size: 47px;
-"> Gira la ruota per vincere un sconto merveglioso per il tuo prossimo viaggio<br></span> <span id="testo" style="  display: none;  font-size: 50px;
-"> Ti regaliamo a un sconto di usa il codice saw21 :<br><span id="segmento" style="font-weight: bold;"></span><br> 
+"> Gira la ruota per vincere viaggi gratuiti<br></span> <span id="testo" style="  display: none;  font-size: 50px;
+"> Ti regaliamo un viaggio gratuito <br><span id="segmento" style="font-weight: bold;"></span><br> 
 
   </div>
    
@@ -132,11 +132,11 @@ function startSpin() {
         'textFillStyle': 'white',
         'drawMode': 'segmentImage',
         'segments': [
-            {'image': '11.png', 'text': '100€'},
-            {'image': '12.png', 'text': '200€'},
-            {'image': '13.png', 'text': '300€'},
-            {'image': '14.png', 'text': '400€'},
-            {'image': '15.png', 'text': '500€'},
+            {'image': '11.png', 'text': '1'},
+            {'image': '12.png', 'text': '5'},
+            {'image': '13.png', 'text': '10'},
+            {'image': '14.png', 'text': '15'},
+            {'image': '15.png', 'text': '100'},
         ],
         'animation': {
             'type': 'spinToStop',
@@ -173,11 +173,26 @@ function startSpin() {
 include "../PHP/SQL_connection.php";
 
 // Assumendo che il saldo da aggiornare sia 100
-$balance = 100;
+$balance = 1;
+// Query per ottenere il saldo dal database
 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if (isset($_SESSION['email'])) {
     $email = $_SESSION['email'];
 
+
+
+    $sql = "SELECT balance FROM user WHERE email = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+       mysqli_stmt_bind_param($stmt, "s", $email);
+     mysqli_stmt_execute($stmt);
+      $result = mysqli_stmt_get_result($stmt);
+     $row = mysqli_fetch_assoc($result);
+     $balanceFromDatabase = $row['balance'];
+
+     
+     $updatedBalance = $balance + $balanceFromDatabase;
 
     if (!$conn) {
         die("Database connection failed: " . mysqli_connect_error());
@@ -186,9 +201,13 @@ if (isset($_SESSION['email'])) {
     $sql = "UPDATE user SET balance = ? WHERE email = ?";//query per aggiornare il saldo
     $stmt = mysqli_prepare($conn, $sql);
 
-    mysqli_stmt_bind_param($stmt, "ds", $balance, $email);//bind dei parametri
+    mysqli_stmt_bind_param($stmt, "ds", $updatedBalance, $email);//bind dei parametri
 
     if (mysqli_stmt_execute($stmt)) {
+        echo "Saldo aggiornato con successo! Nuovo saldo: " . $updatedBalance;
+    } else {
+        echo "Errore nell'aggiornamento del saldo: " . mysqli_error($conn);
+    }
         echo "Saldo aggiornato con successo!";
     } else {
         echo "Errore nell'aggiornamento del saldo: " . mysqli_error($conn);

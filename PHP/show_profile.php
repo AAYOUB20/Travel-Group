@@ -44,7 +44,7 @@
                 echo '<p><strong>firstname:</strong> <span id="firstname">' . $first_name . '</span></p>';
                 echo '<p><strong>lastname:</strong> <span id="lastname">' . $last_name . '</span></p>';
                 echo '<p><strong>Email:</strong> <span id="email">' . $email . '</span></p>';
-               echo '<p><strong>Balance:</strong> <span id="balnce">' . $balance . '</span></p>';
+               echo '<p><strong>viaggi gratuiti:</strong> <span id="balnce">' . $balance . '</span></p>';
                 echo '<div class="profile-change">';
                 echo '<button type="button" onclick="editProfile()">Change</button>';
                 echo '</div>';

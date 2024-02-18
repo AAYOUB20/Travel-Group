@@ -35,13 +35,27 @@
 <?php
  include "SQL_connection.php" ;
 session_start();
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_SESSION["email"])) {
       $email = $_SESSION["email"];
       $destination = $_POST["destination"];
     $date = $_POST["date"];
     $promoCode = $_POST["promoCode"];
+
+    $book=-1;
+
+
+    
+    $sql = "SELECT balance FROM user WHERE email = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+       mysqli_stmt_bind_param($stmt, "s", $email);
+     mysqli_stmt_execute($stmt);
+      $result = mysqli_stmt_get_result($stmt);
+     $row = mysqli_fetch_assoc($result);
+     $balanceFromDatabase = $row['balance'];
+
+     
+     $updatedBalance =  $balanceFromDatabase + $book;
 
 
   
@@ -51,6 +65,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     $sql = "INSERT INTO booking (email, destination, date, promoCode) VALUES (?, ?, ?, ?)";
+
+    $sqlt = "UPDATE user SET balance = ? WHERE email = ?";
+     $stmtm = mysqli_prepare($conn, $sqlt);
+     mysqli_stmt_bind_param($stmtm, "ds", $updatedBalance, $email); // Correggi anche il tipo di parametro per il saldo
+     if (mysqli_stmt_execute($stmtm)) {
+        echo "updated balance!";
+    } else {
+        echo "Error: " . $sqlt . "<br>" . mysqli_error($conn);
+    }
+
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "ssss", $email, $destination, $date, $promoCode);
