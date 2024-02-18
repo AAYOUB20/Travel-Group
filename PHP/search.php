@@ -10,9 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             die("Database connection failed: " . mysqli_connect_error());
         }
 
-        $sql_query = "SELECT * FROM query WHERE destination LIKE ? OR date LIKE ? OR price LIKE ?";
-        $stmt_query = mysqli_prepare($conn, $sql_query);
-        mysqli_stmt_bind_param($stmt_query, "sss", $search_query, $search_query, $search_query);
+        $sql_query = "SELECT * FROM query WHERE destination LIKE ? OR date LIKE ? OR price LIKE ?";//SQL LIKE 
+        
+        $stmt_query = mysqli_prepare($conn, $sql_query);+//preparazione della query
+        mysqli_stmt_bind_param($stmt_query, "sss", $search_query, $search_query, $search_query);//bind dei parametri  
         mysqli_stmt_execute($stmt_query);
         $result_query = mysqli_stmt_get_result($stmt_query);
 

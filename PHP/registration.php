@@ -83,14 +83,13 @@
 
     try {
         $sql = "INSERT INTO user (firstname, lastname , email, password , balance) VALUES (?, ?, ?, ? , ?)";
-        $sql2 ="INSERT INTO reset_tokens (email) VALUES (?)";
+ 
         $stmt = mysqli_prepare($conn, $sql);
-        $stmt2 = mysqli_prepare($conn, $sql2);
 
         mysqli_stmt_bind_param($stmt, "sssss", $first_name, $last_name, $email, $hashedPassword , $balance);
-        mysqli_stmt_bind_param($stmt2, "s" , $email);
+  
 
-        if (mysqli_stmt_execute($stmt) && mysqli_stmt_execute($stmt2)) {
+        if (mysqli_stmt_execute($stmt)) {
             header("Location: login.php");
             exit;
         } else {
@@ -99,8 +98,7 @@
     } catch (mysqli_sql_exception $ex) {
         echo "name or email already exists.";
     }
-    mysqli_close($stmt);
-    mysqli_close($stmt2);
+    mysqli_stmt_close($stmt);
     mysqli_close($conn);
 }
  }

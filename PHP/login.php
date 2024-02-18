@@ -99,11 +99,11 @@ if ($_POST) {
 
         if (password_verify($password, $dbPassword)) {
             if (isset($_POST['rememberMe'])) {
-                $token = hash("sha256", random_bytes(16));
-                $expiration_time_unix = time();
-                $expiration_time_mysql = date('Y-m-d H:i:s', $expiration_time_unix);
+                $token = hash("sha256", random_bytes(16));// generazione di un cookies token random
+                $expiration_time_unix = time();// unlimited time
+                $expiration_time_mysql = date('Y-m-d H:i:s', $expiration_time_unix);// variabile per salvare il tempo di scadenza del token in db 
 
-                setcookie("remember_token", $token, $expiration_time_unix, '/', '', false, true);
+                setcookie("remember_token", $token, $expiration_time_unix, '/', '', false, true); // set del cookies
 
                 $updateStmt = mysqli_prepare($conn, "UPDATE user SET remember_token = ?, expiration_time = ? WHERE email = ?");
                 mysqli_stmt_bind_param($updateStmt, "sss", $token, $expiration_time_mysql, $email);

@@ -9,7 +9,7 @@
     <!-- Bootstrap  -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
    <link rel="stylesheet" href="../css/navbar.css"> 
-</head>
+</head>,
 <body>
 <nav class="navbar navbar-expand-lg  fixed-top">
         <a class="navbar-brand" href="project.php">
