@@ -150,7 +150,7 @@ function startSpin() {
         $("#test1").hide();
         $("#testo").show();
    setTimeout(function() {
-    window.location.href = "../php/project.php";
+    window.location.href = "../PHP/project.php";
      }, 5000);// 5 secondi
     }
 
@@ -159,7 +159,7 @@ function startSpin() {
 </script>
 
 <audio id="audio" autoplay="autoplay" controls="controls">
-    <source src="../ruota1/ok.mp3" />     
+    <source src="ok.mp3" />     
 </audio>
 
 </body>
@@ -169,26 +169,7 @@ function startSpin() {
 
 if (isset($_SESSION['email'])) {
     include "../PHP/SQL_connection.php"; // Include la connessione al database
-    session_start(); // Avvia la sessione
-    
-    // Recupera l'email dell'utente dalla sessione
-    $email = $_SESSION['email'];
-
-
-    // Aggiorna lo sconto nel database
-    $sconto = "saw21";
-    $updateStmt = mysqli_prepare($conn, "UPDATE user SET sconto = ? WHERE email = ?");
-    mysqli_stmt_bind_param($updateStmt, "ss", $sconto, $email);
-
-    // Esegui la query di aggiornamento
-    if (mysqli_stmt_execute($updateStmt)) {
-        echo "Sconto aggiornato con successo per l'utente con email: " . $email;
-    } else {
-        echo "Errore durante l'aggiornamento dello sconto: " . mysqli_error($conn);
-    }
-
-    // Chiudi la connessione al database
-    mysqli_close($conn);
+    echo ciao;
 }
-
+ 
 ?>
