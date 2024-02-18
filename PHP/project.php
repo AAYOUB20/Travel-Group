@@ -18,7 +18,7 @@ include "admin_check.php";
 <body>
     <header>
         <?php
-        include "navbar.php";
+        include "navbar.php"; // include the navbar
         ?>
     </header>
     <div class="intro">
@@ -28,6 +28,19 @@ include "admin_check.php";
         <a href="ruota.php"><button id="discount">Click here to get a discount</button></a>
     </div>
     <script>
+        document.getElementById('bookNowButton').addEventListener('click', function () {
+            <?php
+            if (isset($_SESSION['email'])) {
+                echo 'window.location.href = "booknow.php";';//nel caso in cui l'utente è loggato quando clicca sul bottone "book now" viene reindirizzato alla pagina booknow.php
+            } else {
+                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
+                        if (confirmRedirect) {
+                            window.location.href = "login.php";
+                        }';
+            }
+            ?>
+        });
+    
         function openfragment() {
             document.getElementById('fragment-overlay').style.display = 'flex';
         }
@@ -45,7 +58,7 @@ include "admin_check.php";
             </p>
             <a href="about.php">More about ...</a>
         </div>
-        <img src="https://th.bing.com/th/id/R.48848c07829ed9fbb312540f3628ae85?rik=vItiarjuto7uXg&pid=ImgRaw&r=0" alt="">
+        <img src="../foto/image_2.jpeg" alt="">
     </div>
     </section>
     <script>
@@ -71,10 +84,10 @@ include "admin_check.php";
     </div>
 
     <div class="widget-button">
-        <img src="https://cdn-icons-png.flaticon.com/128/2936/2936956.png" alt="contact us ">
+        <img src="../foto/live_chat.png" alt="contact us ">
         <div class="widget-icons">
-            <img class="widget-icon" src="https://cdn-icons-png.flaticon.com/512/4494/4494494.png" alt="WhatsApp" onclick="openWhatsApp()">
-            <img class="widget-icon" src="https://cdn-icons-png.flaticon.com/128/1603/1603076.png" alt="Telegram" onclick="openTelegram()">
+            <img class="widget-icon" src="../foto/icon_whatsapp.png" alt="WhatsApp" onclick="openWhatsApp()">
+            <img class="widget-icon" src="../foto/icon_instagram.png" alt="Telegram" onclick="openTelegram()">
         </div>
     </div>
     <script>
@@ -110,20 +123,7 @@ include "admin_check.php";
         </div>
     </div>
 
-    <script>
-        document.getElementById('bookNowButton').addEventListener('click', function () {
-            <?php
-            if (isset($_SESSION['email'])) {
-                echo 'window.location.href = "booknow.php";';
-            } else {
-                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
-                        if (confirmRedirect) {
-                            window.location.href = "login.php";
-                        }';
-            }
-            ?>
-        });
-    </script>
+
 
     <section id="contact" class="section">
         <div class="form-container">
