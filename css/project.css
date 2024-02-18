@@ -23,12 +23,12 @@ body {
 
 h1 {
     font-weight: bold;
-    color: blueviolet;
+    color: black;
     margin-bottom: 10px;
 }
 
 h2 {
-    color: blueviolet;
+    color: black;
 }
 
 p {
@@ -111,7 +111,7 @@ button:hover {
     cursor: pointer;
 }
 
-.second-background { 
+.second-background {
     background-image: url("../foto/cover2.jpg");
     background-color: hsla(0, 0%, 100%, 1);
     background-size: 100%;

@@ -25,14 +25,14 @@
                         die("Database connection failed: " . mysqli_connect_error());
                     }
 
-                    $sql = "SELECT firstname, lastname, email , balance FROM user WHERE email = ?";
+                    $sql = "SELECT firstname, lastname, email FROM user WHERE email = ?";
                     $stmt = mysqli_prepare($conn, $sql);
                     mysqli_stmt_bind_param($stmt, "s", $email);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_store_result($stmt);
 
                     if (mysqli_stmt_num_rows($stmt) == 1) {
-                        mysqli_stmt_bind_result($stmt, $first_name, $last_name, $email , $balance);
+                        mysqli_stmt_bind_result($stmt, $first_name, $last_name, $email);
                         mysqli_stmt_fetch($stmt);
                     }
 
@@ -41,10 +41,9 @@
 
                 echo '<h1>Your Profile</h1>';
                 echo '<form id="profileForm" method="post" action="update_profile.php">';
-                echo '<p><strong>firstname:</strong> <span id="firstname">' . $first_name . '</span></p>';
-                echo '<p><strong>lastname:</strong> <span id="lastname">' . $last_name . '</span></p>';
+                echo '<p><strong>Firstname:</strong> <span id="firstname">' . $first_name . '</span></p>';
+                echo '<p><strong>Lastname:</strong> <span id="lastname">' . $last_name . '</span></p>';
                 echo '<p><strong>Email:</strong> <span id="email">' . $email . '</span></p>';
-               echo '<p><strong>viaggi gratuiti:</strong> <span id="balnce">' . $balance . '</span></p>';
                 echo '<div class="profile-change">';
                 echo '<button type="button" onclick="editProfile()">Change</button>';
                 echo '</div>';
@@ -78,9 +77,9 @@
         <table id="mybooking">
             <thead>
                 <tr>
-                    <th>Booking Destinazione</th>
-                    <th>Booking Data</th>
-                    <th>codice sconto</th>
+                    <th>Booking Destination</th>
+                    <th>Booking Date</th>
+                    <th>Promo code </th>
                 </tr>
             </thead>
             <tbody>

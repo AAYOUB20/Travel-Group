@@ -1,6 +1,6 @@
 <?php
-session_start(); // Start the session
-include "admin_check.php";// include il controllo dell'admin 
+session_start();
+include "admin_check.php";
 ?>
 
 <!DOCTYPE html>
@@ -9,70 +9,46 @@ include "admin_check.php";// include il controllo dell'admin
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/project.css">
+
     <title>Traveling</title>
 
-    <link rel="stylesheet" href="../css/project.css"> <<!--//link al file css -->
 </head>
 
 <body>
     <header>
         <?php
-        include "navbar.php"; // include il file navbar.php cosi se viene vedere il navabar sopra in tutte le pagine
-     //   include "sconto_check.php";
-
+        include "navbar.php";
         ?>
     </header>
     <div class="intro">
         <h2>Social Expert Traveler Group</h2>
         <h1>Trust Our Experience</h1>
-        <button id="bookNowButton">Book Now</button> <<!-- bottone per prenotare quando viene digitata se applica il funzione booknowbutton -->
-        <button id="discount" onclick="openoferta()">Click here to get a discount</button> <<!-- bottone per ottenere uno sconto quando vienne digitata se applica il funzione open oferta  -->
+        <button id="bookNowButton">Book Now</button>
+        <a href="ruota.php"><button id="discount">Click here to get a discount</button></a>
     </div>
-
     <script>
-        document.getElementById('bookNowButton').addEventListener('click', function () { // il funzione booknowbutton che si apre quando si clicca il bottone booknow
-            <?php
-            if (isset($_SESSION['email'])) {// se l'utente è loggato allora si apre la pagina di prenotazione
-                echo 'window.location.href = "booknow.php";';
-            } 
-            else {// altrimenti si apre un messaggio che dice che bisogna loggarsi per prenotare
-                echo 'var confirmRedirect = confirm("You need to log  in first. Continue or cancel?");
-                        if (confirmRedirect) {
-                            window.location.href = "login.php";
-                        }';
-            }
-            ?>
-        });
-    </script>
-    <script>
-        function openoferta() {
-            <?php
-            if (isset($_SESSION['email'])) { // se l'utente è loggato allora si apre la pagina di sconto 
-                echo 'window.location.href = "../ruota/ruota.php";';// link al file ruota.php
-            }
-             else { // altrimenti si apre un messaggio che dice che bisogna loggarsi per ottenere lo sconto
-                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?"); 
-                            window.location.href = "login.php";
-                        }';
-            }
+        function openfragment() {
+            document.getElementById('fragment-overlay').style.display = 'flex';
+        }
 
-            ?>
-        };
-    
+        function closefragment() {
+            document.getElementById('fragment-overlay').style.display = 'none';
+        }
     </script>
     <section id="about" class="about">
      <div class="about_in_home">
         <div class="text-about">
             <h3>About US</h3>
-            <p id="coloredText"> <!-- paragrafo con id coloredText che fa il primo lettere con collore verde -->
+            <p id="coloredText">
                 At Traveler Group, we're not just travel organizers; we're passionate globetrotters dedicated to crafting unforgettable experiences around the world. Driven by a deep thirst for exploration and cultural immersion, we curate weekly escapes to diverse destinations, igniting your wanderlust and enriching your life with every journey.
             </p>
-            <a href="about.php">More about ...</a><!-- link al file about.php -->
+            <a href="about.php">More about ...</a>
         </div>
-        <img src="https://th.bing.com/th/id/R.48848c07829ed9fbb312540f3628ae85?rik=vItiarjuto7uXg&pid=ImgRaw&r=0" alt="img2">
+        <img src="https://th.bing.com/th/id/R.48848c07829ed9fbb312540f3628ae85?rik=vItiarjuto7uXg&pid=ImgRaw&r=0" alt="">
     </div>
     </section>
-    <script>// funzione per colorare il primo lettere del paragrafo con id coloredText che si trova sopra
+    <script>
         function colorFirstCharacters() {
             const paragraph = document.getElementById("coloredText");
             const words = paragraph.textContent.split(" ");
@@ -89,13 +65,13 @@ include "admin_check.php";// include il controllo dell'admin
     </script>
     <div id="fragment-overlay">
         <div id="fragment-modal">
-            <iframe src="" frameborder="0"></iframe>
+            <iframe src="index.html" frameborder="0"></iframe>
             <button id="closefragment" onclick="closefragment()">Close </button>
         </div>
     </div>
 
-    <div class="widget-button"> <!-- bottone per contattare il supporto questi qua e qulla che si trova giu nella pagina project -->
-        <img src="https://cdn-icons-png.flaticon.com/128/2936/2936956.png" alt="contact us "> <!-- icona per contattare il supporto(live chat) -->
+    <div class="widget-button">
+        <img src="https://cdn-icons-png.flaticon.com/128/2936/2936956.png" alt="contact us ">
         <div class="widget-icons">
             <img class="widget-icon" src="https://cdn-icons-png.flaticon.com/512/4494/4494494.png" alt="WhatsApp" onclick="openWhatsApp()">
             <img class="widget-icon" src="https://cdn-icons-png.flaticon.com/128/1603/1603076.png" alt="Telegram" onclick="openTelegram()">
@@ -107,12 +83,10 @@ include "admin_check.php";// include il controllo dell'admin
         }
 
         function openTelegram() {
-            window.open('telegram link', '_blank');
+            window.open('YOUR_TELEGRAM_LINK', '_blank');
         }
     </script>
-
-
-    <div class="second-background"> <!-- class secondo background -->
+    <div class="second-background">
         <h2>This week trips</h2>
         <div class="image-container">
             <figure>
@@ -136,7 +110,20 @@ include "admin_check.php";// include il controllo dell'admin
         </div>
     </div>
 
- 
+    <script>
+        document.getElementById('bookNowButton').addEventListener('click', function () {
+            <?php
+            if (isset($_SESSION['email'])) {
+                echo 'window.location.href = "booknow.php";';
+            } else {
+                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
+                        if (confirmRedirect) {
+                            window.location.href = "login.php";
+                        }';
+            }
+            ?>
+        });
+    </script>
 
     <section id="contact" class="section">
         <div class="form-container">
