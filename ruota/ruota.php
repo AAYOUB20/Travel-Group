@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -129,11 +132,11 @@ function startSpin() {
         'textFillStyle': 'white',
         'drawMode': 'segmentImage',
         'segments': [
-            {'image': '11.png', 'text': '10%'},
-            {'image': '12.png', 'text': '20%'},
-            {'image': '13.png', 'text': '40%'},
-            {'image': '14.png', 'text': '50%'},
-            {'image': '15.png', 'text': '70%'},
+            {'image': '11.png', 'text': '100€'},
+            {'image': '12.png', 'text': '200€'},
+            {'image': '13.png', 'text': '300€'},
+            {'image': '14.png', 'text': '400€'},
+            {'image': '15.png', 'text': '500€'},
         ],
         'animation': {
             'type': 'spinToStop',
@@ -165,11 +168,34 @@ function startSpin() {
 </body>
 </html>
 
+
 <?php
+include "../PHP/SQL_connection.php";
+
+// Assumendo che il saldo da aggiornare sia 100
+$balance = 100;
 
 if (isset($_SESSION['email'])) {
-    include "../PHP/SQL_connection.php"; // Include la connessione al database
-    echo ciao;
+    $email = $_SESSION['email'];
+
+
+    if (!$conn) {
+        die("Database connection failed: " . mysqli_connect_error());
+    }
+
+    $sql = "UPDATE user SET balance = ? WHERE email = ?";//query per aggiornare il saldo
+    $stmt = mysqli_prepare($conn, $sql);
+
+    mysqli_stmt_bind_param($stmt, "ds", $balance, $email);//bind dei parametri
+
+    if (mysqli_stmt_execute($stmt)) {
+        echo "Saldo aggiornato con successo!";
+    } else {
+        echo "Errore nell'aggiornamento del saldo: " . mysqli_error($conn);
+    }
+
+    mysqli_close($conn);//chiusura della connessione
 }
- 
 ?>
+
+  
