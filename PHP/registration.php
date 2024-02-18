@@ -72,6 +72,7 @@
     $last_name = $_POST["lastname"];
     $email = $_POST["email"];
     $password = $_POST["password"];
+    $balance=0;
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
    
@@ -81,12 +82,12 @@
     }
 
     try {
-        $sql = "INSERT INTO user (firstname, lastname , email, password) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO user (firstname, lastname , email, password , balance) VALUES (?, ?, ?, ? , ?)";
         $sql2 ="INSERT INTO reset_tokens (email) VALUES (?)";
         $stmt = mysqli_prepare($conn, $sql);
         $stmt2 = mysqli_prepare($conn, $sql2);
 
-        mysqli_stmt_bind_param($stmt, "ssss", $first_name, $last_name, $email, $hashedPassword);
+        mysqli_stmt_bind_param($stmt, "sssss", $first_name, $last_name, $email, $hashedPassword , $balance);
         mysqli_stmt_bind_param($stmt2, "s" , $email);
 
         if (mysqli_stmt_execute($stmt) && mysqli_stmt_execute($stmt2)) {
