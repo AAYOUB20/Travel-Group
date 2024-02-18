@@ -173,7 +173,7 @@ function startSpin() {
 include "../PHP/SQL_connection.php";
 
 // Assumendo che il saldo da aggiornare sia 100
-$balance = 1;
+
 // Query per ottenere il saldo dal database
 
 
@@ -181,6 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if (isset($_SESSION['email'])) {
     $email = $_SESSION['email'];
 
+    $balance = 1;
 
 
     $sql = "SELECT balance FROM user WHERE email = ?";
