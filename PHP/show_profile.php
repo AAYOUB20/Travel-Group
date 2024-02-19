@@ -63,7 +63,7 @@
 
             nameSpan.innerHTML = '<input type="text" name="firstname" id="firstname" value="' + nameSpan.textContent + '" required>';
             lastnameSpan.innerHTML = '<input type="text" name="lastname" id="lastname" value="' + lastnameSpan.textContent + '" required>';
-            emailSpan.innerHTML = '<input type="text" name="email" id="email" value="' + emailSpan.textContent + '" required>';
+            emailSpan.innerHTML = '<input type="email" name="email" id="email" value="' + emailSpan.textContent + '" required>';
 
             document.querySelector('.profile-change button').style.display = 'none';
             document.querySelector('.profile-update').style.display = 'block';

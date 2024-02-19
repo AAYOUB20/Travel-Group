@@ -15,25 +15,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Database connection failed: " . mysqli_connect_error());
         }
 
-        // Check if the promo code is not empty
-        if (!empty($promoCode)) {
             // Use a default discount percentage if the promo code is not found
             $defaultDiscountPercentage = 0;
 
             // Check if the promo code exists in the predefined discounts
             $promoCodeDiscounts = array(
-                "ali" => 10,   // 10%
-                "era" => 15,   // 15%
-                "ibra" => 20,  // 20%
-                "saw" => 25,   // 25%
-                "unige" => 30  // 30%
+                "ali" => 10,   
+                "era" => 15,   
+                "ibra" => 20,  
+                "saw" => 25,   
+                "unige" => 30  
             );
 
             // Assign the corresponding discount percentage for the valid promo code
             $discount = isset($promoCodeDiscounts[$promoCode]) ? $promoCodeDiscounts[$promoCode] : $defaultDiscountPercentage;
 
             // Append the discount percentage to the promo code
-            $discountpercentage = "$discount%";
+            $discountpercentage = "($discount%)";
 
             // Insert the booking details into the database
             $sql = "INSERT INTO booking (email, destination, date, promoCode) VALUES (?, ?, ?, ?)";
@@ -42,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 mysqli_stmt_bind_param($stmt, "ssss", $email, $destination, $date, $discountpercentage);
 
                 if (mysqli_stmt_execute($stmt)) {
+                    sleep(0.7);
                     echo "<script>window.onload = function() {
                             document.getElementById('ratingOverlay').style.display = 'flex';
                           }</script>";
@@ -51,14 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 echo "Error preparing the statement: " . mysqli_error($conn);
             }
-        } else {
-            // Handle case when promo code is empty
-            echo "Please enter a promo code.";
-        }
-    } else {
-        echo "Database connection not found in the session.";
+        } 
     }
-}
+
 ?>
 
 
