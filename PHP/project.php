@@ -133,7 +133,7 @@ include "admin_check.php";
             <hr>
             <form action="action_page.php" method="POST"> 
                 <div class="info-section">
-                    <label for="name">Name</label><!-- label e per scrivere il testo sopra l'input e class  e per indicare il colore del testo -->
+                    <label for="name">Name</label>
                     <input type="text" id="name" name="Name" required>
                 </div>
                 <div class="info-section">
