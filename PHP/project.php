@@ -25,7 +25,7 @@ include "admin_check.php";
         <h2>Social Expert Traveler Group</h2>
         <h1>Trust Our Experience</h1>
         <button id="bookNowButton">Book Now</button>
-        <a href="ruota.php"><button id="discount">Click here to get a discount</button></a>
+        <button id="discount" onclick="openoferta()">Click here to get a discount</button> <!-- bottone per ottenere uno sconto quando vienne digitata se applica il funzione open oferta  -->
     </div>
     <script>
         document.getElementById('bookNowButton').addEventListener('click', function () {
@@ -41,13 +41,20 @@ include "admin_check.php";
             ?>
         });
     
-        function openfragment() {
-            document.getElementById('fragment-overlay').style.display = 'flex';
-        }
+        function openoferta() {
+            <?php
+            if (isset($_SESSION['email'])) { // se l'utente è loggato allora si apre la pagina di sconto 
+                echo 'window.location.href = "ruota.php";';// link al file ruota.php
+            }
+             else { // altrimenti si apre un messaggio che dice che bisogna loggarsi per ottenere lo sconto
+                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?"); 
+                            window.location.href = "login.php";
+                        }';
+            }
 
-        function closefragment() {
-            document.getElementById('fragment-overlay').style.display = 'none';
-        }
+            ?>
+        };
+    
     </script>
     <section id="about" class="about">
      <div class="about_in_home">
@@ -156,14 +163,14 @@ include "admin_check.php";
     </footer>
 
     <script>
-        window.addEventListener('scroll', function () {
+       /* window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 0) {
                 navbar.classList.add('fixed');
             } else {
                 navbar.classList.remove('fixed');
             }
-        });
+        });*/
     </script>
 
 </body>

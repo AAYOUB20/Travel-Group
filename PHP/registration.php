@@ -84,22 +84,22 @@
     try {
         $sql = "INSERT INTO user (firstname, lastname , email, password , balance) VALUES (?, ?, ?, ? , ?)";
  
-        $stmt = mysqli_prepare($conn, $sql);
+        $stmt = mysqli_prepare($conn, $sql);//prepare the sql statement
 
-        mysqli_stmt_bind_param($stmt, "sssss", $first_name, $last_name, $email, $hashedPassword , $balance);
+        mysqli_stmt_bind_param($stmt, "sssss", $first_name, $last_name, $email, $hashedPassword , $balance);//bind the parameters to the sql statement
   
 
         if (mysqli_stmt_execute($stmt)) {
-            header("Location: login.php");
+            header("Location: login.php"); // se il dati sono stati inseriti correttamente allora si reindirizza alla pagina di login
             exit;
         } else {
-            echo "Registration failed.";
+            echo "Registration failed.";// se il dati non sono stati inseriti correttamente allora si stampa un messaggio di errore
         }
     } catch (mysqli_sql_exception $ex) {
-        echo "name or email already exists.";
+        echo "name or email already exists.";// se il nome o l'email esistono gia allora si stampa un messaggio di errore
     }
-    mysqli_stmt_close($stmt);
-    mysqli_close($conn);
+    mysqli_stmt_close($stmt);//close the statement
+    mysqli_close($conn);//close the connection
 }
  }
 ?>
