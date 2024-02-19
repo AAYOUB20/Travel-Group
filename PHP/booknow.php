@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $discount = isset($promoCodeDiscounts[$promoCode]) ? $promoCodeDiscounts[$promoCode] : $defaultDiscountPercentage;
 
             // Append the discount percentage to the promo code
-            $discountpercentage = "($discount%)";
+            $discountpercentage = "$discount%";
 
             // Insert the booking details into the database
             $sql = "INSERT INTO booking (email, destination, date, promoCode) VALUES (?, ?, ?, ?)";
