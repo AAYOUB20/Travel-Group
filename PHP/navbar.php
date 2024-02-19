@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Travel Company</title>
     <!-- Bootstrap  -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
-   <link rel="stylesheet" href="../css/navbar.css"> 
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  <!-- il moodel di navabar e preso da boostrap -->
+   <link rel="stylesheet" href="../css/navbar.css"> <!-- alcuni altri style sono nell csss -->
 </head>,
 <body>
 <nav class="navbar navbar-expand-lg  fixed-top">
