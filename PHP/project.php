@@ -65,20 +65,20 @@ include "admin_check.php";
             </p>
             <a href="about.php">More about ...</a>
         </div>
-        <img src="../foto/image_2.jpeg" alt="">
+        <img src="../foto/image_2.jpeg" alt=""> 
     </div>
     </section>
-    <script>
+    <script> // questi sciption e per colorare la prima lettera di ogni parola in un colore diverso
         function colorFirstCharacters() {
-            const paragraph = document.getElementById("coloredText");
-            const words = paragraph.textContent.split(" ");
-            const coloredWords = words.map(word => {
+            const paragraph = document.getElementById("coloredText");// prende il paragrafo con id "coloredText"
+            const words = paragraph.textContent.split(" ");// divide il testo in parole
+            const coloredWords = words.map(word => {// per ogni parola nel testo
                 if (word.length > 0) {
-                    return `<span class="colored">${word[0]}</span>${word.slice(1)}`;
+                    return `<span class="colored">${word[0]}</span>${word.slice(1)}`;// colora la prima lettera di ogni parola
                 }
                 return "";
             });
-            paragraph.innerHTML = coloredWords.join(" ");
+            paragraph.innerHTML = coloredWords.join(" ");// unisce le parole colorate
         }
 
         colorFirstCharacters();
