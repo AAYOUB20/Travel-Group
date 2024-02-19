@@ -163,8 +163,7 @@ include "navbar.php";
                         alt="Image 1">
                     <p>Date: <?php echo $dates[0]; ?></p>
                     <p>Price: <?php echo $prices[0]; ?></p>
-                    <button class="book-button"
-                        onclick="book('<?php echo $destination; ?>', '<?php echo $dates[0]; ?>', '<?php echo $prices[0]; ?>')">Book</button>
+                    <button class="book-button" >Book</button>
                 </div>
             </div>
 
@@ -174,8 +173,7 @@ include "navbar.php";
                         alt="Image 2">
                     <p>Date: <?php echo $dates[1]; ?></p>
                     <p>Price: <?php echo $prices[1]; ?></p>
-                    <button class="book-button"
-                        onclick="book('<?php echo $destination; ?>', '<?php echo $dates[1]; ?>', '<?php echo $prices[1]; ?>')">Book</button>
+                    <button class="book-button" >Book</button>
                 </div>
             </div>
 
@@ -185,8 +183,7 @@ include "navbar.php";
                         src="https://static.toiimg.com/photo/77705127/oie_231564pB5vhUD9.jpg?width=748&resize=4" alt="Image 3">
                     <p>Date: <?php echo $dates[2]; ?></p>
                     <p>Price: <?php echo $prices[2]; ?></p>
-                    <button class="book-button"
-                        onclick="book('<?php echo $destination; ?>', '<?php echo $dates[2]; ?>', '<?php echo $prices[2]; ?>')">Book</button>
+                    <button class="book-button" >Book</button>
                 </div>
             </div>
         </div>
