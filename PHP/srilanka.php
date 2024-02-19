@@ -2,6 +2,9 @@
 session_start();
 include "SQL_connection.php"; 
 
+
+
+
 $sql = "SELECT * FROM query WHERE destination = 'sri lanka'";
 $result = mysqli_query($conn, $sql);
 

@@ -106,25 +106,81 @@ include "admin_check.php";
         <h2>This week trips</h2>
         <div class="image-container">
             <figure>
-                <a href="Thailand.php">
+                <a id="Thailand">
                     <img src="../foto/Thailand.jpg" alt="Thailand" >
                     <figcaption>Thailand</figcaption>
                 </a>
             </figure>
             <figure>
-                <a href="srilanka.php">
+                <a id="srilanka">
                     <img src="../foto/Siri Lanka.jpg" alt="Sirilanka">
                     <figcaption>Sirilanka</figcaption>
                 </a>
             </figure>
             <figure>
-                <a href="rome.php">
+                <a id="rome">
                     <img src="../foto/Roma.jpg" alt="Roma">
                     <figcaption>Roma</figcaption>
                 </a>
             </figure>
         </div>
     </div>
+
+
+    <script>
+
+        document.getElementById('rome').addEventListener('click', function () {
+            <?php
+            if (isset($_SESSION['email'])) { // se l'utente è loggato allora si apre la pagina di rome
+                echo 'window.location.href = "rome.php";';// link al file rome.php
+            }
+             else { // altrimenti si apre un messaggio che dice che bisogna loggarsi    
+                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
+                        if (confirmRedirect) {
+                            window.location.href = "login.php";
+                        }';
+            }
+
+            ?>
+        });
+
+        document.getElementById('srilanka').addEventListener('click', function () {
+            <?php
+            if (isset($_SESSION['email'])) { 
+                echo 'window.location.href = "srilanka.php";';// link al file srilanka.php
+            }
+             else { // altrimenti si apre un messaggio che dice che bisogna loggarsi 
+                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
+                        if (confirmRedirect) {
+                            window.location.href = "login.php";
+                        }';
+            }
+
+            ?>
+        });
+
+
+
+        document.getElementById('Thailand').addEventListener('click', function () {
+            <?php
+            if (isset($_SESSION['email'])) { 
+                echo 'window.location.href = "Thailand.php";';// link al file Thailand.php
+            }
+             else { // altrimenti si apre un messaggio che dice che bisogna loggarsi 
+                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
+                        if (confirmRedirect) {
+                            window.location.href = "login.php";
+                        }';
+            }
+
+            ?>
+        });
+
+
+    
+    </script>
+
+
 
 
 

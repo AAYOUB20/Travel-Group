@@ -8,7 +8,7 @@ if (isset($_COOKIE['remember_token'])) {
   unset($_COOKIE['remember_token']);
 }
 
-session_destroy();
+session_destroy();// destroy il session
 sleep(0.7);
-header("Location: login.php");
+header("Location: login.php");// va nel pagina di login
 ?>

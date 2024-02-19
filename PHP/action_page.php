@@ -1,4 +1,5 @@
 <?php
+//queta e utilizata nel project.php per invitare messagi all'admin
 include "SQL_connection.php"; // include il connection al database
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
