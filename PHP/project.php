@@ -25,7 +25,7 @@ include "admin_check.php";
         <h2>Social Expert Traveler Group</h2><!-- titolo della pagina h2 e sollo per scrivere letter grande ma pi piccolo di h1 -->
         <h1>Trust Our Experience</h1>
         <button id="bookNowButton">Book Now</button><!-- bottone per prenotare un viaggio quando se digita se applica il funzion Book now button -->
-        <button id="discount" onclick="openoferta()">Click here to get a discount</button> <!-- bottone per ottenere uno sconto quando vienne digitata se applica il funzione open oferta  -->
+        <button id="discount" >Click here to get a discount</button> <!-- bottone per ottenere uno sconto quando vienne digitata se applica il funzione open oferta  -->
     </div>
     <script>
         document.getElementById('bookNowButton').addEventListener('click', function () {
@@ -41,7 +41,7 @@ include "admin_check.php";
             ?>
         });
     
-        function openoferta() {
+        document.getElementById('discount').addEventListener('click', function () {
             <?php
             if (isset($_SESSION['email'])) { // se l'utente è loggato allora si apre la pagina di sconto 
                 echo 'window.location.href = "ruota.php";';// link al file ruota.php
@@ -54,7 +54,7 @@ include "admin_check.php";
             }
 
             ?>
-        };
+        });
     
     </script>
     <section id="about" class="about">
