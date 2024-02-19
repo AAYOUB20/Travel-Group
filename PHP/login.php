@@ -12,8 +12,9 @@
     <main>
         <section class="form">
            
-            <h1 class="form__title">Log in to your Account</h1> <!-- h1 e solo per scriver lettere in modalita piu grande il class se trova nell file css per indicare colore ..-->
+            <h1 class="form__title">Log in to your Account</h1><!-- h1 e solo per scriver lettere in modalita piu grande il class se trova nell file css per indicare colore -->
             <p class="form__description">Welcome back! Please, enter your information</p><!-- p e per scrivere testo in modalita normale il class se trova nell file css per indicare colore ..-->
+
 
             <form action="login.php" method="POST"><!-- action e per indicare il file php che si deve eseguire quando si clicca sul bottone submit e method e per indicare il metodo post di invio dei dati -->
                 <label class="form-control__label" for="email">email</label><!-- label e per scrivere il testo sopra l'input e class  e per indicare il colore del testo -->
@@ -26,28 +27,27 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
                     </svg>
                 </div>
-                <div class="password__settings"> <!-- div per contenere il checkbox e il link per recuperare la password (non ha sesno ma la scritta ibrahim) -->
-
-                    <label class="password__settings__remember" for="rememberMe"><!-- label  questo e importante per Remebermi che fa nascere il cookies  -->
-                        <input type="checkbox" id="rememberMe" name="rememberMe"><!-- input per creare il checkbox   -->
+                <div class="password__settings">
+                    <label class="password__settings__remember" for="rememberMe">/
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
                         <span class="custom__checkbox">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                             </svg>                              
                         </span>
-                        Remember me 
+                        Remember me
                     </label>
         
-                    <a href="../html/forget_password.html">Forgot Password?</a> <!-- link per recuperare la password ma in realta non funziona per link falso  -->
+                    <a href="../html/forget_password.html">Forgot Password?</a>
                 </div>
         
-                <button type="submit" class="form__submit" id="submit">Log In</button> <!-- bottone per inviare i dati al file php quando viene digita se manda al php per lavorare -->
-                <a href="project.php"><button type="button" class="home" id="home">Home page</button></a><!-- bottone per tornare alla pagina principale -->
+                <button type="submit" class="form__submit" id="submit">Log In</button>
+                <a href="project.php"><button type="button" class="home" id="home">Home page</button></a>
 
             </form>
         
             <p class="form__footer">
-                Don't have an account?<br> <a href="registration.php">Create an account</a> <!-- link per creare un account -->
+                Don't have an account?<br> <a href="registration.php">Create an account</a>
             </p>
         </section>
         
@@ -56,7 +56,7 @@
                 <div class="ball">
                     <div id="face">
                         <div class="ball__eyes">
-                            <div class="eye_wrap"><span class="eye"></span></div> 
+                            <div class="eye_wrap"><span class="eye"></span></div>
                             <div class="eye_wrap"><span class="eye"></span></div>
                         </div>
                         <div class="ball__mouth"></div>
