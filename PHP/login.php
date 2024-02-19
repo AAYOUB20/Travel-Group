@@ -28,7 +28,7 @@
                     </svg>
                 </div>
                 <div class="password__settings">
-                    <label class="password__settings__remember" for="rememberMe">/
+                    <label class="password__settings__remember" for="rememberMe">
                         <input type="checkbox" id="rememberMe" name="rememberMe">
                         <span class="custom__checkbox">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
@@ -38,7 +38,7 @@
                         Remember me
                     </label>
         
-                    <a href="../html/forget_password.html">Forgot Password?</a>
+                    <a href="../html/forget_password.html">Forgot Password?</a><!-- link per recuperare la password ma in realta non funziona per link falso  -->
                 </div>
         
                 <button type="submit" class="form__submit" id="submit">Log In</button>
@@ -47,7 +47,7 @@
             </form>
         
             <p class="form__footer">
-                Don't have an account?<br> <a href="registration.php">Create an account</a>
+                Don't have an account?<br> <a href="registration.php">Create an account</a> 
             </p>
         </section>
         
