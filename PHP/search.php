@@ -42,8 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         mysqli_stmt_close($stmt_query);
         mysqli_close($conn);
-    } else {
-        echo "No query provided!";
     }
 }
 ?>
@@ -63,3 +61,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                     });
                 });
             </script>";
+            
