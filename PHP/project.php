@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "admin_check.php";
+include "admin_check.php"; 
 ?>
 
 <!DOCTYPE html>
@@ -8,8 +8,8 @@ include "admin_check.php";
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/project.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- per adattare la pagina a tutti i dispositivi perche se cambiano dipendo dal grandezza dell schermo -->
+    <link rel="stylesheet" href="../css/project.css"> 
 
     <title>Traveling</title>
 
@@ -18,13 +18,13 @@ include "admin_check.php";
 <body>
     <header>
         <?php
-        include "navbar.php"; // include the navbar
+        include "navbar.php"; // include the navbar nella head della pagina
         ?>
     </header>
     <div class="intro">
-        <h2>Social Expert Traveler Group</h2>
+        <h2>Social Expert Traveler Group</h2><!-- titolo della pagina h2 e sollo per scrivere letter grande ma pi piccolo di h1 -->
         <h1>Trust Our Experience</h1>
-        <button id="bookNowButton">Book Now</button>
+        <button id="bookNowButton">Book Now</button><!-- bottone per prenotare un viaggio quando se digita se applica il funzion Book now button -->
         <button id="discount" onclick="openoferta()">Click here to get a discount</button> <!-- bottone per ottenere uno sconto quando vienne digitata se applica il funzione open oferta  -->
     </div>
     <script>
