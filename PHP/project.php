@@ -47,7 +47,8 @@ include "admin_check.php";
                 echo 'window.location.href = "ruota.php";';// link al file ruota.php
             }
              else { // altrimenti si apre un messaggio che dice che bisogna loggarsi per ottenere lo sconto
-                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?"); 
+                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
+                        if (confirmRedirect) {
                             window.location.href = "login.php";
                         }';
             }
@@ -163,14 +164,14 @@ include "admin_check.php";
     </footer>
 
     <script>
-       /* window.addEventListener('scroll', function () {
+       window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 0) {
                 navbar.classList.add('fixed');
             } else {
                 navbar.classList.remove('fixed');
             }
-        });*/
+        });
     </script>
 
 </body>
