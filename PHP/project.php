@@ -128,13 +128,13 @@ include "admin_check.php";
 
 
 
-    <section id="contact" class="section">
+    <section id="contact" class="section"> 
         <div class="form-container">
             <h4>Contact Us</h4>
             <hr>
-            <form action="action_page.php" method="POST">
+            <form action="action_page.php" method="POST"> 
                 <div class="info-section">
-                    <label for="name">Name</label>
+                    <label for="name">Name</label><!-- label e per scrivere il testo sopra l'input e class  e per indicare il colore del testo -->
                     <input type="text" id="name" name="Name" required>
                 </div>
                 <div class="info-section">
