@@ -83,12 +83,7 @@ include "admin_check.php";
 
         colorFirstCharacters();
     </script>
-    <div id="fragment-overlay">
-        <div id="fragment-modal">
-            <iframe src="index.html" frameborder="0"></iframe>
-            <button id="closefragment" onclick="closefragment()">Close </button>
-        </div>
-    </div>
+
 
     <div class="widget-button">
         <img src="../foto/live_chat.png" alt="contact us ">
