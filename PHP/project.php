@@ -158,17 +158,6 @@ include "admin_check.php";
         </ul>
     </footer>
 
-    <script>
-       window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 0) {
-                navbar.classList.add('fixed');
-            } else {
-                navbar.classList.remove('fixed');
-            }
-        });
-    </script>
-
 </body>
 
 </html>
