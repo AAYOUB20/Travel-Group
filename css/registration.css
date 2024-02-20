@@ -20,15 +20,9 @@ body {
 }
 
 h1 {
-    color: #e406f8;
+    color: #333;
     font-size: 20px; 
     margin-bottom: 5px;
-}
-
-p{
-    color: #fa16ef;
-
-
 }
 
 label {
@@ -70,4 +64,3 @@ input[type="submit"]:hover {
     text-decoration: none;
     font-weight: bold;
 }
-

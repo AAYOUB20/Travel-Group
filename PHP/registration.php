@@ -9,7 +9,6 @@
 <body>
     <div class="container">
         <h1>Sign Up</h1>
-        <p>crea il tuo account in pochi secondi</p>
         <form action="registration.php" method="post">
             <label for="firstname">First name:</label>
             <input type="text" id="firstname" name="firstname" required>
@@ -31,7 +30,7 @@
 
             <input type="submit" value="Sign Up">
         </form>
-        <p>hai gia un account ? <a class="login-link" href="login.php">Log In</a></p>
+        <p>Already have an account? <a class="login-link" href="login.php">Log In</a></p>
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -56,13 +55,6 @@
     </script>
 </html>
 
-
-
-</html>
-
-
-
-
 <?php
  include "SQL_connection.php" ;
 
@@ -71,10 +63,9 @@
     $first_name = $_POST["firstname"];
     $last_name = $_POST["lastname"];
     $email = $_POST["email"];
-    $password = $_POST["password"];
-    $balance=0;
+    $pass = $_POST["password"];
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
    
 
     if (!$conn) {
@@ -82,24 +73,22 @@
     }
 
     try {
-        $sql = "INSERT INTO user (firstname, lastname , email, password , balance) VALUES (?, ?, ?, ? , ?)";
- 
-        $stmt = mysqli_prepare($conn, $sql);//prepare the sql statement
+        $sql = "INSERT INTO user (firstname, lastname , email, password) VALUES (?, ?, ?, ?)";
+        $stmt = mysqli_prepare($conn, $sql);
 
-        mysqli_stmt_bind_param($stmt, "sssss", $first_name, $last_name, $email, $hashedPassword , $balance);//bind the parameters to the sql statement
-  
+        mysqli_stmt_bind_param($stmt, "ssss", $first_name, $last_name, $email, $hashedPassword);
 
-        if (mysqli_stmt_execute($stmt)) {
-            header("Location: login.php"); // se il dati sono stati inseriti correttamente allora si reindirizza alla pagina di login
+        if (mysqli_stmt_execute($stmt) ) {
+            header("Location: login.php");
             exit;
         } else {
-            echo "Registration failed.";// se il dati non sono stati inseriti correttamente allora si stampa un messaggio di errore
+            echo "Registration failed.";
         }
     } catch (mysqli_sql_exception $ex) {
-        echo "name or email already exists.";// se il nome o l'email esistono gia allora si stampa un messaggio di errore
+        echo "name or email already exists.";
     }
-    mysqli_stmt_close($stmt);//close the statement
-    mysqli_close($conn);//close the connection
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
 }
  }
 ?>
