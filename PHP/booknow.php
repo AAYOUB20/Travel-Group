@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "navbar.php";
 
 include "SQL_connection.php";
@@ -54,3 +55,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 ?>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Your Trip</title>
+    <link rel="stylesheet" href="../css/booknow.css">
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Book Your Trip</h1>
+    <form action="booknow.php" method="post">
+        <label for="destination">Choose your destination:</label>
+        <select name="destination" id="destination">
+            <option value="Thailand">Thailand</option>
+            <option value="Sri Lanka">Sri Lanka</option>
+            <option value="Rome">Rome</option>
+        </select>
+        <br>
+
+        <label for="date">Select a date:</label>
+        <select name="date" id="date">
+            <option value="10/02/2024">10/02/2024</option>
+            <option value="17/02/2024">17/02/2024</option>
+            <option value="24/02/2024">24/02/2024</option>
+        </select>
+        <br>
+
+        <label for="promoCode">Enter your promo code:</label>
+        <input type="text" name="promoCode" id="promoCode">
+        <br>
+        <button>Book Now</button>
+    </form>
+</div>
+
+<div id="ratingOverlay">
+    <div id="ratingContainer">
+        <h1>Rate Our App</h1>
+        <form action="rating.php" method="post">
+    <label for="rating">Rate our app:</label>
+    <select name="rating" id="rating">
+        <option value="😠">😠</option>
+        <option value="😞">😞</option>
+        <option value="😐">😐</option>
+        <option value="😊">😊</option>
+        <option value="😍">😍</option>
+    </select>
+    <br>
+    <button>Submit Rating</button>
+</form>
+    </div>
+</div>
+</body>
+</html>

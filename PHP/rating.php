@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_bind_param($stmt, "ss", $rating, $email);
 
             if (mysqli_stmt_execute($stmt)) {
+                sleep(1);
                 header("Location: project.php");
                 exit();
             } else {
@@ -28,9 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "Error preparing the statement: " . mysqli_error($conn);
         }
-    } else {
-        echo "Database connection not found in the session.";
-    }
+    } 
 
     mysqli_close($conn);
 }

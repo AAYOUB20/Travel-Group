@@ -18,7 +18,6 @@ body{
     font-family: fixed;
 }
 
-
 /* Sets the background image for the wheel */
 .the_wheel
 {
@@ -56,7 +55,4 @@ div.html5_logo
 .margin_bottom
 {
     margin-bottom: 5px;
-}
-.canvas {
-    background-color: white;
 }

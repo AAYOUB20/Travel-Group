@@ -25,13 +25,13 @@ include "admin_check.php";
         <h2>Social Expert Traveler Group</h2><!-- titolo della pagina h2 e sollo per scrivere letter grande ma pi piccolo di h1 -->
         <h1>Trust Our Experience</h1>
         <button id="bookNowButton">Book Now</button><!-- bottone per prenotare un viaggio quando se digita se applica il funzion Book now button -->
-        <button id="discount" >Click here to get a discount</button> <!-- bottone per ottenere uno sconto quando vienne digitata se applica il funzione open oferta  -->
+        <a href="ruota.php"><button id="discount" >Click here to get a discount</button></a> <!-- bottone per ottenere uno sconto quando vienne digitata se applica il funzione open oferta  -->
     </div>
     <script>
         document.getElementById('bookNowButton').addEventListener('click', function () {
             <?php
             if (isset($_SESSION['email'])) {
-                echo 'window.location.href = "booknow.php";';//nel caso in cui l'utente è loggato quando clicca sul bottone "book now" viene reindirizzato alla pagina booknow.php
+                echo 'window.location.href = "booknow.php";';
             } else {
                 echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
                         if (confirmRedirect) {
@@ -40,23 +40,8 @@ include "admin_check.php";
             }
             ?>
         });
-    
-        document.getElementById('discount').addEventListener('click', function () {
-            <?php
-            if (isset($_SESSION['email'])) { // se l'utente è loggato allora si apre la pagina di sconto 
-                echo 'window.location.href = "ruota.php";';// link al file ruota.php
-            }
-             else { // altrimenti si apre un messaggio che dice che bisogna loggarsi per ottenere lo sconto
-                echo 'var confirmRedirect = confirm("You need to log in first. Continue or cancel?");
-                        if (confirmRedirect) {
-                            window.location.href = "login.php";
-                        }';
-            }
-
-            ?>
-        });
-    
     </script>
+    
     <section id="about" class="about">
      <div class="about_in_home">
         <div class="text-about">
@@ -69,7 +54,7 @@ include "admin_check.php";
         <img src="../foto/image_2.jpeg" alt="section"> 
     </div>
     </section>
-    <!-- source from google -->
+    <!-- source -->
     <script> // questi sciption e per colorare la prima lettera di ogni parola in un colore diverso
         function colorFirstCharacters() {
             const paragraph = document.getElementById("coloredText");// prende il paragrafo con id "coloredText"
@@ -107,19 +92,19 @@ include "admin_check.php";
         <h2>This week trips</h2>
         <div class="image-container">
             <figure>
-                <a id="Thailand">
+                <a href="Thailand.php">
                     <img src="../foto/Thailand.jpg" alt="Thailand" >
                     <figcaption>Thailand</figcaption>
                 </a>
             </figure>
             <figure>
-                <a id="srilanka">
+                <a href="srilanka.php">
                     <img src="../foto/Siri Lanka.jpg" alt="Sirilanka">
                     <figcaption>Sirilanka</figcaption>
                 </a>
             </figure>
             <figure>
-                <a id="rome">
+                <a href="rome.php">
                     <img src="../foto/Roma.jpg" alt="Roma">
                     <figcaption>Roma</figcaption>
                 </a>
@@ -133,7 +118,7 @@ include "admin_check.php";
             <hr>
             <form action="action_page.php" method="POST"> 
                 <div class="info-section">
-                    <label for="name">Name</label>
+                    <label for="name">Name</label><!-- label e per scrivere il testo sopra l'input e class  e per indicare il colore del testo -->
                     <input type="text" id="name" name="Name" required>
                 </div>
                 <div class="info-section">
