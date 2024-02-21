@@ -98,12 +98,12 @@ include "navbar.php";
         },
     });
 
-    mySwiper.on('reachEnd', function () {
+    mySwiper.on('reachEnd', function () {// cosi blocco il pulsante next quando arrivo all'ultima slide
         document.querySelector('.swiper-button-next').style.display = 'none';
         document.querySelector('.swiper-button-prev').style.display = 'block';
     });
 
-    mySwiper.on('reachBeginning', function () {
+    mySwiper.on('reachBeginning', function () {// cosi blocco il pulsante prev quando arrivo alla prima slide
         document.querySelector('.swiper-button-prev').style.display = 'none';
         document.querySelector('.swiper-button-next').style.display = 'block';
     });
