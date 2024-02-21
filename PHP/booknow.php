@@ -57,45 +57,6 @@
 </html>
 
 <?php
- include "SQL_connection.php" ;
-
- if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["email"]) && isset($_POST["password"])) {
-    $first_name = $_POST["firstname"];
-    $last_name = $_POST["lastname"];
-    $email = $_POST["email"];
-    $pass = $_POST["password"];
-
-    $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
-   
-
-    if (!$conn) {
-        die("Database connection failed: " . mysqli_connect_error());
-    }
-
-    try {
-        $sql = "INSERT INTO user (firstname, lastname , email, password) VALUES (?, ?, ?, ?)";
-        $stmt = mysqli_prepare($conn, $sql);
-
-        mysqli_stmt_bind_param($stmt, "ssss", $first_name, $last_name, $email, $hashedPassword);
-
-        if (mysqli_stmt_execute($stmt) ) {
-            header("Location: login.php");
-            exit;
-        } else {
-            echo "Registration failed.";
-        }
-    } catch (mysqli_sql_exception $ex) {
-        echo "name or email already exists.";
-    }
-    mysqli_stmt_close($stmt);
-    mysqli_close($conn);
-}
- }
-?>
-
-Ibrahim Hamede, [21/02/2024 19:36]
-<?php
 session_start();
 include "navbar.php";
 
