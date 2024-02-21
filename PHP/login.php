@@ -20,12 +20,10 @@
                 <label class="form-control__label" for="email">email</label><!-- label e per scrivere il testo sopra l'input e class  e per indicare il colore del testo -->
                 <input type="text" class="form-control" id="email" name="email" required>
         
-                <label class="form-control__label" for="password">Password</label><!-- label e per scrivere il testo sopra l'input e class  e per indicare il colore del testo -->
+                <label class="form-control__label" for="pass">Password</label><!-- label e per scrivere il testo sopra l'input e class  e per indicare il colore del testo -->
                 <div class="password-field">
-                    <input type="password" class="form-control"  id="password" name="password" required>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
-                    </svg>
+                    <input type="password" class="form-control"   name="pass" required>
+                   
                 </div>
                 <div class="password__settings">
                     <label class="password__settings__remember" for="rememberMe">
@@ -78,7 +76,7 @@ session_start(); // inizia la sessione questo e importante per salvare i dati de
 
 if ($_POST) { // se i dati sono stati inviati request method post dalla form 
     $email = $_POST["email"];// prende l'email e la password dalla form
-    $password = $_POST["password"];
+    $password = $_POST["pass"];
 
     if (!$conn) { // se la connessione fallisce
         die("Database connection failed: " . mysqli_connect_error());// stampa controllare se la connessione al database e stata fatta correttamente

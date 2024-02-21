@@ -22,8 +22,8 @@
             <input type="email" id="email" name="email" required>
             <br><br>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password"   required>
+            <label for="pass">Password:</label>
+            <input type="password" id="password" name="pass"   required>
             
 
             <br><br>
@@ -59,11 +59,11 @@
  include "SQL_connection.php" ;
 
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["email"]) && isset($_POST["password"])) {
+    if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["email"]) && isset($_POST["pass"])) {
     $first_name = $_POST["firstname"];
     $last_name = $_POST["lastname"];
     $email = $_POST["email"];
-    $pass = $_POST["password"];
+    $pass = $_POST["pass"];
 
     $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
    
