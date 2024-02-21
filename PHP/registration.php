@@ -63,9 +63,9 @@
     $first_name = $_POST["firstname"];
     $last_name = $_POST["lastname"];
     $email = $_POST["email"];
-    $pass = $_POST["pass"];
+    $password = $_POST["pass"];
 
-    $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
    
 
     if (!$conn) {
