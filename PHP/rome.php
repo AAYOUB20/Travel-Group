@@ -2,20 +2,20 @@
 session_start();
 include "SQL_connection.php"; 
 
-$sql = "SELECT * FROM query WHERE destination = 'Rome'";
+$sql = "SELECT * FROM query WHERE destination = 'Rome'";// abbiamo indicato la destinazione cosi prendiamo solo i dati relativi a Roma
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     $row_query = mysqli_fetch_assoc($result);
     $destination = $row_query['destination'];
-    $dates = json_decode($row_query['date']);
+    $dates = json_decode($row_query['date']);// usiamo json_decode per convertire la stringa in array perche nella tabella abbiamo salvato i dati come stringa  ["10/02/2024", "17/02/2024", "24/02/2024"] anche per il prices
     $prices = json_decode($row_query['price']);
 } else {
     $destination = "N/A";
     $dates = [];
     $prices = [];
 }
-mysqli_close($conn);
+mysqli_close($conn);// chiudiamo la connessione
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ include "navbar.php";
 ?>
     <h1>Rome</h1>
 
-    <div class="swiper-container">
+    <div class="swiper-container"><!-- cosi creiamo lo slider con le foto e le date e i prezzi -->
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <div class="card">
