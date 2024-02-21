@@ -3,14 +3,14 @@ session_start();
 
 include "SQL_connection.php";
 
-$adminQuery = "SELECT * FROM messages ORDER BY timestamp DESC";
+$adminQuery = "SELECT * FROM messages ORDER BY timestamp DESC"; //prendiamo i messaggi dal database in ordine al time
 $adminResult = mysqli_query($conn, $adminQuery);
 
 if (!$adminResult) {
     die("Error executing the admin query: " . mysqli_error($conn));
 }
 
-$userQuery = "SELECT firstname, lastname, email  FROM user ORDER BY email"; 
+$userQuery = "SELECT firstname, lastname, email  FROM user ORDER BY email"; // prendiamo i dati degli utenti dal database 
 $userResult = mysqli_query($conn, $userQuery);
 
 if (!$userResult) {
@@ -20,9 +20,7 @@ if (!$userResult) {
 
 <!DOCTYPE html>
 <html lang="en">
-<?php
-    include "navbar.php";
-    ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +34,11 @@ if (!$userResult) {
    
 
 <body>
-    
+</header>
+<?php
+    include "navbar.php";
+    ?>
+<header>
    
     <div class="container mt-5">
         <button id="showAdminMessagesBtn" class="btn btn-primary table-btn" onclick="toggleTable('adminTableContainer')">
@@ -71,7 +73,7 @@ if (!$userResult) {
         </div>
 
         <button id="showUserMessagesBtn" class="btn btn-success table-btn" onclick="toggleTable('userTableContainer')">
-              <img src="https://www.logolynx.com/images/logolynx/4b/4beebce89d681837ba2f4105ce43afac.png" alt="User Icon" style="width: 24px; height: 24px;">
+              <img src="../foto/profile.png" alt="User Icon" style="width: 24px; height: 24px;">
                Registered Users
         </button>
 
@@ -117,5 +119,5 @@ if (!$userResult) {
 </html>
 
 <?php
-mysqli_close($conn);
+mysqli_close($conn);// chiudiamo la connessione
 ?>
