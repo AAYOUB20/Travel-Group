@@ -27,7 +27,7 @@ mysqli_close($conn);
     <title>Thailand</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="../css/thailand.css">
+    <link rel="stylesheet" href="../css/Thailand.css">
 </head>
 
 <body>
@@ -40,8 +40,7 @@ include "navbar.php";
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <div class="card">
-                    <img src="https://th.bing.com/th/id/R.03ef2e3873dca778936d8ba802ed3a44?rik=7wbNEwajYBVhXA&pid=ImgRaw&r=0"
-                        alt="Image 1">
+                    <img src="../foto/thailand1.jpeg" alt="Image 1">
                     <p>Date: <?php echo $dates[0]; ?></p>
                     <p>Price: <?php echo $prices[0]; ?></p>
                     <button class="book-button">Book</button>
@@ -50,7 +49,7 @@ include "navbar.php";
 
             <div class="swiper-slide">
                 <div class="card">
-                    <img src="https://facts.net/wp-content/uploads/2019/12/mathew-schwartz-gsllxmVO4HQ-unsplash.jpg"
+                    <img src="../foto/thailand2.jpeg"
                         alt="Image 2">
                     <p>Date: <?php echo $dates[1]; ?></p>
                     <p>Price: <?php echo $prices[1]; ?></p>
@@ -61,7 +60,7 @@ include "navbar.php";
             <div class="swiper-slide">
                 <div class="card">
                     <img
-                        src="https://static.toiimg.com/photo/77705127/oie_231564pB5vhUD9.jpg?width=748&resize=4" alt="Image 3">
+                        src="../foto/thailand3.webp" alt="Image 3">
                     <p>Date: <?php echo $dates[2]; ?></p>
                     <p>Price: <?php echo $prices[2]; ?></p>
                     <button class="book-button">Book</button>
