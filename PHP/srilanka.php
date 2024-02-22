@@ -43,7 +43,7 @@ include "navbar.php";
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <div class="card">
-                    <img src="https://www.jacadatravel.com/wp-content/uploads/2017/04/sri-lanka-tea-plantations.jpg" alt="Image 1">
+                    <img src="../foto/sirilanka1.webp" alt="Image 1">
                     <p>Date: <?php echo $dates[0]; ?></p>
                     <p>Price: <?php echo $prices[0]; ?></p>
                     <button class="book-button" >Book</button>
@@ -52,7 +52,7 @@ include "navbar.php";
 
             <div class="swiper-slide">
                 <div class="card">
-                    <img src="https://www.planetware.com/wpimages/2020/01/sri-lanka-best-places-to-visit-kandy.jpg" alt="Image 2">
+                    <img src="../foto/sirilanka2.jpg" alt="Image 2">
                     <p>Date: <?php echo $dates[1]; ?></p>
                     <p>Price: <?php echo $prices[1]; ?></p>
                     <button class="book-button" >Book</button>
@@ -61,7 +61,7 @@ include "navbar.php";
 
             <div class="swiper-slide">
                 <div class="card">
-                    <img src="https://franks-travelbox.com/wp-content/uploads/2017/11/sri-lanka-der-hocc88hlentempel-von-dambulla-liegt-etwa-150km-occ88stlich-der-hauptstadt-colombo-sri-lanka-er-ist-der-grocc88sste-und-besterhaltene-buddhistische-hocc88hlentempel-des-landes-2048x1365.jpg" alt="Image 3">
+                    <img src="../foto/sirilanka3.jpeg" alt="Image 3">
                     <p>Date: <?php echo $dates[2]; ?></p>
                     <p>Price: <?php echo $prices[2]; ?></p>
                     <button class="book-button" >Book</button>
