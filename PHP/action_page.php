@@ -16,6 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (mysqli_stmt_execute($stmt)) {
                 echo "Message sent to admin.";
+                sleep(2);
+                header("Location: project.php");
             } else {
                 echo "Error: Unable to execute the query.";
             }
