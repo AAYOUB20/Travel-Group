@@ -12,18 +12,18 @@
     <main>
         <section class="form">
            
-            <h1 class="form__title">Log in to your Account</h1><!-- h1 e solo per scriver lettere in modalita piu grande il class se trova nell file css per indicare colore -->
-            <p class="form__description">Welcome back! Please, enter your information</p><!-- p e per scrivere testo in modalita normale il class se trova nell file css per indicare colore ..-->
+            <h1 class="form__title">Log in to your Account</h1>
+            <p class="form__description">Welcome back! Please, enter your information</p>
 
 
-            <form action="login.php" method="POST"><!-- action e per indicare il file php che si deve eseguire quando si clicca sul bottone submit e method e per indicare il metodo post di invio dei dati -->
-                <label class="form-control__label" for="email">email</label><!-- label e per scrivere il testo sopra l'input e class  e per indicare il colore del testo -->
+            <form action="login.php" method="POST">
+                <label class="form-control__label" for="email">email</label>
                 <input type="text" class="form-control" id="email" name="email" required>
         
-                <label class="form-control__label" for="pass">Password</label><!-- label e per scrivere il testo sopra l'input e class  e per indicare il colore del testo -->
+                <label class="form-control__label" for="pass">Password</label>
                 <div class="password-field">
-                    <input type="password" class="form-control"   name="pass" required>
-                   
+                    <input type="password" class="form-control" id="password" name="pass" required>
+                    <span class="toggle-password" onclick="togglePassword()">Show Password</span>
                 </div>
                 <div class="password__settings">
                     <label class="password__settings__remember" for="rememberMe">
@@ -36,7 +36,7 @@
                         Remember me
                     </label>
         
-                    <a href="../html/forget_password.html">Forgot Password?</a><!-- link per recuperare la password ma in realta non funziona per link falso  -->
+                    <a href="../html/forget_password.html">Forgot Password?</a>
                 </div>
         
                 <button type="submit" class="form__submit" id="submit">Log In</button>
@@ -65,49 +65,62 @@
         </section>
     </main>
     <script src="main.js"></script>
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            var toggleButton = document.querySelector(".toggle-password");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleButton.textContent = "Hide Password";
+            } else {
+                passwordField.type = "password";
+                toggleButton.textContent = "Show Password";
+            }
+        }
+    </script>
 </body>
 </html>
 
 
 <?php
-include "SQL_connection.php"; // include il connection al database
+include "SQL_connection.php"; 
 
-session_start(); // inizia la sessione questo e importante per salvare i dati dell'utente loggato
+session_start(); 
 
-if ($_POST) { // se i dati sono stati inviati request method post dalla form 
-    $email = $_POST["email"];// prende l'email e la password dalla form
+if ($_POST) { 
+    $email = $_POST["email"];
     $password = $_POST["pass"];
 
-    if (!$conn) { // se la connessione fallisce
-        die("Database connection failed: " . mysqli_connect_error());// stampa controllare se la connessione al database e stata fatta correttamente
+    if (!$conn) { 
+        die("Database connection failed: " . mysqli_connect_error());
     }
 
-    $sql = "SELECT email, password, remember_token FROM user WHERE email = ?"; // seleziona l'email e la password dalla tabella user dove l'email e uguale a quella inserita nella form e l'inverso di  quello che l'abiamo fatto nella registrazione qua abbiamo l'email  va nell  datbase vediamo se esiste o no e la password  
-    $stmt = mysqli_prepare($conn, $sql);// prepara il connesione e il databse   
-    mysqli_stmt_bind_param($stmt, "s", $email); // bind param per il statement vado a cercare l'email nel database
+    $sql = "SELECT email, password, remember_token FROM user WHERE email = ?"; 
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $email);
 
     if (!mysqli_stmt_execute($stmt)) {
         die("Error executing prepared statement: " . mysqli_stmt_error($stmt));
     }
 
-    mysqli_stmt_store_result($stmt);// salvo il risultato del cerca dell email nel database
+    mysqli_stmt_store_result($stmt);
 
-    if (mysqli_stmt_num_rows($stmt) == 1) { // se l'email esiste nell database 
-        mysqli_stmt_bind_result($stmt, $dbEmail, $dbPassword, $dbRememberToken);// prende l'email e la password dal database e lo salva in queste variabili $db email e $db password
+    if (mysqli_stmt_num_rows($stmt) == 1) {  
+        mysqli_stmt_bind_result($stmt, $dbEmail, $dbPassword, $dbRememberToken);
         mysqli_stmt_fetch($stmt);
 
-        if (password_verify($password, $dbPassword)) { // se la password inserita corrisponde a quella nel database
+        if (password_verify($password, $dbPassword)) { 
 
 
-            if (isset($_POST['rememberMe'])) { // mel caso se il utente ha cliccato sul checkbox remember me 
-                $token = hash("sha256", random_bytes(16));// generazione di un cookies token random
-                $expiration_time_unix = time();// unlimited time
-                $expiration_time_mysql = date('Y-m-d H:i:s', $expiration_time_unix);// variabile per salvare il tempo di scadenza del token in db 
+            if (isset($_POST['rememberMe'])) { 
+                $token = hash("sha256", random_bytes(16));
+                $expiration_time_unix = time();
+                $expiration_time_mysql = date('Y-m-d H:i:s', $expiration_time_unix);
+                setcookie("remember_token", $token, $expiration_time_unix, '/', '', false, true); 
 
-                setcookie("remember_token", $token, $expiration_time_unix, '/', '', false, true); // set del cookies cosi se nasce il cookies e il utente chiude il browser e poi ritorna il cookies e ancora esiste
-
-                $updateStmt = mysqli_prepare($conn, "UPDATE user SET remember_token = ?, expiration_time = ? WHERE email = ?"); // questa per fare update per il databse ,  perche adesso vogliamo salvare il cookies e il expire time nel database
-                mysqli_stmt_bind_param($updateStmt, "sss", $token, $expiration_time_mysql, $email);// bind paramete per il update statement 
+                $updateStmt = mysqli_prepare($conn, "UPDATE user SET remember_token = ?, expiration_time = ? WHERE email = ?");
+                mysqli_stmt_bind_param($updateStmt, "sss", $token, $expiration_time_mysql, $email);
 
                 if (!mysqli_stmt_execute($updateStmt)) {
                     die("Error updating user data: " . mysqli_stmt_error($updateStmt));
@@ -115,20 +128,20 @@ if ($_POST) { // se i dati sono stati inviati request method post dalla form
 
                 mysqli_stmt_close($updateStmt);
             }
-            $_SESSION["email"] = $email; // salva l'email nella sessione questa qua e il inizio della sessione cosi doppo durante lo uso dell sito noi sappiamo che il sessione ugualle al emai 
+            $_SESSION["email"] = $email;  
 
-            sleep(0.7);//dlai per 0.7 secondi
+            sleep(0.7);
 
-            header("Location: project.php");// reindirizzamento alla pagina principale
+            header("Location: project.php");
             exit;
         } else {
-            die("Authentication failed: Invalid email or password");// se la password non corrisponde
+            die("Authentication failed: Invalid email or password");
         }
     } else {
-        echo "Authentication failed: Invalid email or password.";// se l'email non corrisponde
+        echo "Authentication failed: Invalid email or password.";
     }
 
-    mysqli_stmt_close($stmt); // questa close e solo per chiudere il statement
+    mysqli_stmt_close($stmt); 
 
     mysqli_close($conn);
 }
