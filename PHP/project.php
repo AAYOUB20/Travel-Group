@@ -137,7 +137,7 @@ include "admin_check.php";
     <footer style="background-color: #333; color: white; text-align: center; padding: 20px;">
         <p style="font-size: 18px; margin: 0;">&copy; 2023 Travel Group</p>
         <ul style="list-style: none; padding: 0;">
-            <li style="display: inline; margin-right: 20px;"><a href="privacy_policy.html" style="text-decoration: none; color: white;">Privacy Policy</a></li>
+            <li style="display: inline; margin-right: 20px;"><a href="../html/privacy_policy.html" style="text-decoration: none; color: white;">Privacy Policy</a></li>
             <li style="display: inline;"><a href="#" style="text-decoration: none; color: white;">Terms of Service</a></li>
         </ul>
     </footer>

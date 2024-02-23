@@ -9,15 +9,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = $_POST["Message"];
 
        
-            $query = "INSERT INTO messages (Name, Email, Messages) VALUES (?, ?, ?)"; //prendiamo quelle tabelle 
+            $query = "INSERT INTO messages (Name, Email, Messages) VALUES (?, ?, ?)"; 
            if( $stmt = mysqli_prepare($conn, $query)){
-            mysqli_stmt_bind_param($stmt, "sss", $name, $email, $message);// mettiamo i dati inseriti dell utente nel database
+            mysqli_stmt_bind_param($stmt, "sss", $name, $email, $message);
             
 
-            if (mysqli_stmt_execute($stmt)) {
-                echo "Message sent to admin.";
-                sleep(2);
-                header("Location: project.php");
+                if (mysqli_stmt_execute($stmt)) {
+                    echo "<script>alert('Your message has been sent to admin!');
+                          window.location.href = 'project.php';</script>";
             } else {
                 echo "Error: Unable to execute the query.";
             }
