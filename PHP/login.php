@@ -96,7 +96,7 @@ if ($_POST) {
         die("Database connection failed: " . mysqli_connect_error());
     }
 
-    $sql = "SELECT email, password, remember_token FROM user WHERE email = ?"; 
+    $sql = "SELECT email, password, remember_token, admin FROM user WHERE email = ?"; 
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "s", $email);
 
@@ -107,7 +107,7 @@ if ($_POST) {
     mysqli_stmt_store_result($stmt);
 
     if (mysqli_stmt_num_rows($stmt) == 1) {  
-        mysqli_stmt_bind_result($stmt, $dbEmail, $dbPassword, $dbRememberToken);
+        mysqli_stmt_bind_result($stmt, $dbEmail, $dbPassword, $dbRememberToken, $dbAdmin);
         mysqli_stmt_fetch($stmt);
 
         if (password_verify($password, $dbPassword)) { 
@@ -115,7 +115,7 @@ if ($_POST) {
 
             if (isset($_POST['rememberMe'])) { 
                 $token = hash("sha256", random_bytes(16));
-                $expiration_time_unix = time();
+                $expiration_time_unix = time() + 10000;
                 $expiration_time_mysql = date('Y-m-d H:i:s', $expiration_time_unix);
                 setcookie("remember_token", $token, $expiration_time_unix, '/', '', false, true); 
 
@@ -129,6 +129,7 @@ if ($_POST) {
                 mysqli_stmt_close($updateStmt);
             }
             $_SESSION["email"] = $email;  
+            $_SESSION["admin"] = $dbAdmin;  
 
             sleep(0.7);
 

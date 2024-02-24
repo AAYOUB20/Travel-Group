@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="destination">Choose your destination:</label>
         <select name="destination" id="destination">
             <option value="Thailand">Thailand</option>
-            <option value="Sri Lanka">Sri Lanka</option>
+            <option value="SriLanka">Sri Lanka</option>
             <option value="Rome">Rome</option>
         </select>
         <br>

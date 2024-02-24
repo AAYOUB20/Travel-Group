@@ -92,19 +92,19 @@ include "admin_check.php";
         <h2>This week trips</h2>
         <div class="image-container">
             <figure>
-                <a href="Thailand.php">
+                <a href="travel.php?destination=Thailand">
                     <img src="../foto/Thailand.jpg" alt="Thailand" >
                     <figcaption>Thailand</figcaption>
                 </a>
             </figure>
             <figure>
-                <a href="srilanka.php">
+                <a href="travel.php?destination=SriLanka">
                     <img src="../foto/Siri Lanka.jpg" alt="Sirilanka">
                     <figcaption>Sirilanka</figcaption>
                 </a>
             </figure>
             <figure>
-                <a href="rome.php">
+                <a href="travel.php?destination=Rome">
                     <img src="../foto/Roma.jpg" alt="Roma">
                     <figcaption>Roma</figcaption>
                 </a>

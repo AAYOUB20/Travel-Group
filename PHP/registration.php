@@ -24,7 +24,7 @@
 
             <label for="pass">Password:</label>
             <input type="password" id="password" name="pass"   required>
-            
+            <span class="toggle-password" onclick="togglePassword()">Show Password</span>
 
             <br><br>
 
@@ -52,6 +52,18 @@
         }
     });
 });
+function togglePassword() {
+            var passwordField = document.getElementById("password");
+            var toggleButton = document.querySelector(".toggle-password");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleButton.textContent = "Hide Password";
+            } else {
+                passwordField.type = "password";
+                toggleButton.textContent = "Show Password";
+            }
+        }
     </script>
 </html>
 
