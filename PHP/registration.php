@@ -75,10 +75,15 @@ function togglePassword() {
     $first_name = $_POST["firstname"];
     $last_name = $_POST["lastname"];
     $email = $_POST["email"];
-    $password = $_POST["pass"];
+    
+$password = $_POST["pass"];
+$passwordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/';
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-   
+if (!preg_match($passwordPattern, $password)) {// questo e per vedere se la password e valida o no nell controllo server side
+    echo "password non valido.";
+} else {
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);// se il password coretto allora lo criptiamo con la funzione password_hash
+  }
 
     if (!$conn) {
         die("Database connection failed: " . mysqli_connect_error());

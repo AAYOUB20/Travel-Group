@@ -1,6 +1,5 @@
 <?php
 session_start();
-include "admin_check.php"; 
 ?>
 
 <!DOCTYPE html>
