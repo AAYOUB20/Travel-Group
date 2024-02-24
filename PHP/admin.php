@@ -3,7 +3,7 @@ session_start();
 
 include "SQL_connection.php";
 if (!($_SESSION['admin'] )== 1 ) {
-    header("Location: login.php");
+    header("Location: project.php");
     exit();
 }
 $adminQuery = "SELECT * FROM messages ORDER BY timestamp DESC"; //prendiamo i messaggi dal database in ordine al time
