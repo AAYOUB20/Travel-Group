@@ -4,7 +4,7 @@ include "SQL_connection.php";
 session_start();
 
 if (isset($_COOKIE['remember_token'])) {
-  setcookie('remember_token', false , time() - 3600); // set the expiration time to the past to delete the cookie from the browser 
+  setcookie('remember_token', false , time() - 10000); // set the expiration time to the past to delete the cookie from the browser 
   unset($_COOKIE['remember_token']);
 }
 
