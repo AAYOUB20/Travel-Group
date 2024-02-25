@@ -75,6 +75,11 @@ function togglePassword() {
     $first_name = $_POST["firstname"];
     $last_name = $_POST["lastname"];
     $email = $_POST["email"];
+
+    if (strpos($email, "@") === false) {// questo e per vedere se la email e valida o no nell controllo server side
+        echo "Email non valida.";
+        exit();
+    }
     
 $password = $_POST["pass"];
 $passwordPattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/';

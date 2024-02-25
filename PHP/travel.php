@@ -40,14 +40,17 @@ mysqli_close($conn);
     <title>travel</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="../css/rome.css">
+    <link rel="stylesheet" href="../css/travel.css">
 </head>
 
 <body>
 <?php
 include "navbar.php";
 ?>
-    <h1>Rome</h1>
+<h1 style="margin-top: 50px;"> <?php 
+echo $destination;
+?>
+</h1>
 
     <div class="swiper-container">
         <div class="swiper-wrapper">

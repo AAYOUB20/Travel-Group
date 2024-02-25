@@ -8,7 +8,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST["Email"];
         $message = $_POST["Message"];
 
-       
+        if (strpos($email, "@") === false) {// questo e per vedere se la email e valida o no nell controllo server side
+            echo "<script>alert('email non valido!');
+            window.location.href = 'project.php';</script>";
+            exit();
+        }
+        
             $query = "INSERT INTO messages (Name, Email, Messages) VALUES (?, ?, ?)"; 
            if( $stmt = mysqli_prepare($conn, $query)){
             mysqli_stmt_bind_param($stmt, "sss", $name, $email, $message);
@@ -27,6 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Please fill in all fields in the form.";
     }
+}else {
+    header("Location: project.php");
+    exit();
 }
 
 mysqli_close($conn);
