@@ -1,12 +1,15 @@
 <?php
 
+
+include "SQL_connection.php";
+
+session_start();// Start the session cosi prendiamo il email
+
 if (!isset($_SESSION['email'])) {
     header("Location: login.php");
     exit();
 }
-include "SQL_connection.php";
 
-session_start();// Start the session cosi prendiamo il email
 if ($_SERVER['REQUEST_METHOD'] === 'POST') { // se il method e post quella che e il method che nell show_profile.php abbiamo messo nel form per andare a update_profile.php
     if (isset($_SESSION['email'])) {
         $email = $_SESSION['email']; //prendiamo la email dalla sessione 
